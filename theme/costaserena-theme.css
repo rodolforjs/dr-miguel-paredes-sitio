@@ -1,0 +1,34 @@
+/* ================================================== */
+/* Dr. Miguel Paredes — Dirección "Costa Serena"
+/* Override de tema sobre el template Intrio (no toca style.css)
+/* Solo colores — tipografía original de Intrio sin tocar
+/* ================================================== */
+
+/* el template define estas variables con el selector universal `*`
+   (no en :root), por lo que el override debe usar el mismo selector
+   para ganar la cascada por orden de carga, no por especificidad */
+* {
+  /* color de texto (no tipografía) */
+  --body-font-color: rgba(43, 42, 38, .78);
+  --body-font-color-bg-dark: rgba(245, 240, 230, .82);
+  --heading-font-color: #2B2A26;
+  --heading-font-color-bg-dark: #F5F0E6;
+
+  /* fondos */
+  --bg-default: #F5F0E6;
+  --bg-light: #EFE9DB;
+  /* secciones oscuras: gris-azulado neutro (derivado de #5D7A88), no verde */
+  --bg-dark-1: #26323A;
+  --bg-dark-2: #1D262C;
+  --bg-dark-3: #141B1F;
+  --bg-dark-1-rgb: 38, 50, 58;
+
+  /* subtitle (eyebrow labels) */
+  --subtitle-color: var(--primary-color);
+}
+
+/* las fotos reales del Dr. Paredes son retratos (verticales); en los
+   banners anchos forzamos el encuadre hacia el rostro en vez del centro */
+img.jarallax-img {
+  object-position: center 20% !important;
+}

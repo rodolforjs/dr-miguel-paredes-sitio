@@ -147,13 +147,21 @@ Hecho:
 - **Corrección (2026-09-18, mismo día):** Rodolfo aclaró que el sitio
   se piensa como una **clínica** (no la página personal de un
   freelancer) — pidió recuperar la sección de equipo que trae el
-  template original de Intrio, en vez de quitarla. `about.html` ahora
-  tiene una sección "Nuestro Equipo": el Dr. Paredes como Director
-  Médico (card con foto real) + una card "Próximamente" para cuando
-  se sume más personal — sin inventar gente que no existe. El heading
-  "Agenda tu Evaluación" del footer (antes solo decorativo) ahora es
-  un link real a `consultation.html`, transversal en las 23 páginas
-  con footer real.
+  template original de Intrio, en vez de quitarla. El heading "Agenda
+  tu Evaluación" del footer (antes solo decorativo) ahora es un link
+  real a `consultation.html`, transversal en las 23 páginas con
+  footer real.
+- **Corrección de nuevo el mismo día:** Rodolfo aclaró que se refería
+  literalmente al carrusel "Our Team" que trae Intrio de base (2
+  personas, foto+nombre+rol+redes) — no a la versión simplificada que
+  se había armado antes. `about.html` ahora tiene ese componente
+  restaurado tal cual (fotos y nombres "Anna Charline"/"John Smith"
+  como **placeholders explícitos**, mismo patrón que la firma "John
+  Smith" del About — Rodolfo los reemplaza cuando haya personal real),
+  solo con el subtítulo/título/descripción de la sección traducidos
+  al español. El link "Sobre el Dr. Paredes" del nav (30 páginas) se
+  renombró a **"Sobre Nosotros"**, con su `<title>`/`<h1>`/breadcrumb
+  actualizados en `about.html`.
 
 Pendiente / placeholders explícitos en el código:
 - `[AÑOS]`, `[Nº] Pacientes Atendidos` en contadores del About

@@ -343,3 +343,16 @@ integración con un sistema de agenda real. El panel lateral off-canvas
 (`#extra-wrap`, ícono hamburguesa `#btn-extra`, distinto del dropdown
 "More") todavía tiene contenido demo "Our Services" sin actualizar en
 algunas páginas.
+
+## Nav en español + CTA homologado (2026-09-18)
+
+El nav de las 23 páginas reales tenía dos ítems de primer nivel sin
+traducir ("More"/"Contact") — ahora "Más"/"Contacto". Además el botón
+CTA del header era inconsistente: 22 páginas ya decían "Agendar
+Evaluación" pero `index.html` seguía con "Free Consultation" en
+inglés (quedó así desde el primer reskin, nunca se homologó). Se
+verificó con grep que las 23 páginas reales comparten exactamente el
+mismo texto de CTA ahora. Commit `022e00c`. El panel off-canvas
+`#extra-wrap` sigue teniendo su propio nav duplicado con texto en
+inglés en algunas páginas (fuera de alcance de este cambio, ver nota
+de arriba sobre contenido demo "Our Services" pendiente).

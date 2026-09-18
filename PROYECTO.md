@@ -327,6 +327,15 @@ reales verificados contra el grid de `services.html`, cada tarjeta con
 foto real de `images/services/`, badge de conteo, y link a
 `services.html`.
 
+**Corrección (2026-09-18, mismo día):** Rodolfo pidió dejar la
+presentación tal como estaba antes (carrusel `owl-4-cols-center` con
+flechas `de-custom-nav`, no grilla estática) — lo único que faltaba
+era el badge de conteo en cada tarjeta y un botón "Ver todos los
+tratamientos". Se restauró el carrusel original con los 4 ítems de
+categoría (en vez de tratamientos individuales), cada uno con su
+badge, y se agregó el botón junto a las flechas de navegación en el
+encabezado de la sección.
+
 **Pendiente para próxima sesión:** formularios de `contact.html` y
 `consultation.html` apuntan a PHP inexistente (`contact.php`,
 `action-consultation.php`) — necesitan Web3Forms/Formspree o

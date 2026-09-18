@@ -121,6 +121,31 @@ Hecho:
   de fijos. Los artículos de Ginecomastia, Piel y Perfiloplastia se
   ampliaron con fuentes chilenas verificadas (SCCP, SciELO Chile,
   Unidad Ozono/MMA, SOCHIDERM, ISP Chile).
+- **Footer con altura de texto reducida (2026-09-18):** el h2 "Agenda
+  tu Evaluación" (48px) y los h3 de email/WhatsApp/ubicación (26px)
+  se veían desproporcionados — regla CSS transversal en
+  `costaserena-theme.css` (`footer h2:not(.hs-5)`, `footer .widget
+  h3`) que los reduce en los footers de **todas** las páginas a la
+  vez.
+- **Títulos de tarjetas de blog resumidos, no truncados:** en vez de
+  cortar con "..." (se veía mal), cada tarjeta usa una versión corta
+  y natural del título (ej. "Formación médica continua" en vez del
+  título largo del artículo) — el `<h1>` completo del artículo no se
+  toca.
+- **5 páginas reskinneadas (2026-09-18):** `about.html`,
+  `contact.html`, `faq.html`, `consultation.html` y
+  `testimonials.html` estaban enlazadas desde el nav real pero
+  seguían 100% demo de Intrio (nunca se habían tocado — se descubrió
+  al revisar el footer de `services.html`). Ahora tienen logo/footer
+  reales, y su contenido (bios, FAQ, testimonios, contacto,
+  formulario de evaluación) reusa lo mismo ya verificado en
+  `index.html` — nada fabricado. Se eliminó una sección "Our Team"
+  con staff de diseño inventado en `about.html` (no aplica a un
+  consultorio médico individual). El formulario de `contact.html` y
+  `consultation.html` sigue sin backend real (apunta a
+  `contact.php`/`action-consultation.php`, que no existen) — pendiente
+  de un servicio real (Web3Forms/Formspree) o de que el sistema de
+  agenda (ver abajo) lo reemplace.
 
 Pendiente / placeholders explícitos en el código:
 - `[AÑOS]`, `[Nº] Pacientes Atendidos` en contadores del About
@@ -128,8 +153,11 @@ Pendiente / placeholders explícitos en el código:
 - 2 preguntas del FAQ marcadas `[POR CONFIRMAR CON EL DR. PAREDES]`
 - Video banner sin video real (CTA deshabilitado con comentario TODO)
 - Firma "John Smith" en About (Rodolfo la reemplaza después)
-- Menú de navegación: "Inicio" y "Tratamientos" ya en español; More/
-  Blog/Contact siguen en inglés — decisión pendiente de cuándo
+- Menú de navegación: "Inicio", "Tratamientos" y los 3 destinos del
+  submenú "More" (Sobre el Dr. Paredes/Preguntas Frecuentes/
+  Testimonios) ya en español; "More"/"Blog"/"Contact" (las etiquetas
+  del nav en sí) y el mini-box de horario/dirección dentro del
+  dropdown "More" siguen en inglés — decisión pendiente de cuándo
   traducir el resto
 - Sistema de agenda real (Cal.com u otro) no integrado
 - Revisar si `miguel1.mp4`/`miguel2.mp4` (en `Recursos/`) sirven para el

@@ -71,3 +71,14 @@ header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div > ul > li
   padding: 8px 0;
   border-bottom: solid 1px rgba(255, 255, 255, .1);
 }
+
+/* fotos de tarjetas de blog: origen con proporciones muy distintas
+   (retratos verticales, fotos de eventos horizontales) — se recortan
+   a una altura pareja para que las grillas no se vean irregulares */
+.blog-thumb-fixed {
+  height: 320px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+}

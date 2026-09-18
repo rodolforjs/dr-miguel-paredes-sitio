@@ -165,10 +165,13 @@ Hecho:
 - **Dropdown "More" del nav, columna y bloque de contacto (2026-09-18,
   mismo día):** seguían con "Our Services" (Furniture & Decor
   Selection, etc.) y contacto falso (Monday-Saturday, 100 S Main St
-  New York, contact@intrio.com) en las 23 páginas reales. Ahora
-  "Contenido Educativo" enlaza a los 6 artículos del blog, y el
-  bloque de contacto tiene foto real + `[HORARIO PENDIENTE]` +
-  Concón + email real. Nota: el panel off-canvas (el que abre el
+  New York, contact@intrio.com) en las 23 páginas reales. Esa columna
+  se probó primero como "Contenido Educativo" (enlazando a los 6
+  artículos del blog), pero Rodolfo pidió que fuera de tratamientos
+  en su lugar — quedó como "Tratamientos" con 5 destacados + "Ver
+  todos los tratamientos". El bloque de contacto tiene foto real +
+  `[HORARIO PENDIENTE]` + Concón + email real. Nota: el panel
+  off-canvas (el que abre el
   ícono de hamburguesa extra, distinto de este dropdown) todavía
   tiene su propio "Our Services" demo — sigue fuera de alcance salvo
   que Rodolfo lo pida.

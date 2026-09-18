@@ -148,7 +148,13 @@ Cada página de detalle tiene: hero + breadcrumb, barra de stats
 tarjetas con ícono** (no lista de checks — patrón visual que le gustó a
 Rodolfo, tomado del bloque "What's Included" de `service-single.html`),
 Proceso en 4 pasos, Antes/Después (solo donde hay foto real con
-consentimiento: Plasmage, Ácido Hialurónico, Antienvejecimiento),
+consentimiento: Plasmage, Ácido Hialurónico, Antienvejecimiento) — con
+**slider interactivo arrastrable** (componente `twentytwenty`, jQuery
+open-source que ya trae el template Pooluxe de Designesia; su CSS ya
+estaba en `plugins.css` de Intrio, solo se copió el JS del plugin +
+su dependencia `jquery.event.move.js`). Cada foto antes/después se
+separó del collage original en dos archivos (`-antes.webp`/
+`-despues.webp`) para alimentar el slider.
 Cuidados Posteriores + Contraindicaciones (`ul-check`, con nota
 explícita de que las contraindicaciones son referenciales y deben ser
 revisadas por el Dr. Paredes antes de publicar — no se fabricó ninguna

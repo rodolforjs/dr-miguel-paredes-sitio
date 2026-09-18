@@ -83,12 +83,9 @@ header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div > ul > li
   display: block;
 }
 
-/* títulos de tarjetas de blog: largos muy distintos hacían que unas
-   tarjetas quedaran de 1 línea y otras de 3 — se truncan a una sola
-   línea con "..." para que todas las tarjetas queden parejas */
+/* títulos de tarjetas de blog: en vez de cortar con "..." (se ve feo),
+   el texto de la tarjeta es una versión resumida y natural del título
+   — el título completo se mantiene igual en la página del artículo */
 .blog-title-1line {
   display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }

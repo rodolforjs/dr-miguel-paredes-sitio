@@ -117,23 +117,46 @@ Pendiente / placeholders explícitos en el código:
   originales sin procesar (HEIC/PNG pesados con EXIF) que Rodolfo pasó;
   las que se usaron ya están optimizadas en `images/real/`
 
-## Páginas de tratamientos (hecho 2026-09-18)
+## Páginas de tratamientos (hecho 2026-09-18, ampliado 2026-09-18)
 
-`services.html` es ahora el listado de los 6 tratamientos reales (fotos
-reales, cada tarjeta linkea a su página propia). Páginas de detalle:
+`services.html` es el listado de **9 fichas específicas** (no 6
+categorías amplias — se desglosó siguiendo el patrón de
+clinicariversso.cl/tratamientos, con evidencia real detrás de cada una):
+
 `tratamiento-ginecomastia.html`, `tratamiento-plasmage.html`,
-`tratamiento-estetica-facial.html`, `tratamiento-estetica-corporal.html`,
-`tratamiento-perfiloplastia.html`, `tratamiento-antienvejecimiento.html`.
+`tratamiento-perfiloplastia.html`, `tratamiento-antienvejecimiento.html`,
+`tratamiento-toxina-botulinica.html`, `tratamiento-acido-hialuronico.html`,
+`tratamiento-alidya.html` (anticelulítico), `tratamiento-evaluacion-facial.html`,
+`tratamiento-evaluacion-corporal.html`.
+
+**Retirados:** `tratamiento-estetica-facial.html` y
+`tratamiento-estetica-corporal.html` (demasiado genéricas, reemplazadas
+por las específicas de arriba).
+
+**Deliberadamente NO agregado:** HIFU 12D, Emsculpt Neo, Mesoterapia,
+Exosomas, Sky Glow, Skin Architecture, Bioregeneradores, Peelings,
+Endoláser — todos vistos en el catálogo de Riversso, pero son
+equipos/técnicas específicas de esa clínica sin evidencia de que el Dr.
+Paredes los tenga. **Pendiente: Rodolfo le pasa esta lista a su tío para
+que marque cuáles sí ofrece**, y ahí se agregan con contenido real.
 
 Cada página de detalle tiene: hero + breadcrumb, barra de stats
-(`de_count`), "Acerca del Tratamiento" + Beneficios, Proceso en 4 pasos,
-Antes/Después (solo en Plasmage, Estética Facial y Antienvejecimiento —
-las 3 que tienen foto real con consentimiento confirmado), Cuidados
-Posteriores + Contraindicaciones (`ul-check`, con nota explícita de que
-las contraindicaciones son referenciales y deben ser revisadas por el Dr.
-Paredes antes de publicar — no se fabricó ninguna indicación médica
-específica), y CTA de cierre. Todo construido recombinando componentes
-que ya existían en Intrio, sin importar código de otro template.
+(`de_count`), "Acerca del Tratamiento", Beneficios como **grid de 4
+tarjetas con ícono** (no lista de checks — patrón visual que le gustó a
+Rodolfo, tomado del bloque "What's Included" de `service-single.html`),
+Proceso en 4 pasos, Antes/Después (solo donde hay foto real con
+consentimiento: Plasmage, Ácido Hialurónico, Antienvejecimiento),
+Cuidados Posteriores + Contraindicaciones (`ul-check`, con nota
+explícita de que las contraindicaciones son referenciales y deben ser
+revisadas por el Dr. Paredes antes de publicar — no se fabricó ninguna
+indicación médica específica; en las 2 páginas de Evaluación se omiten
+estas secciones por no aplicar), y CTA de cierre. Todo construido
+recombinando componentes que ya existían en Intrio, sin importar código
+de otro template.
+
+Datos reales agregados en esta pasada: Perfiloplastia dura "hasta 18
+meses" (caption real de IG), Alidya es el método real que usa para
+celulitis (post de colaboración con @alidyachile).
 
 Contenido grounded en info real de Instagram/historias (no inventado):
 captions reales de ginecomastia ("1 de 5 consultas estéticas masculinas en

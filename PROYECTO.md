@@ -139,13 +139,21 @@ Hecho:
   al revisar el footer de `services.html`). Ahora tienen logo/footer
   reales, y su contenido (bios, FAQ, testimonios, contacto,
   formulario de evaluación) reusa lo mismo ya verificado en
-  `index.html` — nada fabricado. Se eliminó una sección "Our Team"
-  con staff de diseño inventado en `about.html` (no aplica a un
-  consultorio médico individual). El formulario de `contact.html` y
+  `index.html` — nada fabricado. El formulario de `contact.html` y
   `consultation.html` sigue sin backend real (apunta a
   `contact.php`/`action-consultation.php`, que no existen) — pendiente
   de un servicio real (Web3Forms/Formspree) o de que el sistema de
   agenda (ver abajo) lo reemplace.
+- **Corrección (2026-09-18, mismo día):** Rodolfo aclaró que el sitio
+  se piensa como una **clínica** (no la página personal de un
+  freelancer) — pidió recuperar la sección de equipo que trae el
+  template original de Intrio, en vez de quitarla. `about.html` ahora
+  tiene una sección "Nuestro Equipo": el Dr. Paredes como Director
+  Médico (card con foto real) + una card "Próximamente" para cuando
+  se sume más personal — sin inventar gente que no existe. El heading
+  "Agenda tu Evaluación" del footer (antes solo decorativo) ahora es
+  un link real a `consultation.html`, transversal en las 23 páginas
+  con footer real.
 
 Pendiente / placeholders explícitos en el código:
 - `[AÑOS]`, `[Nº] Pacientes Atendidos` en contadores del About

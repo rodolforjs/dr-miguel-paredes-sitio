@@ -117,29 +117,50 @@ Pendiente / placeholders explícitos en el código:
   originales sin procesar (HEIC/PNG pesados con EXIF) que Rodolfo pasó;
   las que se usaron ya están optimizadas en `images/real/`
 
-## Próximo paso (en progreso / propuesto)
+## Páginas de tratamientos (hecho 2026-09-18)
 
-Armar páginas de tratamientos: una página listado ("Tratamientos") +
-una página de detalle por tratamiento, inspirado en la información (no el
-diseño) de [clinicariversso.cl/tratamientos](https://clinicariversso.cl/tratamientos):
+`services.html` es ahora el listado de los 6 tratamientos reales (fotos
+reales, cada tarjeta linkea a su página propia). Páginas de detalle:
+`tratamiento-ginecomastia.html`, `tratamiento-plasmage.html`,
+`tratamiento-estetica-facial.html`, `tratamiento-estetica-corporal.html`,
+`tratamiento-perfiloplastia.html`, `tratamiento-antienvejecimiento.html`.
 
-- Barra de stats: duración del tratamiento / resultados visibles / duración
-  del efecto (usar el patrón `de_count` que ya existe en `index.html`)
-- Acerca del tratamiento (texto)
-- Beneficios (lista)
-- Proceso en pasos (ya existe patrón similar en `service-single.html` de Intrio)
-- Antes y después (usar `owl-carousel`, ya existe en el template) — **solo
-  para tratamientos con foto real y consentimiento confirmado**
-- Cuidados posteriores (checklist, usar patrón `ul-check` ya existente)
-- Contraindicaciones (lista con ícono de alerta)
-- CTA de cierre
+Cada página de detalle tiene: hero + breadcrumb, barra de stats
+(`de_count`), "Acerca del Tratamiento" + Beneficios, Proceso en 4 pasos,
+Antes/Después (solo en Plasmage, Estética Facial y Antienvejecimiento —
+las 3 que tienen foto real con consentimiento confirmado), Cuidados
+Posteriores + Contraindicaciones (`ul-check`, con nota explícita de que
+las contraindicaciones son referenciales y deben ser revisadas por el Dr.
+Paredes antes de publicar — no se fabricó ninguna indicación médica
+específica), y CTA de cierre. Todo construido recombinando componentes
+que ya existían en Intrio, sin importar código de otro template.
 
-Base técnica: `Intrio HTML/services.html` (listado) y
-`Intrio HTML/service-single.html` (detalle) ya cubren la mayoría de esto
-de forma nativa — construir recombinando sus propios bloques + los de
-`index.html` (de_count, owl-carousel, ul-check), nunca importando código
-de otro template.
+Contenido grounded en info real de Instagram/historias (no inventado):
+captions reales de ginecomastia ("1 de 5 consultas estéticas masculinas en
+Chile"), Plasmage, piel. Perfiloplastia/Estética Corporal/Antienvejecimiento
+usan descripción general de la técnica (términos estándar de medicina
+estética) ya que no había caption específico — revisar con el Dr. Paredes.
 
-También pendiente de decidir: si los tratamientos se agrupan en categorías
-tipo Riversso (Facial / Corporal / Longevidad / **Masculina** — esta última
-calza con el posicionamiento de ginecomastia del Dr. Paredes).
+Pendiente de decidir: si se agrupan en categorías tipo Riversso
+(Facial/Corporal/Longevidad/Masculina) — por ahora son 6 tarjetas en un
+grid simple, sin categorizar (con solo 6 tratamientos no parecía necesario
+el filtro por categoría que tiene Riversso con sus 27).
+
+## Datos adicionales encontrados en Instagram (historias, 2026-09-18)
+
+- **Nombre legal completo:** Miguel Angel Paredes Soto, nacido 11/04/1988,
+  nacionalidad extranjera (venezolano)
+- **Título de Médico Cirujano:** Universidad del Zulia, Venezuela, 2015
+- **Registro en Chile:** Superintendencia de Salud, RUN 26.730.052-6,
+  inscrito 04/09/2020, aprobó EUNACOM 26/10/2020 — **da pie a decir ~5-6
+  años ejerciendo en Chile o ~10-11 años como médico**, pero confirmar
+  con él el framing exacto antes de reemplazar el placeholder `[AÑOS]`
+- **Máster en Armonización Facial** — FACOP (Faculdade do Centro Oeste
+  Paulista, Brasil), 135 horas, 2024
+- **Congresos confirmados:** SOCHIMCE (IX Congreso 2024), BAAS
+  International Congress, AMLC 2024 (Santiago, 13-14 junio, Teatro
+  Fundación CorpArtes)
+- **@clinicariversso**: aparece etiquetado en un post de colaboración
+  puntual (no es su lugar de trabajo — confirmado por Rodolfo)
+- Highlight "Antes y Después" menciona **"Rinolips"** — posible técnica/
+  producto adicional no explorado aún

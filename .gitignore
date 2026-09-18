@@ -1,2 +1,7 @@
 .DS_Store
 **/.DS_Store
+
+# Fotos originales sin procesar (HEIC/PNG crudos de cámara, con EXIF,
+# incluye fotos sensibles de pacientes). Las versiones optimizadas y
+# ya integradas al sitio viven en "Intrio HTML/images/real/".
+Recursos/

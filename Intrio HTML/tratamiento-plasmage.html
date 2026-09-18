@@ -374,9 +374,10 @@
                     </div>
                     <div class="row g-4 justify-content-center">
 
-                        <div class="col-md-5">
-                            <div class="relative overflow-hidden rounded-1 wow scaleIn">
-                                <img src="images/real/antes-despues-parpado-plasmage.webp" class="w-100" alt="Antes y después — Plasmage">
+                        <div class="col-md-6">
+                            <div class="twentytwenty-container rounded-1 wow scaleIn">
+                                <img src="images/real/antes-despues-plasmage-antes.webp" alt="Antes — Plasmage">
+                                <img src="images/real/antes-despues-plasmage-despues.webp" alt="Después — Plasmage">
                             </div>
                         </div>
 
@@ -554,6 +555,13 @@
     <script src="js/vendors.js"></script>
     <script src="js/designesia.js"></script>
 
+    <script src="js/jquery.event.move.js"></script>
+    <script src="js/jquery.twentytwenty.js"></script>
+    <script>
+    $(window).on("load", function(){
+      $(".twentytwenty-container").twentytwenty({default_offset_pct: 0.5});
+    });
+    </script>
 
 </body>
 

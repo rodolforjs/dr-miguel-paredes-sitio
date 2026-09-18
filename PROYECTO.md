@@ -294,3 +294,43 @@ las 24 páginas.
   puntual (no es su lugar de trabajo — confirmado por Rodolfo)
 - Highlight "Antes y Después" menciona **"Rinolips"** — posible técnica/
   producto adicional no explorado aún
+
+## Reskin de páginas reales + sección Tratamientos del inicio (2026-09-18)
+
+Se reskinnearon las 5 páginas del nav/mega-menu que seguían 100% demo de
+Intrio: `about.html`, `contact.html`, `faq.html`, `consultation.html`,
+`testimonials.html`. Contenido real (testimonios, FAQ, datos de
+contacto) reutilizado de lo que ya existía en `index.html`. `about.html`
+tiene la sección "Nuestro Equipo" — Rodolfo pidió explícitamente
+mantener **literal** el carrusel original de Intrio (`#team-carousel`,
+2 personas "Anna Charline"/"John Smith" como "Web Developer", fotos
+stock `images/team/2.webp` y `3.webp`) como placeholder para cuando se
+sume más personal — no simplificar ni reemplazar por mi cuenta. Nav
+"Sobre el Dr. Paredes" → "Sobre Nosotros". Footer transversal (23
+páginas): "Agenda tu Evaluación" ahora es un link real a
+`consultation.html`, y los tamaños de texto del footer se redujeron
+con `clamp()` en `costaserena-theme.css` (`footer h2:not(.hs-5)`,
+`footer .widget h3`). Dropdown "More" → columna central cambiada de
+"Contenido Educativo" a "Tratamientos" con links reales.
+
+Se movió la sección Tratamientos del inicio a justo debajo del hero
+(antes estaba más abajo). Su carrusel (`#services-carousel`) estaba
+desactualizado: solo 6 de 9 tratamientos, 2 ítems genéricos sin
+actualizar ("Estética Facial"/"Estética Corporal" sueltos) y todos los
+links apuntaban a `service-single.html` (página demo huérfana, no
+real). Se reemplazó por una grilla de 4 tarjetas por categoría
+(inspirada en la sección "Medicina Estética" de clinicariversso.cl —
+solo como referencia de estructura, nunca copiando su código/visuales
+ni sus números fabricados): Estética Facial (5), Estética Corporal
+(2), Medicina de la Longevidad (1), Estética Masculina (1) — conteos
+reales verificados contra el grid de `services.html`, cada tarjeta con
+foto real de `images/services/`, badge de conteo, y link a
+`services.html`.
+
+**Pendiente para próxima sesión:** formularios de `contact.html` y
+`consultation.html` apuntan a PHP inexistente (`contact.php`,
+`action-consultation.php`) — necesitan Web3Forms/Formspree o
+integración con un sistema de agenda real. El panel lateral off-canvas
+(`#extra-wrap`, ícono hamburguesa `#btn-extra`, distinto del dropdown
+"More") todavía tiene contenido demo "Our Services" sin actualizar en
+algunas páginas.

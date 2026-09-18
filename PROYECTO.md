@@ -356,3 +356,48 @@ mismo texto de CTA ahora. Commit `022e00c`. El panel off-canvas
 `#extra-wrap` sigue teniendo su propio nav duplicado con texto en
 inglés en algunas páginas (fuera de alcance de este cambio, ver nota
 de arriba sobre contenido demo "Our Services" pendiente).
+
+## Auditoría general de consistencia (2026-09-18)
+
+Rodolfo pidió una auditoría completa ("revisa") tras notar inglés
+suelto en algunas vistas. Se encontró y corrigió contenido demo de
+Intrio que había quedado sin tocar en pasadas anteriores (parches
+previos solo tocaron el nav visible, no todo el contenido oculto):
+
+- **Dropdown "Más" del nav** en `blog.html` + los 6 artículos
+  individuales de blog: aún tenían la columna "Our Services" (lista
+  de interior design falsa) y el bloque de contacto en inglés con
+  "100 S Main St, New York" / `contact@intrio.com`. Reemplazado por
+  Tratamientos reales + contacto real.
+- **Panel lateral off-canvas (`#extra-wrap`)** de `services.html`:
+  estaba 100% intacto del demo — "Latest Projects" (4 fotos de
+  interiorismo falsas enlazando a `project-single.html`), "Our
+  Services", "Contact Us" con dirección de NY, e íconos sociales de
+  Facebook/Twitter/YouTube que la clínica no tiene. Reemplazado por
+  el mismo patrón (Tratamientos + Contacto + bio corta + solo
+  Instagram/WhatsApp) que ya tenían las otras 22 páginas.
+- **Panel off-canvas y footer de `index.html`**: habían quedado en
+  una versión híbrida vieja — links muertos a `projects.html` y
+  `project-single.html` (páginas huérfanas eliminadas hace tiempo),
+  nombres de categoría genéricos ("Estética Facial"/"Estética
+  Corporal" apuntando a `services.html` en vez de a la página de
+  tratamiento específico), y los mismos íconos sociales falsos de
+  Facebook/Twitter/YouTube. Homologado al patrón del resto del sitio.
+
+Verificado por grep que ya no queda ningún rastro de "Intrio",
+"Designesia", direcciones de EE.UU., o contenido de interiorismo en
+las 23 páginas reales; footers y paneles off-canvas ahora son
+idénticos en estructura entre las 23 (solo cambia el ítem de nav que
+se omite en la página actual — patrón normal del template). Verificado
+visualmente abriendo el panel off-canvas vía JS (el botón hamburguesa
+usa `#btn-extra`, no `#menu-btn`). Commit `fcfd61e`.
+
+**Nota:** el hallazgo confirma que los "reskins transversales" previos
+(que reemplazaban un string exacto vía `.replace()`) fallan
+silenciosamente si el string exacto no coincide en todos los archivos
+— páginas creadas o copiadas en momentos distintos pueden quedar
+desincronizadas sin que el conteo de reemplazos lo delate, porque el
+script simplemente no encuentra coincidencia y sigue. Vale la pena, al
+cerrar una pasada de "arregla todas las páginas", correr un grep de
+verificación final sobre TODO el archivo (no solo el nav visible) en
+vez de confiar en el conteo de reemplazos del script.

@@ -94,6 +94,22 @@ Hecho:
   de servicios) — reemplazan capturas de Instagram y gradientes placeholder
 - Testimonios con citas reales de comentarios de Instagram
 - FAQ, footer, sección "Instagram" (ex-Blog) con contenido real
+- **Blog real (2026-09-18):** `blog.html` dejó de ser el demo de
+  interiorismo de Intrio — ahora lista 6 artículos reales:
+  `blog-ginecomastia.html`, `blog-piel.html`, `blog-plasmage.html`,
+  `blog-perfiloplastia.html`, `blog-filosofia.html` y
+  `blog-congresos.html` (nuevo, sobre formación médica continua —
+  SOCHIMCE, BAAS, AMLC, Máster FACOP — con fuentes citadas y
+  enlazadas, URLs verificadas por búsqueda antes de citarlas). El
+  carrusel "Contenido Educativo" y la sección "Instagram" del
+  homepage ahora enlazan a estos artículos reales (antes apuntaban a
+  `project-single.html`/`blog-single.html`, páginas demo nunca
+  tocadas, con imágenes placeholder en blanco). Contenido grounded en
+  lo investigado del Instagram real + datos de credenciales ya
+  verificados — sin fabricar nada; los artículos médicos incluyen
+  nota de que es información educativa general, no diagnóstico. Se
+  quitó la sección de comentarios falsos del template (no se puede
+  fabricar testimonios de pacientes).
 
 Pendiente / placeholders explícitos en el código:
 - `[AÑOS]`, `[Nº] Pacientes Atendidos` en contadores del About

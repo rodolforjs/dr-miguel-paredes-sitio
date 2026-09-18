@@ -101,9 +101,12 @@ Pendiente / placeholders explícitos en el código:
 - 2 preguntas del FAQ marcadas `[POR CONFIRMAR CON EL DR. PAREDES]`
 - Video banner sin video real (CTA deshabilitado con comentario TODO)
 - Firma "John Smith" en About (Rodolfo la reemplaza después)
-- Menú de navegación (Home/Services/Projects/More/Blog/Contact) sigue en
-  inglés — decisión pendiente de cuándo traducirlo
+- Menú de navegación: "Inicio" y "Tratamientos" ya en español; Projects/
+  More/Blog/Contact siguen en inglés — decisión pendiente de cuándo
+  traducir el resto
 - Sistema de agenda real (Cal.com u otro) no integrado
+- Revisar si `miguel1.mp4`/`miguel2.mp4` (en `Recursos/`) sirven para el
+  video banner deshabilitado
 
 ## Assets
 
@@ -164,10 +167,16 @@ Chile"), Plasmage, piel. Perfiloplastia/Estética Corporal/Antienvejecimiento
 usan descripción general de la técnica (términos estándar de medicina
 estética) ya que no había caption específico — revisar con el Dr. Paredes.
 
-Pendiente de decidir: si se agrupan en categorías tipo Riversso
-(Facial/Corporal/Longevidad/Masculina) — por ahora son 6 tarjetas en un
-grid simple, sin categorizar (con solo 6 tratamientos no parecía necesario
-el filtro por categoría que tiene Riversso con sus 27).
+**Hecho 2026-09-18 (continuación):** se agruparon en categorías tipo
+Riversso. El dropdown "Tratamientos" del nav ahora es un mega-menu de 4
+columnas (Estética Facial / Estética Corporal / Medicina de la
+Longevidad / Estética Masculina), mismo patrón visual del menú "More"
+que ya traía Intrio. `services.html` tiene chips de filtro (`#filters`
++ `#gallery`) reusando el sistema Isotope.js nativo de Intrio
+(`js/designesia.js`, sin JS nuevo) — patrón de markup tomado del propio
+`gallery.html` de Pooluxe (otro template de Designesia que Rodolfo
+posee). También se tradujo "Home" → "Inicio" en nav y breadcrumbs en
+las 24 páginas.
 
 ## Datos adicionales encontrados en Instagram (historias, 2026-09-18)
 

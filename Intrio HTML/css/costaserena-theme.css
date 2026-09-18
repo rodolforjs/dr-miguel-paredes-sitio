@@ -76,7 +76,7 @@ header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div > ul > li
    (retratos verticales, fotos de eventos horizontales) — se recortan
    a una altura pareja para que las grillas no se vean irregulares */
 .blog-thumb-fixed {
-  height: 320px;
+  height: 480px;
   width: 100%;
   object-fit: cover;
   object-position: center 25%;

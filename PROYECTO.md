@@ -101,12 +101,20 @@ Pendiente / placeholders explícitos en el código:
 - 2 preguntas del FAQ marcadas `[POR CONFIRMAR CON EL DR. PAREDES]`
 - Video banner sin video real (CTA deshabilitado con comentario TODO)
 - Firma "John Smith" en About (Rodolfo la reemplaza después)
-- Menú de navegación: "Inicio" y "Tratamientos" ya en español; Projects/
-  More/Blog/Contact siguen en inglés — decisión pendiente de cuándo
+- Menú de navegación: "Inicio" y "Tratamientos" ya en español; More/
+  Blog/Contact siguen en inglés — decisión pendiente de cuándo
   traducir el resto
 - Sistema de agenda real (Cal.com u otro) no integrado
 - Revisar si `miguel1.mp4`/`miguel2.mp4` (en `Recursos/`) sirven para el
   video banner deshabilitado
+- **"Projects" oculto del nav** (2026-09-18): era contenido 100% demo
+  de Intrio (portfolio de interiorismo), nunca reskinneado, sin sentido
+  para el sitio. Se quitó del menú en las 24 páginas; las páginas demo
+  (`projects.html`, `projects-style-2.html`, `project-single.html`)
+  siguen existiendo pero sin enlazar. Ideas pendientes de Rodolfo para
+  reusar esa sección más adelante: (a) galería "Resultados" que junte
+  todos los antes/después reales en una sola página con el slider
+  interactivo, o (b) "Nuestro Espacio" con fotos de la consulta.
 
 ## Assets
 

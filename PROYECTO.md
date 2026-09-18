@@ -401,3 +401,39 @@ script simplemente no encuentra coincidencia y sigue. Vale la pena, al
 cerrar una pasada de "arregla todas las páginas", correr un grep de
 verificación final sobre TODO el archivo (no solo el nav visible) en
 vez de confiar en el conteo de reemplazos del script.
+
+## Auditoría de copy (2026-09-18)
+
+Revisión de texto (títulos, meta descriptions, encabezados, párrafos)
+en las 23 páginas reales. El copy en general está sólido: consistente,
+sin errores de tipeo, con los disclaimers correctos ("Información
+educativa general", "Lista referencial — debe ser revisada y
+confirmada por el Dr. Paredes") en todos los artículos y páginas de
+tratamiento que corresponde. Encontrado y corregido:
+
+- **Capitalización de marcas en CTA:** "Conversemos sobre alidya
+  (anticelulítico)" y "Conversemos sobre plasmage" tenían el nombre de
+  marca en minúscula (el resto del copy sí capitaliza "Alidya" y
+  "Plasmage" como nombres propios). Corregido en ambas páginas.
+  Commit `d058dfc`.
+
+**Pendiente — requiere dato real del Dr. Paredes, no se fabrica:**
+
+- `tratamiento-antienvejecimiento.html`: `[MIN]` (duración de la
+  evaluación) y `[SEM]` (resultados progresivos) sin llenar en la
+  barra de stats.
+- `tratamiento-ginecomastia.html`: `[MIN]` (duración del
+  procedimiento) y `[SEM]` (recuperación estimada) sin llenar.
+- `tratamiento-perfiloplastia.html`: `[MIN]` (duración del
+  procedimiento) sin llenar.
+- `tratamiento-plasmage.html`: `[SEM]` (resultados visibles) sin
+  llenar.
+
+**Para revisar con Rodolfo (no es error, pero vale la pena confirmar):**
+
+- `tratamiento-alidya.html` tiene el stat "El 90% De las mujeres tiene
+  celulitis" sin fuente citada — otros stats similares del sitio sí
+  citan su fuente (ej. el dato de ginecomastia cita SciELO/SCCP, el de
+  radiación UV cita el Ministerio del Medio Ambiente). Sería bueno
+  agregar la fuente o confirmar que es un dato de dominio público que
+  no necesita cita.

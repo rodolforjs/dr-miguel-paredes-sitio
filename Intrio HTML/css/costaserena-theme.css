@@ -82,3 +82,13 @@ header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div > ul > li
   object-position: center 25%;
   display: block;
 }
+
+/* títulos de tarjetas de blog: largos muy distintos hacían que unas
+   tarjetas quedaran de 1 línea y otras de 3 — se truncan a una sola
+   línea con "..." para que todas las tarjetas queden parejas */
+.blog-title-1line {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

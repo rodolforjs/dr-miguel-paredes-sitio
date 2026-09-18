@@ -89,3 +89,15 @@ header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div > ul > li
 .blog-title-1line {
   display: block;
 }
+
+/* footer "Agenda tu Evaluación": el h2 (48px) y los h3 (26px) del
+   template se ven desproporcionados para un bloque de contacto —
+   regla transversal (aplica a los footers de todas las páginas, que
+   comparten el mismo bloque) para que respire mejor sin tocar los
+   h2/h3 usados en el resto del sitio */
+footer h2:not(.hs-5) {
+  font-size: clamp(26px, 3vw, 34px);
+}
+footer .widget h3 {
+  font-size: clamp(16px, 1.6vw, 20px);
+}

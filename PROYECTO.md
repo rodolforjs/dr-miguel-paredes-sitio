@@ -162,6 +162,16 @@ Hecho:
   al español. El link "Sobre el Dr. Paredes" del nav (30 páginas) se
   renombró a **"Sobre Nosotros"**, con su `<title>`/`<h1>`/breadcrumb
   actualizados en `about.html`.
+- **Dropdown "More" del nav, columna y bloque de contacto (2026-09-18,
+  mismo día):** seguían con "Our Services" (Furniture & Decor
+  Selection, etc.) y contacto falso (Monday-Saturday, 100 S Main St
+  New York, contact@intrio.com) en las 23 páginas reales. Ahora
+  "Contenido Educativo" enlaza a los 6 artículos del blog, y el
+  bloque de contacto tiene foto real + `[HORARIO PENDIENTE]` +
+  Concón + email real. Nota: el panel off-canvas (el que abre el
+  ícono de hamburguesa extra, distinto de este dropdown) todavía
+  tiene su propio "Our Services" demo — sigue fuera de alcance salvo
+  que Rodolfo lo pida.
 
 Pendiente / placeholders explícitos en el código:
 - `[AÑOS]`, `[Nº] Pacientes Atendidos` en contadores del About

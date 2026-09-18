@@ -110,6 +110,17 @@ Hecho:
   nota de que es información educativa general, no diagnóstico. Se
   quitó la sección de comentarios falsos del template (no se puede
   fabricar testimonios de pacientes).
+- **Ajustes 2026-09-18 (continuación):** clase `.blog-thumb-fixed`
+  (320px + object-fit:cover) en las tarjetas de `blog.html` y en la
+  sección "Instagram" del home, para que las fotos de proporciones
+  muy distintas no se vean irregulares. El carrusel "Contenido
+  Educativo" del home quedó **oculto** (comentado en `index.html`,
+  no borrado) por pedido de Rodolfo — se sentía repetido con la
+  sección Instagram de abajo. Esa sección Instagram ahora muestra los
+  3 posts más recientes (Filosofía, Congresos, Ginecomastia) en vez
+  de fijos. Los artículos de Ginecomastia, Piel y Perfiloplastia se
+  ampliaron con fuentes chilenas verificadas (SCCP, SciELO Chile,
+  Unidad Ozono/MMA, SOCHIDERM, ISP Chile).
 
 Pendiente / placeholders explícitos en el código:
 - `[AÑOS]`, `[Nº] Pacientes Atendidos` en contadores del About

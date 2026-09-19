@@ -764,3 +764,12 @@ tamaño del `h4` de categoría (20px→15px) y el letter-spacing en este
 contexto — las 4 quedan siempre en una sola línea sin necesidad de
 volver a ensanchar la caja (que reabriría la superposición con Más/
 Blog/Contacto). Commit `c1ada06`.
+
+## Sección de video placeholder oculta (2026-09-19)
+
+Rodolfo pidió ocultar la sección con el botón de play en el inicio —
+el botón no tenía ningún video real detrás (`href="#"`), solo una
+foto estática con el ícono superpuesto, "no está aportando nada".
+Comentada (no borrada, mismo patrón usado antes con el carrusel
+"Contenido Educativo") para reactivar cuando haya un reel real del
+Dr. Paredes que reemplace el placeholder. Commit `97101f5`.

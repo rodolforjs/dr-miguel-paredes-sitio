@@ -1133,3 +1133,42 @@ específicos de los pacientes reales del Dr. Paredes.
 Verificado visualmente y por JS que ningún `[MIN]`/`[SEM]`/
 `A COMPLETAR CON EL DR` quedó suelto en las 23+ páginas reales.
 Commit `9a88e08`.
+
+## Arreglos mobile: menú de tratamientos + UI del blog (2026-09-19)
+
+Rodolfo mandó capturas de dos problemas en mobile:
+
+1. **Menú "Tratamientos"** mostraba solo las 4 categorías (Estética
+   Facial, Estética Corporal, Medicina de la Longevidad, Estética
+   Masculina) sin los tratamientos específicos debajo — una
+   simplificación deliberada del 2026-09-18 para acortar el menú, que
+   ya no encajaba con el criterio del sitio (categorías = filtros y
+   nav, tratamientos específicos = lo que se muestra). Se revirtió:
+   ahora el acordeón mobile muestra los 11 tratamientos bajo cada
+   categoría, con el nombre de categoría como etiqueta visual (más
+   chica, en mayúsculas, sin click) en vez de link. Un solo cambio en
+   `costaserena-theme.css` (selector compartido por las 25 páginas).
+2. **Tarjeta CTA de los artículos del blog** ("¿Tienes dudas sobre tu
+   caso?") cortaba el texto en mobile en vez de pasar a la línea
+   siguiente. Investigando la causa real (no algo que hubiéramos
+   escrito nosotros): Intrio define `.d-flex { white-space: nowrap }`
+   en su propio `style.css` — se sobreescribe a `normal` en nuestra
+   hoja de overrides sin tocar el archivo original. Sumado a eso, el
+   div de texto no encogía por debajo de su ancho natural por ser
+   flex item (`min-width:auto` por defecto en flexbox) — se agregó
+   `min-width: 0`. También se sumó `gy-5` al row que envuelve
+   contenido principal + sidebar (antes solo `gx-5`, gutter
+   horizontal) para que haya espacio vertical entre la tarjeta CTA y
+   "Más Contenido Educativo" cuando las columnas se apilan en mobile.
+
+**Nota de verificación:** este sitio usa Lenis (smooth-scroll) en
+todas las páginas — `window.scrollTo()`/`scrollIntoView()` no mueven
+la página (Lenis intercepta el scroll nativo). Para verificar en el
+emulador de mobile (iframe angosto) hubo que disparar eventos
+`WheelEvent('wheel', {deltaY, bubbles:true, cancelable:true})`
+sintéticos en vez de scrollTo — buen dato para la próxima vez que se
+necesite verificar scroll en este sitio.
+
+Verificado visualmente en iframe de 390px (about.html para el menú,
+blog-plasmage.html para la tarjeta CTA), con cache-busting del
+`<link>` de CSS en cada paso. Commit `29332f0`.

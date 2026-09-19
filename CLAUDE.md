@@ -163,6 +163,21 @@ conflicto con una entrada vieja de PROYECTO.md.
      `scrollIntoView()` y con el scroll normal — usar el scroll nativo del
      `computer` tool (tick por tick) en vez de JS, o remover `.jarallax`
      temporalmente vía JS si hace falta medir posiciones.
+   - El sitio usa **Lenis** (smooth-scroll) en todas las páginas —
+     `window.scrollTo()`/`scrollIntoView()` no mueven nada (Lenis
+     intercepta el scroll nativo, `document.documentElement.scrollTop`
+     se queda en 0). Cuando el `computer` tool tampoco puede hacer
+     scroll dentro de un iframe de emulación mobile, disparar eventos
+     sintéticos `new WheelEvent('wheel', {deltaY, bubbles:true,
+     cancelable:true})` sobre el `document` del iframe — eso sí lo
+     respeta Lenis.
+   - Intrio define `.d-flex { white-space: nowrap }` en su propio
+     `style.css` (no es un override nuestro) — cualquier `.d-flex` que
+     envuelva texto largo lo corta en vez de dejarlo pasar a la
+     siguiente línea en mobile. Si aparece texto cortado dentro de un
+     contenedor `.d-flex`, revisar esto primero antes de asumir que es
+     un bug nuestro; se soluciona con `white-space: normal` +
+     `min-width: 0` en el hijo con el texto, en `costaserena-theme.css`.
    - Si se inyecta un `.twentytwenty-container` dinámicamente (no en la
      carga inicial de la página), hay que **precargar las imágenes**
      (`new Image()` + esperar `onload`) antes de llamar a `.twentytwenty()`

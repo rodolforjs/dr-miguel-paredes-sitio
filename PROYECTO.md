@@ -740,3 +740,12 @@ envolvió toda la tarjeta en ese wrapper — imagen, descripción y "Ver
 detalles" quedan dentro de una misma caja con fondo, esquinas
 redondeadas y sombra suave, igual que el referente que envió
 Rodolfo. Commit `93f600c`.
+
+**Corrección final (2026-09-19, mismo día):** Rodolfo aclaró que
+quería la card completa DENTRO de la foto (no una franja blanca
+separada abajo) — título y descripción de 2 líneas superpuestos sobre
+el degradado inferior, y "Ver detalles" junto al ícono de flecha que
+ya estaba arriba a la derecha, mostrándose ambos juntos con la misma
+interacción de hover (`hover-op-1`) que ya tenía la flecha. El texto
+de descripción pasó a blanco translúcido (antes gris, pensado para el
+fondo claro de la versión anterior). Commit `f612775`.

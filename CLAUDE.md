@@ -97,11 +97,24 @@ conflicto con una entrada vieja de PROYECTO.md.
   (personal, no `@viteliaclinic_`). Es cuenta profesional/Business — no
   intentar convertirla de nuevo ni sugerirlo, ya se decidió mantenerla como
   está.
-- **Componentes reutilizados en vez de inventar nuevos:** el slider
-  interactivo de antes/después es `twentytwenty-container` (jQuery plugin,
-  ya usado en 3 páginas de tratamiento antes de llevarlo al inicio) — sus
-  labels deben ir en español (`before_label: "Antes", after_label:
-  "Después"`), el plugin trae "Before"/"After" en inglés por defecto.
+- **Antes/después en páginas de tratamiento: usar siempre el carrusel
+  reutilizable** (`js/before-after-carousel.js`, `.ba-carousel` con
+  `data-pairs` en JSON), no un `twentytwenty-container` suelto a mano. Con
+  1 sola pareja las flechas se ocultan solas; con 2+, aparecen flechas +
+  contador. Antes de crear una pareja nueva, revisar si ya existe una foto
+  real sin usar en `images/real/` (pasó con `antes-despues-ojeras`, que
+  venía en un solo archivo apilado y quedó sin usar hasta que se separó en
+  2 archivos).
+  - El slider interno es `twentytwenty-container` (jQuery plugin) — sus
+    labels deben ir en español (`before_label: "Antes", after_label:
+    "Después"`), el plugin trae "Before"/"After" en inglés por defecto.
+  - Al inyectar un `.twentytwenty-container` dinámicamente hay que
+    precargar las imágenes antes de llamar a `.twentytwenty()` (ver quirk
+    más abajo).
+  - Para ocultar/mostrar por JS un elemento que ya tiene clases `.d-flex`/
+    `.d-none` de Bootstrap, usar `removeClass`/`addClass` entre esas dos
+    clases — **nunca `.hide()`/`.show()` de jQuery**, pierden contra el
+    `!important` de esas utilidades.
 - Los 4 pasos "Agenda → Evaluación → Tratamiento → Seguimiento" viven en su
   propia sección (`#hero-proceso`, franja oscura "Cómo Funciona"), separados
   de la sección de testimonios+antes/después (`#hero-testimonials`) — ambas

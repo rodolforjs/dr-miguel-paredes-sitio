@@ -1042,3 +1042,55 @@ Verificado visualmente: el slider funciona, rota correctamente al
 cambiar de testimonio (probado disparando el evento del carrusel
 manualmente), las etiquetas quedaron en español en las 4 ubicaciones.
 Commit `5e4d883`.
+
+**Ajuste de padding (mismo día):** Rodolfo pidió más aire vertical en
+`#hero-testimonials` y `#hero-proceso` — se probó +20% (108px) y no se
+notó lo suficiente, se subió a 180px, y finalmente se bajó a 150px
+como punto intermedio. Commits `bc61bde`, `aeeab3f`, `a734f62`.
+
+## Sistema de memoria de 3 niveles (2026-09-19)
+
+A pedido de Rodolfo, se armó `~/.claude/CLAUDE.md` (contexto de
+negocio global, apunta al registro en Google Drive
+`RodolfoWeb-Registro/`) y `CLAUDE.md` en la raíz de este proyecto
+(reglas fijas construidas con todo el contexto de las conversaciones,
+no solo lo documentado en este archivo). Este `PROYECTO.md` sigue
+siendo la bitácora de avance. Commit `f8f3e8e`.
+
+## Carrusel reutilizable de antes/después en tratamientos (2026-09-19)
+
+Rodolfo preguntó si todas las fotos de antes/después se estaban
+usando y qué pasaría si algún día hay varias del mismo tratamiento.
+Encontrado: `antes-despues-ojeras.webp` nunca se había usado — venía
+como un solo archivo con el antes/después apilados verticalmente (no
+2 archivos separados como las demás parejas), así que no calzaba con
+el componente `twentytwenty-container`, que necesita 2 imágenes. Se
+separó en `antes-despues-ojeras-antes/despues.webp` y se sumó a
+Ácido Hialurónico (ya trata ojeras) como 2da pareja — primer caso real
+con más de 1 foto.
+
+Se decidió construir el carrusel reutilizable ahora (no esperar a
+tener más fotos): `js/before-after-carousel.js` — cada `.ba-carousel`
+lleva sus parejas en `data-pairs` (JSON), y muestra flechas +
+contador ("1 / 2") solo si hay 2 o más; con 1 sola pareja las flechas
+quedan ocultas automáticamente. Aplicado a las 3 páginas que ya tenían
+antes/después (Ácido Hialurónico con 2 parejas, Antienvejecimiento y
+Plasmage con 1 cada una).
+
+Bug encontrado en el camino: `jQuery.hide()` no ocultaba la
+navegación en los casos de 1 sola pareja — las utilidades `.d-flex`/
+`.d-none` de Bootstrap usan `!important`, así que le ganaban al
+`display:none` inline que pone `.hide()`. Se resolvió alternando
+clases (`removeClass("d-none").addClass("d-flex")`) en vez de
+`.hide()`/`.show()`.
+
+**Tratamientos sin antes/después todavía** (por si se suman fotos más
+adelante): Alidya, Endoláser, Evaluación Corporal, Evaluación Facial,
+Ginecomastia, Perfiloplastia, Remodelado de Glúteos, Toxina Botulínica.
+El componente ya está listo para dejarse caer en cualquiera de ellas
+en cuanto haya foto real con consentimiento confirmado.
+
+Verificado visualmente: contador y flechas funcionando en Ácido
+Hialurónico (2 parejas, clickeado "siguiente" y confirmado el cambio
+de foto), flechas ocultas correctamente en Antienvejecimiento y
+Plasmage (1 pareja cada uno). Commit `58c6fa2`.

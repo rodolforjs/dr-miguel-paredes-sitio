@@ -489,3 +489,18 @@ contacto) pasaron de `col-lg-4` a `col-lg-6` para repartirse el
 espacio libre. Verificado visualmente: el dropdown queda con 2
 columnas balanceadas, sin aire de más ni contenido redundante. Commit
 `38a95f8`.
+
+## Dropdown "Más": patrón chico original de Intrio (2026-09-18)
+
+Rodolfo pidió sacar la tarjeta de contacto (foto + horario + ubicación
++ email) del dropdown "Más" y dejar solo los 3 links, con un hover
+"chico, lo necesario" — como lo mostraba Intrio originalmente. Se
+encontró el patrón exacto en el template original
+(`~/Downloads/Templates_Web/Intrio/Intrio HTML/index-3.html`, dropdown
+"Pages"): un `<ul>` simple sin la estructura de mega-menu
+(`container`/`sb-menu`/columnas), que Intrio ya sabe dimensionar solo
+al contenido. Se reemplazó en las 23 páginas reales — mismo patrón,
+mismos 3 links (Sobre Nosotros, Preguntas Frecuentes, Testimonios).
+Verificado visualmente: el dropdown ahora es una caja chica pegada al
+link "Más", sin la tarjeta ni el layout de 2 columnas. Commit
+`5008a12`.

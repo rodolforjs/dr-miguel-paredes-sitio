@@ -120,11 +120,17 @@ header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div > ul > li
 header:not(.header-mobile) #mainmenu>li ul.mega.mega-tratamientos {
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 700px;
-  height: auto;
+  left: auto;
+  right: 0;
+  width: 480px;
   padding: 0;
+}
+/* el height:auto solo debe activarse en hover (igual que el resto de
+   los .mega de Intrio) — si queda incondicional, la caja mantiene su
+   alto real todo el tiempo y puede interceptar el mouse/hover de los
+   ítems de nav vecinos (Más, Blog) aunque esté visualmente oculta */
+header:not(.header-mobile) #mainmenu>li:hover ul.mega.mega-tratamientos {
+  height: auto;
 }
 header:not(.header-mobile) #mainmenu>li ul.mega.mega-tratamientos .container {
   width: 100%;

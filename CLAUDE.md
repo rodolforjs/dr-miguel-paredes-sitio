@@ -31,6 +31,19 @@ conflicto con una entrada vieja de PROYECTO.md.
    todo lo que no esté confirmado por el Dr. Paredes queda como placeholder
    explícito (`[AÑOS]`, `[Nº]`, `[MIN]`, `[SEM]`, `[A COMPLETAR CON EL DR.
    PAREDES]`). Nunca inventar cifras ni completar "a ojo".
+   - **Excepción explícita (2026-09-19):** Rodolfo autorizó investigar y
+     completar datos **técnicos/clínicos generales** (duración de un
+     procedimiento, tiempo de recuperación, contraindicaciones médicas
+     estándar por tipo de tratamiento) usando fuentes médicas y
+     clinicariversso.cl como referente — esto NO es fabricar datos, es
+     información pública sobre la técnica en general, no específica de
+     los pacientes del Dr. Paredes. Mantener el disclaimer "Lista
+     referencial — debe ser revisada y confirmada por el Dr. Paredes
+     antes de publicar" en Contraindicaciones aunque se complete.
+   - Esto NO aplica a datos personales/de negocio del propio Dr. Paredes
+     (años de experiencia, N° de pacientes atendidos) — esos placeholders
+     (`[AÑOS]`, `[Nº]`) nunca se completan por investigación, solo él
+     los puede confirmar.
 5. **Tratamientos nuevos deben verificarse antes de agregarse al catálogo.**
    Si el doctor pide sumar un tratamiento que no existía, investigar que sea
    real (su propio Instagram, Riversso como referente de información — nunca

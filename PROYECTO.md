@@ -800,4 +800,63 @@ Dr. Paredes (no el logo) mantienen su alt text sin cambios.
 - Copy que todavía menciona al doctor personalmente en vez de la
   clínica (copyright del footer, título de las páginas, textos que
   dicen "Dr. Miguel Paredes Soto — Medicina Estética") — no se tocó
-  esta vez, se priorizó solo el logo.
+  esta vez, se priorizó solo el logo. **Resuelto en la siguiente
+  sección.**
+
+## Auditoría de copy: la clínica como sujeto principal (2026-09-19)
+
+Rodolfo pidió una auditoría de copy/contenido en las 23 páginas
+reales (imágenes explícitamente excluidas) para que el sitio hable de
+Clínica Vitelia como entidad principal, con el Dr. Paredes presentado
+como el doctor líder/director — dejando el título exacto a criterio
+propio ("cual sea el mejor nombre o solo doctor").
+
+**Título elegido:** "Director Médico de Clínica Vitelia" — se usa en
+los dos párrafos de bio (`about.html`, `index.html`, sección "Armonía,
+ciencia y un trato cercano en cada consulta").
+
+**Cambios aplicados (23/23 páginas):**
+- `<title>`: "... | Dr. Miguel Paredes Soto" → "... | Clínica Vitelia"
+  (título del home cambiado aparte: "Clínica Vitelia — Medicina
+  Estética en Concón").
+- Copyright del footer: "Clínica Vitelia — Medicina & Estética
+  Avanzada © 2026".
+- Panel off-canvas: heading "Sobre el Dr. Paredes" → "Sobre Vitelia",
+  párrafo reescrito para nombrar la clínica primero y al Dr. Paredes
+  como quien la dirige.
+- Las 23 meta descriptions reescritas para poner "Clínica Vitelia"
+  como sujeto (ej. `services.html`: "Tratamientos de medicina
+  estética facial y corporal en Clínica Vitelia, Concón — a cargo del
+  Dr. Miguel Paredes Soto.").
+
+**Cambios puntuales (no transversales):**
+- `about.html` / `index.html`: subtítulo del hero y párrafo de bio
+  principal reencuadrados ("Director Médico de Clínica Vitelia,
+  especializado en...").
+- `testimonials.html`: intro reencuadrada ("...que ya se atendieron
+  en Clínica Vitelia").
+- `blog-filosofia.html`: tag "Dr. Paredes" del widget de temas →
+  "Clínica Vitelia".
+- `faq.html` + `index.html`: pregunta "¿Qué tratamientos ofrece el
+  Dr. Paredes?" → "...ofrece Clínica Vitelia?".
+- `tratamiento-antienvejecimiento.html`: "el enfoque antienvejecimiento
+  del Dr. Paredes" → "...de Clínica Vitelia".
+
+**Dejado igual a propósito (no es un problema de framing, es
+contenido distinto):**
+- Disclaimer de "Contraindicaciones" en las 9 páginas de tratamiento
+  ("...debe ser revisada y confirmada por el Dr. Paredes antes de
+  publicar") — es una nota de responsabilidad médica que nombra al
+  médico revisor específico, no branding.
+- Firma bajo la foto del doctor (`<h3>Dr. Miguel Paredes Soto</h3>`)
+  y el alt text de las fotos reales (no son logo, no se tocaron).
+- Menciones "Dr. Paredes" dentro del carrusel "Contenido Educativo"
+  de `index.html` — está comentado/deshabilitado (líneas ~372–533),
+  no es contenido vivo.
+- Instagram del sitio sigue apuntando a `@dr.miguelparedes_` — pendiente
+  de que Rodolfo decida si migra a `@viteliaclinic_` (ver sección
+  anterior, sigue sin resolver).
+
+Verificado visualmente con servidor local + Claude-in-Chrome en
+`about.html`, `index.html` y `tratamiento-antienvejecimiento.html`.
+Commit `84bc47e`.

@@ -75,6 +75,27 @@ header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div > ul > li
   border-bottom: solid 1px rgba(255, 255, 255, .1);
 }
 
+/* mobile: el acordeón de Tratamientos mostraba las 4 categorías Y sus
+   9 tratamientos siempre expandidos — mucho scroll para encontrar
+   "Más"/"Blog"/"Contacto" más abajo. Se resume a solo las 4 categorías
+   (ahora tappables, enlazan a services.html) + un botón "Ver todos" —
+   el listado completo de tratamientos por categoría solo se ve en
+   desktop, donde la caja compacta ya lo muestra todo de una vista. */
+@media only screen and (max-width: 992px) {
+  header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div > ul {
+    display: none;
+  }
+  header.header-mobile #mainmenu li ul.mega.mega-tratamientos h4 a {
+    color: inherit;
+  }
+  header.header-mobile #mainmenu li ul.mega.mega-tratamientos .btn-line {
+    display: inline-block;
+    margin: 10px 0 20px 40px;
+    color: #fff;
+    border-color: rgba(255, 255, 255, .5);
+  }
+}
+
 /* en desktop, el mega-menu de Tratamientos por defecto de Intrio ocupa
    todo el ancho de la ventana (position:fixed + width:100%) — se
    angosta a una caja fija centrada bajo el link, del mismo espíritu

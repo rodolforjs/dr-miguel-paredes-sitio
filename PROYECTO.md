@@ -586,3 +586,37 @@ Ubicación) más el `padding-top:100px` por defecto del footer (pensado
 para cuando el logo estaba visible). Se ocultan esos espaciadores y se
 reduce el padding a 50px en mobile. Alto total del footer bajó de
 ~882px a ~576px (verificado con getComputedStyle). Commit `52e68cb`.
+
+## Auditoría del menú mobile: mega-menu de Tratamientos comprimido (2026-09-18)
+
+Rodolfo pidió auditar por qué el menú mobile se sentía "raro" al abrir
+"Tratamientos", y comparar con cómo lo tenía Intrio originalmente.
+
+**Hallazgo real:** en el template original, los ítems de nav de primer
+nivel con submenú (`Services`, equivalente a nuestro `Tratamientos`)
+tienen listas simples de 3-6 ítems, nunca un mega-menu de 4 categorías
+(eso solo lo usaban para "Home" y "More", donde igual eran 4-6 ítems
+por columna, no 9 repartidos en 4 categorías con headers). Intrio trae
+una regla CSS genérica para indentar submenús simples en mobile
+(`header.header-mobile #mainmenu li ul li { padding-left: 40px }`),
+pensada para esos casos cortos — pero esa regla también se heredaba en
+el `<li>` que envuelve TODO nuestro mega-menu de Tratamientos,
+comprimiendo su ancho útil de ~354px a ~266px y desalineando las 4
+columnas. Se corrigió reseteando ese padding heredado específicamente
+para `.mega-tratamientos` (con `!important`, porque Bootstrap aplica
+`.p-4` también con `!important` y ganaba sobre nuestro override
+anterior). Verificado con getBoundingClientRect: las 4 categorías
+ahora usan el ancho completo del menú.
+
+**Confirmado que NO son bugs** (comportamiento de fábrica de Intrio,
+verificado contra el template original intacto):
+- El ícono "−" al abrir el menú es el propio ícono de cierre de Intrio
+  (Font Awesome `fa-minus`), no un ícono roto.
+- Tocar el texto "Tratamientos" navega a `services.html` en vez de
+  desplegar el acordeón — hay que tocar la flechita (`<span>` que
+  Intrio inserta automáticamente) para desplegar. Mismo patrón que el
+  "Services" original.
+- El menú abierto tiene scroll interno propio (no hace scroll la
+  página completa) — también de fábrica.
+
+Commit `16e7fe3`.

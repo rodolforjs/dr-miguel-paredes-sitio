@@ -101,3 +101,17 @@ footer h2:not(.hs-5) {
 footer .widget h3 {
   font-size: clamp(16px, 1.6vw, 20px);
 }
+
+/* fotos de tratamientos (carrusel de categorías del inicio y grilla de
+   services.html): mismo origen (images/services/*.webp) con proporciones
+   muy distintas entre sí (retrato vs. plano medio) — se recortan a una
+   proporción pareja, calculada como el promedio entre la más angosta y
+   la más ancha actuales. aspect-ratio (no una altura fija en px) para
+   que escale de forma fluida en cualquier ancho de columna/viewport. */
+.treatment-thumb {
+  aspect-ratio: 1 / 1.618;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}

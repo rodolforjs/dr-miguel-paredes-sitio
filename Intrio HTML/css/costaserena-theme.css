@@ -78,6 +78,10 @@ header.header-mobile #mainmenu li ul.mega.mega-tratamientos h4 {
 header.header-mobile #mainmenu li ul.mega.mega-tratamientos h4 a {
   display: block;
   border-bottom: none !important;
+  /* Intrio trae una regla propia (#mainmenu li li a) que gana la
+     cascada sobre el color heredado del h4 blanco — forzar el color
+     acá explícitamente en vez de depender de la herencia */
+  color: #fff !important;
 }
 header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div > ul > li {
   padding-left: 40px;
@@ -90,32 +94,24 @@ header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div > ul > li
   border-bottom: solid 1px rgba(255, 255, 255, .1);
 }
 
-/* mobile: el acordeón de Tratamientos mostraba solo las 4 categorías
-   (2026-09-18, para acortar el menú). Revertido (2026-09-19, a pedido
-   de Rodolfo): el foco pasó a tratamientos específicos en vez de
-   categorías (mismo criterio que el carrusel del inicio y los filtros
-   de services.html) — ahora el acordeón muestra los tratamientos
-   tappeables bajo cada categoría; la categoría queda solo como
-   etiqueta visual de agrupamiento, no como acción principal. */
+/* mobile: el acordeón de Tratamientos se mantiene corto (2026-09-18)
+   pero los 4 ítems ya no son categorías — son 4 tratamientos
+   específicos principales (Toxina Botulínica, Ácido Hialurónico,
+   Endoláser, Evaluación Personalizada) + "Ver todos los tratamientos"
+   (2026-09-19, a pedido de Rodolfo: mismo largo de antes, solo cambia
+   categorías por tratamientos concretos). Los 4 bloques de categoría
+   con su lista completa (Estética Facial, Corporal, etc. — el
+   ".col-lg-6.col-md-6") solo se ven en desktop, donde la caja
+   compacta ya los muestra agrupados de una vista; en mobile se
+   ocultan por completo y se muestran en su lugar los
+   ".mobile-featured-treatment" + el bloque "Ver todos". */
 @media only screen and (max-width: 992px) {
-  /* nombres de categoría (Estética Facial, etc.) — etiqueta visual,
-     no acción: se excluye el bloque "Ver todos los tratamientos"
-     (.col-12), que sí debe seguir siendo un link normal */
-  header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div:not(.col-12) h4 {
-    opacity: .55;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-    padding-top: 14px;
-  }
-  header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div:not(.col-12) h4 a {
-    color: inherit;
-    pointer-events: none;
-  }
-  header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div:first-child h4 {
-    padding-top: 5px;
+  header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div.col-lg-6 {
+    display: none;
   }
 }
+/* ".mobile-featured-treatment" ya usa d-lg-none (Bootstrap) para
+   ocultarse en desktop — no hace falta CSS propio para ese lado */
 
 /* en desktop, el mega-menu de Tratamientos por defecto de Intrio ocupa
    todo el ancho de la ventana (position:fixed + width:100%) — se

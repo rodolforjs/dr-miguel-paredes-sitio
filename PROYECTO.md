@@ -773,3 +773,31 @@ foto estática con el ícono superpuesto, "no está aportando nada".
 Comentada (no borrada, mismo patrón usado antes con el carrusel
 "Contenido Educativo") para reactivar cuando haya un reel real del
 Dr. Paredes que reemplace el placeholder. Commit `97101f5`.
+
+## Logo de la clínica confirmado y aplicado (2026-09-19)
+
+Nombre oficial confirmado con el Dr. Paredes: **Clínica Vitelia —
+Medicina & Estética Avanzada** (Instagram de la clínica:
+@viteliaclinic_). Rodolfo recibió el logo oficial (carpeta "Logo
+Clínica Vitelia" en la raíz del proyecto, gitignored — solo assets
+fuente/PSD/variantes sin usar, no se versiona).
+
+Se reemplazó el logo personal (`logo-mp.png`) por el logo de la
+clínica en las 23 páginas reales — header, footer, panel off-canvas
+y demás usos del logo. Se usó la variante horizontal V2 (blanco sin
+fondo), recortada a su bounding box real. Favicon nuevo generado del
+ícono (rostro + hoja) en negro a 16/32/48/180px. Las fotos reales del
+Dr. Paredes (no el logo) mantienen su alt text sin cambios.
+
+**Pendiente, no resuelto todavía:**
+- Si el sitio se conecta al Instagram de la clínica (@viteliaclinic_,
+  recién creado, poco contenido) o se sigue usando el personal
+  (@dr.miguelparedes_, con más contenido) — el propio Dr. Paredes lo
+  preguntó, Rodolfo tiene que decidir/responderle.
+- Dominio propio (todavía en GitHub Pages).
+- Reencuadre "medicina general + estética" — falta que el Dr. Paredes
+  especifique qué otros servicios de salud general ofrece.
+- Copy que todavía menciona al doctor personalmente en vez de la
+  clínica (copyright del footer, título de las páginas, textos que
+  dicen "Dr. Miguel Paredes Soto — Medicina Estética") — no se tocó
+  esta vez, se priorizó solo el logo.

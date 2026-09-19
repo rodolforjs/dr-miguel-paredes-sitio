@@ -278,10 +278,10 @@ footer .widget h3 {
 }
 
 /* secciones de testimonios+antes/después y "Nuestro Proceso" del inicio:
-   +20% de padding vertical sobre el default de Intrio (90px -> 108px)
+   padding vertical duplicado sobre el default de Intrio (90px -> 180px)
    para que el contenido respire más */
 #hero-testimonials,
 #hero-proceso {
-  padding-top: 108px;
-  padding-bottom: 108px;
+  padding-top: 180px;
+  padding-bottom: 180px;
 }

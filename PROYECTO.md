@@ -695,3 +695,34 @@ solid 1px rgba(255,255,255,.1) }`, regla genérica de Intrio, visible
 en todos los ítems salvo el último por el `:last-child`). Se quitan
 ambos tipos de línea por completo — ninguna de las dos listas tiene
 ahora borde entre ítems, quedan idénticas. Commit `6723cab`.
+
+## Hover inestable del nav de Tratamientos + tarjetas de services.html (2026-09-19)
+
+Rodolfo reportó que el dropdown de "Tratamientos" en desktop "se
+abría solo" a veces, y pidió reducir 25% el alto de las tarjetas de
+`services.html` con descripción + CTA "Ver detalles" (envió un
+referente visual con este patrón: foto → tag de categoría → título →
+descripción → "Ver detalles").
+
+**Hover inestable:** la caja compacta de 700px centrada bajo
+"Tratamientos" (del fix de dropdowns de ayer) se superponía
+visualmente con "Más", "Blog" y "Contacto" — mover el mouse hacia
+esos ítems en realidad seguía sobre el dropdown de Tratamientos (hijo
+absolutamente posicionado de ese `<li>`, capta el hover por encima de
+los `<li>` vecinos). Se angostó a 480px alineada al borde derecho del
+link (se extiende hacia "Inicio"/el logo — un solo link simple, sin
+otro dropdown que pueda interferir), y las 4 categorías pasan de 1
+fila de 4 columnas a una grilla 2×2 (`col-lg-3`→`col-lg-6`) para caber
+cómodas en el ancho más angosto. También se corrigió un `height:auto`
+que había quedado incondicional (debía activarse solo en `:hover`,
+como el resto de los `.mega` de Intrio) — podía mantener la caja con
+tamaño real aunque estuviera oculta.
+
+**Tarjetas de services.html:** nueva clase `.treatment-card-thumb`
+(mismas fotos que `.treatment-thumb` del carrusel del inicio, pero
+25% menos alta — `aspect-ratio` ajustado, no afecta al carrusel) +
+descripción de 2 líneas (con `line-clamp`, texto real reciclado del
+párrafo de introducción que ya existía en cada página de tratamiento,
+nada inventado) + link "Ver detalles" reemplazando el solo-ícono de
+flecha sobre la imagen. Verificado en desktop (3 columnas) y mobile
+(1 columna, 372px). Commits `1c1c1f6` (hover) y `1f6e809` (tarjetas).

@@ -5,3 +5,8 @@
 # incluye fotos sensibles de pacientes). Las versiones optimizadas y
 # ya integradas al sitio viven en "Intrio HTML/images/real/".
 Recursos/
+
+# Archivos fuente del logo de la clínica (PSD, .afdesign, variantes sin
+# usar). El logo final ya procesado para el sitio vive en
+# "Intrio HTML/images/brand/logo-vitelia.png".
+Logo Clínica Vitelia/

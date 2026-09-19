@@ -560,3 +560,8 @@ de forma confiable) — confirmado que los 3 elementos quedan
 `display:none` en mobile y `block` en desktop, y que el `<h1>` del
 héroe queda visible con margen suficiente respecto al header fijo.
 Commit `de8473c`.
+
+**Corrección (2026-09-18, mismo día):** aún más corto — se sacaron
+también el logo, la fila de Ubicación, y se achicó la flecha del CTA
+(60px → 32px) en mobile. Queda: Navegación, "Agenda tu Evaluación" +
+WhatsApp, y el copyright. Commit `6d64cbe`.

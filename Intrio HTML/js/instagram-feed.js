@@ -15,6 +15,7 @@
     var FEED_ENABLED = true;
 
     var FEED_URL = "https://feeds.behold.so/JFUk6w8OjnGTC89TC1vn";
+    var POSTS_TO_SHOW = 3; // de los últimos posts, se muestran los N con más interacción
     var CACHE_KEY = "vitelia-ig-feed-cache-v1";
     var CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 horas, para no gastar vistas del plan gratis
     var MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
@@ -27,7 +28,7 @@
     function splitCaption(caption) {
         var texto = (caption || "").trim();
         var partes = texto.split(/\n+/).filter(Boolean);
-        var titulo = (partes[0] || "Instagram").slice(0, 70);
+        var titulo = (partes[0] || "Instagram").slice(0, 110);
         var resto = partes.slice(1).join(" ").trim() || partes[0] || "";
         var extracto = resto.slice(0, 140);
         if (resto.length > 140) extracto += "...";
@@ -46,7 +47,7 @@
                         '<a href="' + post.permalink + '" target="_blank" rel="noopener" class="d-block abs w-100 h-100 top-0 start-0"></a>' +
                     '</div>' +
                     '<div class="pt-4">' +
-                        '<h3><a class="text-dark blog-title-1line" href="' + post.permalink + '" target="_blank" rel="noopener">' + partes.titulo + '</a></h3>' +
+                        '<h3><a class="text-dark ig-title-2line" href="' + post.permalink + '" target="_blank" rel="noopener">' + partes.titulo + '</a></h3>' +
                         '<p class="mb-3">' + partes.extracto + '</p>' +
                         '<div class="relative">' +
                             '<img src="images/brand/logo-vitelia.png" class="w-20px me-2 circle" alt="Clínica Vitelia">' +
@@ -59,10 +60,20 @@
         );
     }
 
+    function engagement(post) {
+        return (post.likeCount || 0) + (post.commentsCount || 0);
+    }
+
+    function mejoresPosts(posts) {
+        return posts.slice().sort(function (a, b) {
+            return engagement(b) - engagement(a);
+        }).slice(0, POSTS_TO_SHOW);
+    }
+
     function render(posts) {
         var grid = document.getElementById("ig-feed-grid");
         if (!grid || !posts || !posts.length) return;
-        grid.innerHTML = posts.slice(0, 6).map(tarjetaHTML).join("");
+        grid.innerHTML = mejoresPosts(posts).map(tarjetaHTML).join("");
     }
 
     function fromCache() {

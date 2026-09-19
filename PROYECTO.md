@@ -669,3 +669,21 @@ prueba (390px) requirió forzar recarga del `<link>` de la hoja de
 estilos con un query string cache-buster (`?bust=timestamp`) — el
 `<link>` normal seguía sirviendo una versión cacheada del CSS pese a
 recargar el HTML del iframe con su propio cache-buster.
+
+**Corrección (2026-09-19):** dos pedidos más de Rodolfo sobre el
+acordeón de Tratamientos en mobile:
+
+1. "Ver todos los tratamientos" se veía distinto (era un botón
+   `btn-line`) — ahora es un `<h4><a>` más, igual que las 4
+   categorías, funcionando como una quinta subcategoría.
+2. Cada fila mostraba un borde doble: el `<a>` dentro del `<h4>`
+   heredaba su propio `border-bottom` de una regla genérica de Intrio
+   para links de submenú (`rgba(255,255,255,.1)`, indentado, corto),
+   además del border-bottom que le dimos al contenedor de la
+   categoría (ancho completo). Se anula el del `<a>` — queda un solo
+   borde limpio por fila. Diagnosticado con `elementFromPoint` +
+   `getBoundingClientRect` en vez de `getComputedStyle` en cascada,
+   que venía dando lecturas poco confiables en el iframe de prueba de
+   este entorno.
+
+Commit `d8003fd`.

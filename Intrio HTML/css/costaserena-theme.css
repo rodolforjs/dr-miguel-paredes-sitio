@@ -155,7 +155,11 @@ footer .widget h3 {
    CTA "Agenda tu Evaluación" y WhatsApp, más el copyright. En desktop
    el footer completo no cambia. */
 @media only screen and (max-width: 767px) {
-  footer .row.g-4.justify-content-between > .col-md-6:first-child > img {
+  footer {
+    padding-top: 50px;
+  }
+  footer .row.g-4.justify-content-between > .col-md-6:first-child > img,
+  footer .row.g-4.justify-content-between > .col-md-6:first-child > .spacer-single {
     display: none;
   }
   footer .row.g-4.justify-content-between > .col-md-6:first-child .row.g-4 > .col-md-6:nth-child(2) {
@@ -165,7 +169,7 @@ footer .widget h3 {
     display: none;
   }
   footer .row.g-4.justify-content-between > .col-md-6:nth-child(2) .widget > :nth-child(-n+3),
-  footer .row.g-4.justify-content-between > .col-md-6:nth-child(2) .widget > :nth-last-child(-n+3) {
+  footer .row.g-4.justify-content-between > .col-md-6:nth-child(2) .widget > :nth-last-child(-n+4) {
     display: none;
   }
   footer a[href="consultation.html"] img {

@@ -687,3 +687,11 @@ acordeón de Tratamientos en mobile:
    este entorno.
 
 Commit `d8003fd`.
+
+**Corrección (2026-09-19, mismo día):** las categorías de Tratamientos
+tenían un borde inferior propio que "Más" no tenía — "Más" heredaba
+otro distinto (indentado, de `#mainmenu li li a { border-bottom:
+solid 1px rgba(255,255,255,.1) }`, regla genérica de Intrio, visible
+en todos los ítems salvo el último por el `:last-child`). Se quitan
+ambos tipos de línea por completo — ninguna de las dos listas tiene
+ahora borde entre ítems, quedan idénticas. Commit `6723cab`.

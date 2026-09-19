@@ -504,3 +504,22 @@ mismos 3 links (Sobre Nosotros, Preguntas Frecuentes, Testimonios).
 Verificado visualmente: el dropdown ahora es una caja chica pegada al
 link "Más", sin la tarjeta ni el layout de 2 columnas. Commit
 `5008a12`.
+
+## Mega-menu de Tratamientos: caja compacta (2026-09-18)
+
+Tras achicar el dropdown "Más", Rodolfo pidió aplicar el mismo
+espíritu al mega-menu "Tratamientos" — pero a diferencia de "Más",
+pidió explícitamente **mantener el agrupamiento por categoría**
+("yo lo dejaría agrupado a lo ancho"), no aplanarlo a una lista.
+
+Por defecto el `.mega` de Intrio usa `position:fixed; width:100%`
+(ocupa toda la ventana). Se agregó override CSS solo para desktop
+(`header:not(.header-mobile) #mainmenu>li ul.mega.mega-tratamientos`)
+que lo angosta a una caja fija de 700px, `position:absolute`,
+centrada bajo el link — aprovechando que `#mainmenu li` ya tiene
+`position:relative`. El CSS mobile existente (lista plana integrada
+al menú oscuro, en la misma hoja) no se tocó. Verificado visualmente:
+la caja queda compacta, centrada, con las 4 columnas/categorías
+intactas. Cambio 100% en `costaserena-theme.css`, aplica
+automáticamente a las 23 páginas reales sin tocar el HTML. Commit
+`8cb729c`.

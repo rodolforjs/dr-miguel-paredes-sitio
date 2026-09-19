@@ -110,6 +110,18 @@ conflicto con una entrada vieja de PROYECTO.md.
   (personal, no `@viteliaclinic_`). Es cuenta profesional/Business — no
   intentar convertirla de nuevo ni sugerirlo, ya se decidió mantenerla como
   está.
+- **Menú "Tratamientos" en mobile: corto, 5 ítems fijos.** 4 tratamientos
+  específicos principales (Toxina Botulínica, Ácido Hialurónico, Endoláser,
+  Evaluación Personalizada → `consultation.html`) + "Ver todos los
+  tratamientos" → `services.html`. **No** los 11 tratamientos ni las 4
+  categorías — ya se intentó ambas cosas y Rodolfo las rechazó
+  explícitamente; el criterio es "mismo largo corto de siempre, pero con
+  tratamientos concretos en vez de categorías". Las 4 categorías con su
+  listado completo (`.col-lg-6.col-md-6` dentro de `.mega-tratamientos`)
+  solo se muestran en **desktop** — en mobile quedan ocultas por completo,
+  reemplazadas por los bloques `.mobile-featured-treatment`. Si se quiere
+  cambiar cuáles son los "4 principales", preguntar primero — no es obvio
+  cuáles son sin que Rodolfo lo confirme.
 - **Antes/después en páginas de tratamiento: usar siempre el carrusel
   reutilizable** (`js/before-after-carousel.js`, `.ba-carousel` con
   `data-pairs` en JSON), no un `twentytwenty-container` suelto a mano. Con
@@ -178,6 +190,21 @@ conflicto con una entrada vieja de PROYECTO.md.
      contenedor `.d-flex`, revisar esto primero antes de asumir que es
      un bug nuestro; se soluciona con `white-space: normal` +
      `min-width: 0` en el hijo con el texto, en `costaserena-theme.css`.
+   - Intrio trae `#mainmenu li li a { color: rgb(96,96,96) }` en su propio
+     `style.css` — cualquier link nuevo de 2 niveles de profundidad dentro
+     del nav que dependa de heredar el blanco de un `h4`/ancestro padre
+     puede salir gris/oscuro en vez de blanco, porque una regla que
+     apunta directo al `<a>` siempre le gana a la herencia, sin importar
+     la especificidad del ancestro. Declarar el color explícito (con
+     `!important` si hace falta) en vez de confiar en la herencia.
+   - `getComputedStyle()` sobre elementos dentro de un **iframe anidado**
+     (el usado para emular mobile) puede devolver valores obsoletos varias
+     veces seguidas, incluso después de confirmar por CSSOM que la regla
+     correcta está cargada y matchea el elemento — pasó varias veces en
+     esta sesión con `color`. Si `getComputedStyle` contradice lo que el
+     CSSOM dice que debería pasar, **confiar en el screenshot visual**, no
+     seguir depurando por ese lado — es un artefacto de este entorno, no
+     necesariamente un bug real del sitio.
    - Si se inyecta un `.twentytwenty-container` dinámicamente (no en la
      carga inicial de la página), hay que **precargar las imágenes**
      (`new Image()` + esperar `onload`) antes de llamar a `.twentytwenty()`

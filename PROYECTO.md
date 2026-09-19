@@ -1143,11 +1143,21 @@ Rodolfo mandó capturas de dos problemas en mobile:
    Masculina) sin los tratamientos específicos debajo — una
    simplificación deliberada del 2026-09-18 para acortar el menú, que
    ya no encajaba con el criterio del sitio (categorías = filtros y
-   nav, tratamientos específicos = lo que se muestra). Se revirtió:
-   ahora el acordeón mobile muestra los 11 tratamientos bajo cada
-   categoría, con el nombre de categoría como etiqueta visual (más
-   chica, en mayúsculas, sin click) en vez de link. Un solo cambio en
-   `costaserena-theme.css` (selector compartido por las 25 páginas).
+   nav, tratamientos específicos = lo que se muestra).
+   **Primer intento (revertido):** mostrar los 11 tratamientos bajo
+   cada categoría en el acordeón — Rodolfo aclaró que no era eso, el
+   acordeón debía mantenerse **corto** como antes.
+   **Versión correcta:** se conserva el largo original (4 ítems + "Ver
+   todos los tratamientos"), pero los 4 ítems dejan de ser categorías
+   y pasan a ser **4 tratamientos específicos principales**: Toxina
+   Botulínica, Ácido Hialurónico, Endoláser y Evaluación Personalizada
+   (esta última → `consultation.html`). Las 4 secciones de categoría
+   con su listado completo solo se ven en desktop (mega-menu
+   compacto ya las agrupa de una vista); en mobile se ocultan del todo
+   y se muestran en su lugar 4 bloques nuevos `.mobile-featured-treatment`
+   + el bloque "Ver todos" ya existente. Cambio en `costaserena-theme.css`
+   + un bloque de HTML nuevo repetido en las 25 páginas (script Python,
+   verificado 25/25).
 2. **Tarjeta CTA de los artículos del blog** ("¿Tienes dudas sobre tu
    caso?") cortaba el texto en mobile en vez de pasar a la línea
    siguiente. Investigando la causa real (no algo que hubiéramos
@@ -1171,4 +1181,22 @@ necesite verificar scroll en este sitio.
 
 Verificado visualmente en iframe de 390px (about.html para el menú,
 blog-plasmage.html para la tarjeta CTA), con cache-busting del
-`<link>` de CSS en cada paso. Commit `29332f0`.
+`<link>` de CSS en cada paso. Commit `29332f0` (corrección del menú
+mobile en `d4fd920`, ver sección siguiente).
+
+**Corrección (mismo día):** al mostrar los 11 tratamientos en el
+acordeón, quedó claro que Rodolfo quería el largo original (4 + "Ver
+todos"), solo cambiando categorías por tratamientos específicos —
+implementado como se describe arriba. Bug adicional encontrado en el
+camino: el color blanco de estos links dependía de herencia desde el
+`h4` padre, pero Intrio trae su propia regla `#mainmenu li li a` con
+color gris que le ganaba a la herencia — se declaró el color blanco
+explícito con `!important` en vez de confiar en la cascada. **Nota de
+depuración:** en este entorno, `getComputedStyle()` sobre elementos
+dentro de un iframe anidado dio lecturas obsoletas/incorrectas varias
+veces seguidas (mostraba un color viejo pese a que el DOM/CSSOM
+confirmaban el valor correcto) — el screenshot visual fue la única
+fuente confiable para verificar esto, no confiar ciegamente en
+`getComputedStyle` dentro de iframes anidados en este entorno.
+Verificado visualmente en mobile (390px) y desktop (1400px, hover del
+mega-menu). Commit `d4fd920`.

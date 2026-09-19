@@ -565,3 +565,15 @@ Commit `de8473c`.
 también el logo, la fila de Ubicación, y se achicó la flecha del CTA
 (60px → 32px) en mobile. Queda: Navegación, "Agenda tu Evaluación" +
 WhatsApp, y el copyright. Commit `6d64cbe`.
+
+## Chips de filtro (services.html) con scroll horizontal en mobile (2026-09-18)
+
+Rodolfo notó que los 5 chips de filtro de `services.html` (#filters)
+envolvían en varias filas en mobile, ocupando mucho alto, y propuso
+scroll horizontal en su lugar. De acuerdo — es el patrón estándar para
+filtros/categorías en mobile (ahorra espacio vertical, mantiene todo
+al alcance de un swipe). Implementado con `display:flex; flex-wrap:
+nowrap; overflow-x:auto` solo en mobile (≤767px); desktop sigue
+envolviendo igual que antes. Verificado: contenido de 984px en un
+contenedor visible de 344px, confirmando el scroll horizontal
+funciona. Commit `2f79378`.

@@ -860,3 +860,73 @@ contenido distinto):**
 Verificado visualmente con servidor local + Claude-in-Chrome en
 `about.html`, `index.html` y `tratamiento-antienvejecimiento.html`.
 Commit `84bc47e`.
+
+## Foto real en tarjeta "¿Hombres con pechos?" del inicio (2026-09-19)
+
+Se reemplazó la foto placeholder por una foto real de torso (paciente,
+consentimiento confirmado por Rodolfo antes de usarla). Nuevo archivo
+`images/real/torso-ginecomastia.webp`. Commit `80c2dbf`.
+
+## Ubicación cambiada de Concón a La Ligua (2026-09-19)
+
+Reemplazo transversal de las 104 menciones de "Concón" por "La Ligua"
+en las 23 páginas reales (títulos, meta descriptions, direcciones,
+copy). "V Región" se mantuvo igual — La Ligua también pertenece a esa
+región. Commit `f299a61`.
+
+## Endoláser y Remodelado de Glúteos + rediseño del inicio (2026-09-19)
+
+El Dr. Paredes envió capturas de la web pidiendo sumar tratamientos
+que "faltaban": Endoláser (bajo la tarjeta de Estética Masculina) y
+Remodelado de Glúteos (bajo Estética Corporal). Antes de implementar
+se verificó que ambos fueran reales y no inventados:
+
+- **Endoláser**: lipólisis láser no quirúrgica (fibra óptica que licúa
+  grasa localizada). Confirmado en dos frentes: (1) es una técnica
+  documentada, usada específicamente para pseudoginecomastia; (2) el
+  propio Dr. Paredes ya la menciona en su Instagram como uno de sus 4
+  pilares ("Toxina botulínica, ácido hialurónico, bioestimuladores y
+  Endoláser"). Riversso (competidor de Concón, referente de
+  información del proyecto) la lista como "Endoláser - Ginecomastia",
+  la misma técnica que ellos usan para tratar esa condición.
+- **Remodelado de Glúteos**: categoría real del mercado chileno de
+  medicina estética (ácido hialurónico/PLA inyectable tipo Lanluma, o
+  lipoescultura), coherente con lo que el Dr. Paredes ya ofrece
+  (Ácido Hialurónico, Alidya). No aparece todavía en su Instagram ni
+  en Riversso como tratamiento propio — parece ser algo que el doctor
+  quiere empezar a ofrecer/comunicar, autorizado directamente por él.
+
+Antes de tocar código se le preguntó a Rodolfo un comentario ambiguo
+del doctor ("Allí coloca estética corporal" sobre la tarjeta de
+Estética Facial) — aclaró que en realidad se refería a repensar el
+inicio: mostrar tratamientos específicos en vez de categorías
+agrupadas, dejando las categorías como filtros dentro de
+`services.html` (que ya existían ahí desde antes, no hubo que
+tocarlos).
+
+**Implementado:**
+- 2 páginas nuevas: `tratamiento-endolaser.html` (Estética Masculina,
+  con link cruzado a Ginecomastia para el caso con componente
+  glandular) y `tratamiento-remodelado-gluteos.html` (Estética
+  Corporal). Foto real reusada: `images/real/servicio-laser-fibra.webp`
+  (foto real del Dr. Paredes sosteniendo la fibra láser, ya existía sin
+  usar) para Endoláser; `images/real/servicio-corporal-cutout.webp`
+  (reusada una 3ra vez) para Remodelado de Glúteos.
+- Nav mega-menu y panel off-canvas "Tratamientos" actualizados en las
+  23 páginas reales existentes (ahora 25 páginas reales en total).
+- `services.html`: 2 tarjetas nuevas con sus clases de filtro Isotope
+  (`.masculina`, `.corporal`) — confirmado que el filtrado sigue
+  funcionando.
+- **Inicio:** el carrusel "Nuestras Especialidades" pasó de mostrar 4
+  categorías (Facial/Corporal/Longevidad/Masculina) a mostrar 6
+  tratamientos específicos: Evaluación Personalizada, Ácido
+  Hialurónico, Toxina Botulínica, Endoláser, Remodelado de Glúteos,
+  Plasmage. Ginecomastia quedó fuera de esta lista a propósito (el
+  Endoláser la cubre/referencia en su propia página). La elección de
+  cuáles 6 mostrar fue criterio propio dentro de lo acordado con
+  Rodolfo — puede ajustarse si pide otra combinación.
+
+Verificado visualmente con servidor local + Claude-in-Chrome: carrusel
+del inicio (las 6 tarjetas, incluido Endoláser vía flecha del
+carrusel), ambas páginas nuevas, mega-menu en `about.html`, y filtros
+Isotope de `services.html`. Commit `347ce1b`.

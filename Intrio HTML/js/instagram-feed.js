@@ -8,6 +8,12 @@
  * se rompe ni queda vacía.
  */
 (function () {
+    // Interruptor manual: en false, no se hace ningún fetch a Behold y la
+    // sección se queda con las 3 tarjetas estáticas del HTML — útil para
+    // apagar el feed en vivo mientras el sitio esté en pruebas (GitHub
+    // Pages) y no se quiera gastar vistas del plan gratis todavía.
+    var FEED_ENABLED = true;
+
     var FEED_URL = "https://feeds.behold.so/JFUk6w8OjnGTC89TC1vn";
     var CACHE_KEY = "vitelia-ig-feed-cache-v1";
     var CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 horas, para no gastar vistas del plan gratis
@@ -80,6 +86,8 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
+        if (!FEED_ENABLED) return;
+
         var cached = fromCache();
         if (cached) {
             render(cached);

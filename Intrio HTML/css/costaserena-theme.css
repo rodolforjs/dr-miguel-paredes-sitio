@@ -197,7 +197,7 @@ footer .widget h3 {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  color: var(--body-font-color);
+  color: rgba(255, 255, 255, .85);
 }
 
 /* en mobile el header pasa a position:fixed y opaco (header.header-mobile

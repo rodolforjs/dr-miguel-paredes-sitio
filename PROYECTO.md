@@ -459,3 +459,10 @@ sus dos usos: el carrusel de 4 categorías del inicio y la grilla de 9
 tratamientos de `services.html`. Verificado visualmente en ambas
 páginas — todas las tarjetas quedan con la misma altura. Commit
 `a8aa2a6`.
+
+**Corrección (2026-09-18, mismo día):** Rodolfo primero pidió no tocar
+services.html, luego cambió de opinión y pidió que también quedara
+parejo ahí ("pasemoslo a service también, que sean todas iguales") —
+`.treatment-thumb` está de vuelta en las 9 fotos de `services.html`,
+igual que en el carrusel del inicio. Verificado visualmente: las 9
+tarjetas de la grilla quedan con la misma altura. Commit `100ad12`.

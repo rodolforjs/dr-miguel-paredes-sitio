@@ -643,3 +643,13 @@ cambia — la caja compacta de 700px sigue mostrando las 4 categorías
 con sus tratamientos completos. Verificado en viewport móvil real y
 en desktop (`display:block` vs `none` en el listado de ítems). Commit
 `0610d0f`.
+
+**Corrección (2026-09-19):** las 4 categorías se veían en mayúscula y
+negrita (heredaban el estilo de encabezado `<h4>` del sitio,
+`--heading-text-transform: uppercase`), inconsistente con los ítems
+planos de "Más" (Sobre Nosotros, etc. — normal, sin mayúsculas, 14px,
+que es el patrón original de Intrio para submenús simples). Igualado
+el estilo del `<h4>` de categoría al de esos ítems (font-weight:400,
+text-transform:none, 14px, mismo borde inferior). Solo mobile —
+desktop conserva el h4 bold/uppercase, que ahí sí se ve bien como
+encabezado de columna. Commit `02c9fba`.

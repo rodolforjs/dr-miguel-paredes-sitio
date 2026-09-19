@@ -620,3 +620,26 @@ verificado contra el template original intacto):
   página completa) — también de fábrica.
 
 Commit `16e7fe3`.
+
+## Acordeón de Tratamientos resumido en mobile (2026-09-18)
+
+Rodolfo propuso, tras la auditoría anterior, mostrar solo las 4
+categorías más un "Ver más" en vez de las 9 fichas de tratamiento
+siempre expandidas. Implementado:
+
+- Los 4 encabezados de categoría (`<h4>`) ahora son links a
+  `services.html` (antes texto plano) — en las 23 páginas reales.
+- Se agregó un botón "Ver todos los tratamientos" al final del
+  mega-menu, con clase `d-lg-none` (Bootstrap: oculto en desktop,
+  visible en mobile) — no hace falta CSS propio para ese toggle.
+- CSS mobile (≤992px): se oculta la lista de ítems individuales de
+  cada categoría (`.row > div > ul`), dejando solo los 4 nombres +
+  el botón.
+
+Resultado: el acordeón de Tratamientos pasa de 13 líneas (4
+categorías + 9 tratamientos) a solo 5 (4 categorías + botón), y
+"Más"/"Blog"/"Contacto" quedan a la vista sin scroll extra. Desktop no
+cambia — la caja compacta de 700px sigue mostrando las 4 categorías
+con sus tratamientos completos. Verificado en viewport móvil real y
+en desktop (`display:block` vs `none` en el listado de ítems). Commit
+`0610d0f`.

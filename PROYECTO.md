@@ -466,3 +466,15 @@ parejo ahí ("pasemoslo a service también, que sean todas iguales") —
 `.treatment-thumb` está de vuelta en las 9 fotos de `services.html`,
 igual que en el carrusel del inicio. Verificado visualmente: las 9
 tarjetas de la grilla quedan con la misma altura. Commit `100ad12`.
+
+## Nombre real en la firma "Sobre el Doctor" (2026-09-18)
+
+El bloque de firma bajo la foto/bio ("Sobre el Doctor", tanto en el
+inicio como en about.html) mostraba el nombre placeholder "John Smith"
+bajo la imagen de firma (`images/misc/signature.webp`). Rodolfo pidió
+cambiarlo — a diferencia del carrusel "Nuestro Equipo" (que sí se deja
+igual a propósito, ver nota de sesión anterior), esta firma es del
+propio Dr. Paredes, no un placeholder de equipo futuro. Cambiado a
+"Dr. Miguel Paredes Soto" en ambas páginas. El carrusel "Nuestro
+Equipo" de about.html sigue con "Anna Charline"/"John Smith" intacto,
+sin tocar. Commits `2640022` (inicio), `6cf06e3` (about.html).

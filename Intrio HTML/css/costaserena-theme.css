@@ -172,3 +172,21 @@ footer .widget h3 {
     width: 32px;
   }
 }
+
+/* chips de filtro de services.html (#filters): en mobile envolvían en
+   varias filas y ocupaban mucho alto — se convierten en una fila con
+   scroll horizontal, patrón estándar para filtros en mobile */
+@media only screen and (max-width: 767px) {
+  #filters {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+  #filters li {
+    flex: 0 0 auto;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+}

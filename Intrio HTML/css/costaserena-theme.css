@@ -137,6 +137,15 @@ header:not(.header-mobile) #mainmenu>li ul.mega.mega-tratamientos .container {
   max-width: none;
   padding: 0;
 }
+/* con la caja angosta (480px) los nombres de categoría más largos
+   ("Estética Corporal", "Medicina de la Longevidad") se cortaban en
+   2 líneas, rompiendo la alineación de la grilla 2x2 — se reduce el
+   tamaño y el letter-spacing para que todos entren en 1 línea */
+header:not(.header-mobile) #mainmenu>li ul.mega.mega-tratamientos h4 {
+  font-size: 15px;
+  letter-spacing: normal;
+  white-space: nowrap;
+}
 
 /* fotos de tarjetas de blog: origen con proporciones muy distintas
    (retratos verticales, fotos de eventos horizontales) — se recortan

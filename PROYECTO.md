@@ -523,3 +523,40 @@ la caja queda compacta, centrada, con las 4 columnas/categorías
 intactas. Cambio 100% en `costaserena-theme.css`, aplica
 automáticamente a las 23 páginas reales sin tocar el HTML. Commit
 `8cb729c`.
+
+## Footer resumido en mobile + título tapado detrás del header fijo (2026-09-18)
+
+Rodolfo reportó dos problemas de mobile con capturas: (1) el footer se
+ve muy extenso en mobile, pidió sacar Tratamientos/redes
+sociales/correo y dejarlo simple; (2) en las páginas de tratamiento
+el título (`<h1>`) del héroe se ve "apretado" y "perdido" — solo se
+veía el breadcrumb.
+
+**Causa del título perdido (afecta las 23 páginas reales, no solo
+tratamientos):** en mobile el header pasa a `position:fixed` y opaco
+(`header.header-mobile` en `style.css`, sin tocar). El div
+`spacer-double` que normalmente separa el `<h1>` del borde superior se
+oculta completo con `.sm-hide` en el mismo breakpoint (≤992px) — sin
+ese espaciador, el `<h1>` queda literalmente detrás del header fijo.
+Se agregó override en `costaserena-theme.css` que en vez de
+`display:none` le da 100px de alto en mobile, suficiente para despejar
+el header (medido: header ~100px de alto en 384px de ancho). Es un fix
+transversal (mismo componente de héroe compartido) — beneficia a las
+23 páginas reales, no solo a las de tratamiento que fueron las
+reportadas.
+
+**Footer resumido:** en mobile (≤767px, breakpoint donde el footer ya
+pasa a una sola columna) se ocultan con CSS (selectores estructurales
+por posición, sin tocar el HTML de las 23 páginas): el widget
+"Tratamientos" (ya redundante con el nav), el bloque de íconos
+sociales, y la fila completa de Email (label + valor + espaciador).
+Quedan: Navegación, el CTA "Agenda tu Evaluación", WhatsApp, Ubicación
+y el copyright. El footer de escritorio no cambia.
+
+Verificado con `getComputedStyle` dentro de un iframe a 384px de ancho
+(el `resize_window` de la extensión de Chrome no reduce el viewport
+real de la pestaña — hay que usar un iframe angosto para emular mobile
+de forma confiable) — confirmado que los 3 elementos quedan
+`display:none` en mobile y `block` en desktop, y que el `<h1>` del
+héroe queda visible con margen suficiente respecto al header fijo.
+Commit `de8473c`.

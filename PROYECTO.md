@@ -437,3 +437,25 @@ tratamiento que corresponde. Encontrado y corregido:
   radiación UV cita el Ministerio del Medio Ambiente). Sería bueno
   agregar la fuente o confirmar que es un dato de dominio público que
   no necesita cita.
+
+## Altura uniforme de fotos de tratamientos (2026-09-18)
+
+Rodolfo notó que las fotos del carrusel de "Nuestras Especialidades"
+(inicio) se veían de alturas distintas entre sí (efecto del carrusel
+`owl-4-cols-center`, pero la causa real era que las fotos de
+`images/services/*.webp` tienen relaciones de aspecto muy distintas —
+desde 1.33 hasta 1.90 — y las tarjetas no recortaban a una altura
+pareja). Pidió que todas midieran lo mismo, un promedio entre la más
+grande y la más chica actuales, cuidando la responsividad.
+
+Se agregó `.treatment-thumb` en `costaserena-theme.css` con
+`aspect-ratio: 1 / 1.618` (promedio medido en ambos contextos donde se
+usan estas fotos) en vez de una altura fija en px — a diferencia de
+`.blog-thumb-fixed` (que sí es una altura fija de 480px), `aspect-ratio`
+escala de forma fluida en cualquier ancho de columna o viewport, así
+que no hace falta media queries para que se vea bien en mobile/tablet/
+desktop. Aplicada a las mismas 9 fotos (`images/services/1-9.webp`) en
+sus dos usos: el carrusel de 4 categorías del inicio y la grilla de 9
+tratamientos de `services.html`. Verificado visualmente en ambas
+páginas — todas las tarjetas quedan con la misma altura. Commit
+`a8aa2a6`.

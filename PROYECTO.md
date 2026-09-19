@@ -478,3 +478,14 @@ propio Dr. Paredes, no un placeholder de equipo futuro. Cambiado a
 "Dr. Miguel Paredes Soto" en ambas páginas. El carrusel "Nuestro
 Equipo" de about.html sigue con "Anna Charline"/"John Smith" intacto,
 sin tocar. Commits `2640022` (inicio), `6cf06e3` (about.html).
+
+## Dropdown "Más": quitar columna Tratamientos repetida (2026-09-18)
+
+Rodolfo notó que el dropdown "Más" del nav repetía la lista de
+tratamientos que ya está completa en el mega-menu "Tratamientos" de al
+lado (4 categorías). Se quitó esa columna en las 23 páginas reales y
+las 2 columnas restantes (Sobre Nosotros/FAQ/Testimonios + tarjeta de
+contacto) pasaron de `col-lg-4` a `col-lg-6` para repartirse el
+espacio libre. Verificado visualmente: el dropdown queda con 2
+columnas balanceadas, sin aire de más ni contenido redundante. Commit
+`38a95f8`.

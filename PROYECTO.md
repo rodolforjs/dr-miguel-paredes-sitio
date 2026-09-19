@@ -930,3 +930,52 @@ Verificado visualmente con servidor local + Claude-in-Chrome: carrusel
 del inicio (las 6 tarjetas, incluido Endoláser vía flecha del
 carrusel), ambas páginas nuevas, mega-menu en `about.html`, y filtros
 Isotope de `services.html`. Commit `347ce1b`.
+
+## Feed de Instagram en vivo (2026-09-19)
+
+Rodolfo pidió sincronizar la sección "Síguenos" del inicio con
+Instagram real, pero **manteniendo nuestro propio CSS** (no el diseño
+de un widget externo). Recorrido de opciones evaluadas antes de
+implementar:
+
+- **Graph API oficial de Meta directo:** requiere cuenta Business/
+  Creator (la cuenta `@dr.miguelparedes_` ya lo es — se confirmó vía
+  captura de "Cuenta profesional" con categoría "Médico(a)"), pero el
+  token expira cada 60 días y este sitio es estático (GitHub Pages,
+  sin backend) — se descartó por complejidad de mantenimiento salvo
+  que se arme una GitHub Action, que no se llegó a construir.
+- **Widgets con diseño propio (SnapWidget, Elfsight, Juicer):**
+  descartados porque imponen su propio HTML/CSS — no cumplían el
+  requisito de mantener el diseño Costa Serena.
+- **Fouita (scraping sin login):** se probó en vivo con
+  `@dr.miguelparedes_` y falló (`TypeError: Failed to fetch` en
+  consola) — confirma el riesgo de confiabilidad de las herramientas
+  de scraping sin autenticación oficial.
+- **Elegido: Behold.so** (behold.so) — se conecta una vez vía OAuth
+  oficial con Instagram (lo autorizó Rodolfo, quien tiene acceso a la
+  cuenta) y entrega los posts en **JSON crudo** en una URL propia
+  (`https://feeds.behold.so/JFUk6w8OjnGTC89TC1vn`), sin imponer diseño.
+  Plan gratis: 6 posts más recientes, actualización 1 vez al día,
+  1.200 vistas/mes (una "vista" = una petición a esa URL).
+
+**Implementado:** `js/instagram-feed.js` — hace `fetch()` al JSON de
+Behold, renderiza cada post con el mismo HTML/CSS que ya usaban las 3
+tarjetas escritas a mano (`blog-thumb-fixed`, mismo layout de fecha/
+avatar/handle). Cachea la respuesta en `localStorage` 6 horas para no
+gastar vistas del plan gratis en cada recarga durante el desarrollo o
+con tráfico normal. **Degradación segura:** si el fetch falla por
+cualquier motivo, las 3 tarjetas estáticas originales quedan tal cual
+estaban en el HTML — nunca se reemplazan a un estado rotos/vacío.
+
+Verificado visualmente con servidor local: las 6 tarjetas cargan con
+fotos, captions, fecha y likes reales de Instagram, con el diseño
+Costa Serena intacto. Commit `6d4856d`.
+
+**Pendiente/a tener en cuenta:**
+- Si en algún momento se supera el límite de 1.200 vistas/mes de
+  Behold (poco probable con el tráfico actual), el feed deja de
+  actualizarse hasta el mes siguiente — cae al fallback estático, no
+  rompe el sitio.
+- La URL del feed de Behold (`feeds.behold.so/JFUk6w8OjnGTC89TC1vn`)
+  queda pública en el código fuente del repo (no es sensible — solo
+  expone datos que ya son públicos en el perfil de Instagram).

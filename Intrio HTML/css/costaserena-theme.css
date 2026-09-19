@@ -149,18 +149,26 @@ footer .widget h3 {
   }
 }
 
-/* footer resumido en mobile: se quita el widget "Tratamientos" (ya
-   repetido en el nav), los íconos sociales y la fila de Email —
-   queda Navegación, el CTA "Agenda tu Evaluación", WhatsApp,
-   Ubicación y el copyright. En desktop el footer completo no cambia. */
+/* footer resumido en mobile: se quita el logo, el widget "Tratamientos"
+   (ya repetido en el nav), los íconos sociales, la fila de Email y la
+   de Ubicación, y se achica la flecha del CTA — queda Navegación, el
+   CTA "Agenda tu Evaluación" y WhatsApp, más el copyright. En desktop
+   el footer completo no cambia. */
 @media only screen and (max-width: 767px) {
+  footer .row.g-4.justify-content-between > .col-md-6:first-child > img {
+    display: none;
+  }
   footer .row.g-4.justify-content-between > .col-md-6:first-child .row.g-4 > .col-md-6:nth-child(2) {
     display: none;
   }
   footer .social-icons {
     display: none;
   }
-  footer .row.g-4.justify-content-between > .col-md-6:nth-child(2) .widget > :nth-child(-n+3) {
+  footer .row.g-4.justify-content-between > .col-md-6:nth-child(2) .widget > :nth-child(-n+3),
+  footer .row.g-4.justify-content-between > .col-md-6:nth-child(2) .widget > :nth-last-child(-n+3) {
     display: none;
+  }
+  footer a[href="consultation.html"] img {
+    width: 32px;
   }
 }

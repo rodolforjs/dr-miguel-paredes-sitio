@@ -72,6 +72,27 @@ header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div > ul > li
   border-bottom: solid 1px rgba(255, 255, 255, .1);
 }
 
+/* en desktop, el mega-menu de Tratamientos por defecto de Intrio ocupa
+   todo el ancho de la ventana (position:fixed + width:100%) — se
+   angosta a una caja fija centrada bajo el link, del mismo espíritu
+   "chico, lo necesario" que el dropdown de "Más", pero manteniendo
+   las 4 columnas agrupadas por categoría (a diferencia de "Más", acá
+   sí se pidió mantener el agrupamiento en vez de aplanarlo) */
+header:not(.header-mobile) #mainmenu>li ul.mega.mega-tratamientos {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: auto;
+  padding: 0;
+}
+header:not(.header-mobile) #mainmenu>li ul.mega.mega-tratamientos .container {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
 /* fotos de tarjetas de blog: origen con proporciones muy distintas
    (retratos verticales, fotos de eventos horizontales) — se recortan
    a una altura pareja para que las grillas no se vean irregulares */

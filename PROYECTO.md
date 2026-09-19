@@ -749,3 +749,9 @@ ya estaba arriba a la derecha, mostrándose ambos juntos con la misma
 interacción de hover (`hover-op-1`) que ya tenía la flecha. El texto
 de descripción pasó a blanco translúcido (antes gris, pensado para el
 fondo claro de la versión anterior). Commit `f612775`.
+
+**Corrección (2026-09-19, mismo día):** "Ver detalles" pasó a badge
+`bg-blur` en la esquina superior izquierda (mismo patrón que los
+badges "N Tratamientos" del carrusel de categorías del inicio), y la
+flecha vuelve a quedar sola en su esquina superior derecha original —
+ambos con la interacción hover-op-1. Commit `1bb7f3a`.

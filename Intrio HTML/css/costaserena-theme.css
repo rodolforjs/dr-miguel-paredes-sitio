@@ -38,11 +38,14 @@ img.jarallax-img {
    al menú oscuro en vez de la tarjeta blanca flotante que Intrio usa por
    defecto para sus mega-menús — mismo tratamiento visual que el resto de
    submenús planos (Projects, etc.) */
+header.header-mobile #mainmenu li ul.mega.mega-tratamientos > li {
+  padding-left: 0 !important;
+}
 header.header-mobile #mainmenu li ul.mega.mega-tratamientos .sb-menu {
   background: none;
   border: none;
   border-radius: 0;
-  padding: 0;
+  padding: 0 !important;
 }
 header.header-mobile #mainmenu li ul.mega.mega-tratamientos .container {
   padding-left: 0;

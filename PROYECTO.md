@@ -653,3 +653,19 @@ el estilo del `<h4>` de categoría al de esos ítems (font-weight:400,
 text-transform:none, 14px, mismo borde inferior). Solo mobile —
 desktop conserva el h4 bold/uppercase, que ahí sí se ve bien como
 encabezado de columna. Commit `02c9fba`.
+
+**Corrección (2026-09-19):** aunque las 4 categorías ya usaban el
+mismo tipo de letra que "Más", seguían viéndose distintas porque
+tenían ~39px de espacio extra entre cada fila (el gutter vertical de
+Bootstrap, `--bs-gutter-y: 1.8rem` de la clase `.g-4` aplicada al
+`row`), mientras que "Más" no tiene gap — solo el borde inferior como
+separador. Se resetean `--bs-gutter-x`/`--bs-gutter-y` a 0 en el
+`.row` del mega-menu de Tratamientos para mobile (más
+`margin-top:0 !important` de respaldo en las columnas). Ahora el
+ritmo vertical entre filas es idéntico al de "Más". Commit `f3cc87e`.
+
+Nota de depuración: verificar cambios de CSS dentro del iframe de
+prueba (390px) requirió forzar recarga del `<link>` de la hoja de
+estilos con un query string cache-buster (`?bust=timestamp`) — el
+`<link>` normal seguía sirviendo una versión cacheada del CSS pese a
+recargar el HTML del iframe con su propio cache-buster.

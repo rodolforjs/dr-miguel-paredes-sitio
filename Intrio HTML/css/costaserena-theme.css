@@ -53,9 +53,12 @@ header.header-mobile #mainmenu li ul.mega.mega-tratamientos .container {
 }
 header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row {
   margin: 0;
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
 }
 header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div {
-  padding: 0;
+  padding: 0 !important;
+  margin-top: 0 !important;
 }
 header.header-mobile #mainmenu li ul.mega.mega-tratamientos h4 {
   color: #fff;

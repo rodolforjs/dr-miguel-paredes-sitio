@@ -60,7 +60,11 @@ header.header-mobile #mainmenu li ul.mega.mega-tratamientos .row > div {
   padding: 0 !important;
   margin-top: 0 !important;
   border: none !important;
-  border-bottom: solid 1px rgba(255, 255, 255, .2) !important;
+}
+/* dropdown simple de "Más" (sin categorías, ul sin clase .mega): sin
+   línea divisoria entre ítems, igual que las categorías de arriba */
+header.header-mobile #mainmenu > li > ul:not(.mega) li a {
+  border-bottom: none;
 }
 header.header-mobile #mainmenu li ul.mega.mega-tratamientos h4 {
   color: #fff;

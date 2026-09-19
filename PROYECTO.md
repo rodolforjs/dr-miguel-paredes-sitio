@@ -577,3 +577,12 @@ nowrap; overflow-x:auto` solo en mobile (≤767px); desktop sigue
 envolviendo igual que antes. Verificado: contenido de 984px en un
 contenedor visible de 344px, confirmando el scroll horizontal
 funciona. Commit `2f79378`.
+
+**Corrección (2026-09-18, mismo día):** Rodolfo notó espacio vacío de
+más arriba y abajo en el footer resumido — causado por los
+espaciadores que quedaron huérfanos al ocultar logo/Ubicación
+(`.spacer-single` tras el logo, `.spacer-20` entre WhatsApp y
+Ubicación) más el `padding-top:100px` por defecto del footer (pensado
+para cuando el logo estaba visible). Se ocultan esos espaciadores y se
+reduce el padding a 50px en mobile. Alto total del footer bajó de
+~882px a ~576px (verificado con getComputedStyle). Commit `52e68cb`.

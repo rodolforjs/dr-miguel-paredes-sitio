@@ -979,3 +979,66 @@ Costa Serena intacto. Commit `6d4856d`.
 - La URL del feed de Behold (`feeds.behold.so/JFUk6w8OjnGTC89TC1vn`)
   queda pública en el código fuente del repo (no es sensible — solo
   expone datos que ya son públicos en el perfil de Instagram).
+
+**Ajustes posteriores (mismo día):** Rodolfo pidió mostrar solo los 3
+posts con más interacción de los últimos que trae Behold (no los 6),
+elegidos por `likeCount + commentsCount` en JS — nada hardcodeado, se
+recalcula cada vez que se actualiza el feed. También se agregó
+`.ig-title-2line` (line-clamp real a 2 líneas) porque `blog-title-1line`
+no recortaba nada, solo funcionaba porque los títulos escritos a mano
+ya eran cortos. Se agregó un interruptor `FEED_ENABLED` en
+`js/instagram-feed.js` para apagar el feed en vivo con un solo cambio
+mientras el sitio sigue en pruebas — queda en `true` hasta que Rodolfo
+confirme verlo funcionando en el sitio en vivo. Commits `3fd9081`,
+`9fb8338`.
+
+## Antes/después en el inicio + Proceso como sección propia (2026-09-19)
+
+Rodolfo conversó con el Dr. Paredes sobre mostrar fotos de antes/después
+en el inicio. Idea original: sacar la sección "Proceso" (Agenda→
+Evaluación→Tratamiento→Seguimiento, que estaba superpuesta a la foto del
+doctor en la sección de testimonios) y poner ahí las fotos de antes/
+después, una por cada testimonio.
+
+**Punto sensible que se conversó antes de implementar:** asociar una
+foto de antes/después a un testimonio específico (ej. "Alejandra Ch.")
+sin confirmar que sea la misma persona podría leerse como afirmar que
+ese resultado le pertenece a esa paciente exacta — atribución no
+verificada en un contexto médico. Se le presentó la disyuntiva a
+Rodolfo, quien decidió: mostrar la foto junto al testimonio pero **sin
+asociarla a un nombre puntual** — rota automáticamente cada vez que
+cambia el testimonio (manual o autoplay), es solo variedad visual, no
+una afirmación de correspondencia.
+
+**Implementado:**
+- Columna nueva (`col-md-5`) junto al carrusel de testimonios con un
+  slider interactivo de antes/después (`twentytwenty-container`,
+  divisor arrastrable) — reutiliza el componente que ya existía en 3
+  páginas de tratamiento, no se inventó uno nuevo.
+- `js/hero-before-after.js`: rota entre las parejas de fotos reales
+  cada vez que el carrusel de testimonios dispara `changed.owl.carousel`.
+  Solo rotan **entrecejo y mandíbula** (mismo formato apaisado
+  1440×692) — la pareja de Plasmage es un close-up vertical del párpado
+  con proporción totalmente distinta, así que se dejó fuera de esta
+  rotación para que la caja no cambie de tamaño en cada cambio (sigue
+  viéndose igual en su propia página de tratamiento).
+- Bug encontrado y arreglado: el plugin `twentytwenty` mide el alto de
+  la imagen "antes" en el momento del init — como las imágenes se
+  insertan dinámicamente (no en la carga inicial de la página), a
+  veces medía antes de que la imagen terminara de cargar y el
+  contenedor quedaba con alto 0. Se agregó precarga (`new Image()` +
+  `Promise.all`) antes de llamar a `.twentytwenty()`.
+- La sección "Proceso" pasó a ser su propia sección (franja oscura
+  "Cómo Funciona" / "Nuestro Proceso"), mismo patrón `bg-dark-1` ya
+  usado en las páginas de tratamiento — ya no compite visualmente con
+  la foto del doctor de fondo.
+- **Hallazgo de paso:** el plugin `twentytwenty` mostraba "Before"/
+  "After" en inglés al pasar el mouse por defecto — no era un problema
+  nuevo, ya estaba así en las 3 páginas de tratamiento que lo usan
+  desde antes. Corregido a "Antes"/"Después" en las 3 páginas
+  existentes + el bloque nuevo del inicio.
+
+Verificado visualmente: el slider funciona, rota correctamente al
+cambiar de testimonio (probado disparando el evento del carrusel
+manualmente), las etiquetas quedaron en español en las 4 ubicaciones.
+Commit `5e4d883`.

@@ -755,3 +755,12 @@ fondo claro de la versión anterior). Commit `f612775`.
 badges "N Tratamientos" del carrusel de categorías del inicio), y la
 flecha vuelve a quedar sola en su esquina superior derecha original —
 ambos con la interacción hover-op-1. Commit `1bb7f3a`.
+
+**Corrección (2026-09-19, mismo día):** con la caja angosta de 480px
+(fix del hover inestable), "Estética Corporal" y "Medicina de la
+Longevidad" se envolvían a 2 líneas mientras las otras 2 categorías
+quedaban en 1, rompiendo la alineación de la grilla 2×2. Se redujo el
+tamaño del `h4` de categoría (20px→15px) y el letter-spacing en este
+contexto — las 4 quedan siempre en una sola línea sin necesidad de
+volver a ensanchar la caja (que reabriría la superposición con Más/
+Blog/Contacto). Commit `c1ada06`.

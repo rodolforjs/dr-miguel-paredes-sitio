@@ -1094,3 +1094,42 @@ Verificado visualmente: contador y flechas funcionando en Ácido
 Hialurónico (2 parejas, clickeado "siguiente" y confirmado el cambio
 de foto), flechas ocultas correctamente en Antienvejecimiento y
 Plasmage (1 pareja cada uno). Commit `58c6fa2`.
+
+## Auditoría de copy: datos técnicos faltantes (2026-09-19)
+
+Rodolfo pidió completar lo que faltara del copy, con dos reglas
+explícitas: lo que se pudiera deducir con lo que ya sabíamos, y lo
+técnico investigarlo (luego autorizó usar clinicariversso.cl como
+referente de datos técnicos, contrastado con fuentes médicas
+generales — nunca copiando su texto textual, mismo patrón ya usado
+para la estructura del catálogo).
+
+**Completado (8 páginas de tratamiento):**
+- `[MIN]`/`[SEM]` (duración del procedimiento, recuperación estimada,
+  resultados visibles) en Antienvejecimiento, Endoláser, Ginecomastia,
+  Perfiloplastia, Plasmage y Remodelado de Glúteos — valores
+  investigados por tratamiento (ej. Endoláser 180 min según Riversso
+  para el mismo procedimiento; Ginecomastia 60-120 min y 4-6 semanas
+  de recuperación según fuentes de cirugía plástica; bioestimuladores/
+  Ácido Hialurónico 4-12 semanas de resultados progresivos).
+- El último ítem pendiente de "Contraindicaciones" en las 8 páginas
+  que ya tenían la lista parcialmente llena (o ambos ítems en las 3
+  que estaban vacías: Endoláser, Ginecomastia, Remodelado de Glúteos),
+  con contraindicaciones médicas estándar por tipo de tratamiento
+  (embarazo/lactancia, trastornos de coagulación, enfermedades
+  autoinmunes no controladas, etc.), contrastadas con las listas
+  reales de Riversso para tratamientos equivalentes.
+
+**Dejado intacto a propósito:** `[AÑOS]` y `[Nº]` en `about.html` e
+`index.html` (años de experiencia, pacientes atendidos) — son datos
+personales del Dr. Paredes, no deducibles ni investigables, siguen
+pendientes de que él los confirme directamente.
+
+El disclaimer "Lista referencial — debe ser revisada y confirmada por
+el Dr. Paredes antes de publicar" se mantiene sin cambios en las 8
+páginas — estos valores son referenciales/técnicos generales, no
+específicos de los pacientes reales del Dr. Paredes.
+
+Verificado visualmente y por JS que ningún `[MIN]`/`[SEM]`/
+`A COMPLETAR CON EL DR` quedó suelto en las 23+ páginas reales.
+Commit `9a88e08`.

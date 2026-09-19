@@ -726,3 +726,17 @@ párrafo de introducción que ya existía en cada página de tratamiento,
 nada inventado) + link "Ver detalles" reemplazando el solo-ícono de
 flecha sobre la imagen. Verificado en desktop (3 columnas) y mobile
 (1 columna, 372px). Commits `1c1c1f6` (hover) y `1f6e809` (tarjetas).
+
+**Corrección (2026-09-19, mismo día):** Rodolfo aclaró que quería
+todo dentro de la MISMA tarjeta (foto + descripción + CTA en un solo
+contenedor visual con UI cuidada), no solo el texto flotando sobre el
+fondo de la página debajo de la foto. Se investigó si Intrio traía
+algún componente pre-armado así — no lo tiene exactamente (su patrón
+de blog/servicios deja imagen y texto como elementos separados sobre
+el fondo), pero sí tiene las piezas sueltas para armarlo: el wrapper
+`bg-light rounded-1 overflow-hidden soft-shadow` que usa en otras
+cards del template (el carrusel de equipo de `about.html`). Se
+envolvió toda la tarjeta en ese wrapper — imagen, descripción y "Ver
+detalles" quedan dentro de una misma caja con fondo, esquinas
+redondeadas y sombra suave, igual que el referente que envió
+Rodolfo. Commit `93f600c`.

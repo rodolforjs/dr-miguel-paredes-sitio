@@ -162,6 +162,20 @@ conflicto con una entrada vieja de PROYECTO.md.
   los últimos que trae Behold, calculado en JS — nunca hardcodear cuáles
   posts mostrar.
 
+## Agenda de evaluaciones (Reservo)
+
+- `consultation.html` usa el `<iframe>` embed oficial de **Reservo**
+  (`agendamiento.reservo.cl/makereserva/agenda/<id-de-la-agenda>`), el
+  sistema de reservas que ya usa el Dr. Paredes. Reemplazó al formulario
+  de contacto original de Intrio, que apuntaba a `action-consultation.php`
+  — nunca funcionó en GitHub Pages (no hay backend PHP para procesarlo).
+- El `<id-de-la-agenda>` en la URL es específico de la cuenta del Dr.
+  Paredes — es un embed público, no requiere login de nadie para
+  funcionar en el sitio. Cualquier reserva hecha ahí cae directo en su
+  calendario real de Reservo.
+- Los 25 botones "Agendar Evaluación" transversales del sitio ya apuntan
+  a `consultation.html`, no hace falta tocarlos si se ajusta el widget.
+
 ## Flujo de verificación (antes de dar algo por terminado)
 
 1. Servidor local: `python3 -m http.server <puerto>` en `Intrio HTML/`.

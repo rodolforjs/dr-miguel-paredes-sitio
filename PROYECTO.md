@@ -1356,3 +1356,33 @@ vinculadas al sitio. Foto procesada desde `Recursos/WhatsApp Image
 `images/team/2.webp`/`3.webp` quedaron sin uso pero intactos (no se
 borran archivos, solo se dejan de referenciar). Verificado visualmente
 en `about.html`. Commit `283dbde`.
+
+**Seguimiento (mismo día):** Rodolfo pidió limpiar el texto de la
+tarjeta de Valeska para que se pareciera más a la UI original de
+Intrio (nombre corto + un solo rol, como "John Smith"/"Web
+Developer"). Se acortó el nombre a "Valeska Rojas" (sin segundo
+apellido), se dejó un solo rol principal ("Cosmetóloga Estética,
+Corporal & Terapéutica"), y las credenciales (Magíster + registro
+Minsal) bajaron a una línea secundaria más chica y gris (`fs-15 op-6`)
+en vez de competir en peso visual con el nombre. Commit `e7fe554`.
+
+## 2026-09-20 — Widget de agenda de Reservo en consultation.html
+
+Rodolfo mandó el snippet de embed de Reservo (`agendamiento.reservo.cl
+/makereserva/agenda/F0T9EBt0t0bg6w3J9Z62E880k3144i`) — el sistema de
+reservas que ya usa el Dr. Paredes — y preguntó si con eso bastaba o
+necesitaba credenciales. Aclarado: es un embed público, la URL ya
+contiene el identificador único de SU agenda real (no un demo), así
+que cualquier reserva hecha desde el sitio cae directo en su
+calendario de Reservo — no se necesita login de nadie para que
+funcione en el sitio.
+
+Se reemplazó el `<form>` de `consultation.html` (que apuntaba a
+`action-consultation.php`, un endpoint que nunca funcionó en GitHub
+Pages por no tener backend PHP — o sea, el formulario anterior nunca
+envió nada de verdad) por el `<iframe>` del widget, dentro de la misma
+tarjeta `bg-light rounded-1 p-40` que ya existía. Los 25 botones
+"Agendar Evaluación" del sitio ya apuntaban a esta página desde antes,
+no hubo que tocar nada transversal. Verificado visualmente: el widget
+carga el flujo real de 4 pasos (Selecciona Servicio → Profesional →
+Día y hora → Datos). Commit `825b7e2`.

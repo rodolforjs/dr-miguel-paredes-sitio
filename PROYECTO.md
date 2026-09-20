@@ -1285,3 +1285,57 @@ pendiente, "¿Qué incluye la evaluación inicial?", con la lista de 6
 del sitio). **Con esto, las 5 preguntas del FAQ quedan sin
 placeholders** — ya no queda ningún `[POR CONFIRMAR CON EL DR.
 PAREDES]` en `faq.html` ni `index.html`. Commit `cb07133`.
+
+## 2026-09-20 — Fotos reales de Ginecomastia/Evaluación Corporal/Alidya + contenido completo de "Sobre el Doctor"
+
+Rodolfo pasó fotos nuevas guardadas en `Recursos/` (workaround TCC de
+siempre) para reemplazar 3 imágenes de tratamiento:
+
+- **Ginecomastia y Evaluación Corporal:** ambas usan ahora la misma
+  foto (retrato de brazos cruzados, fondo negro) por instrucción
+  explícita de Rodolfo. Procesada desde `Recursos/IMG_3001.PNG` (PNG
+  con transparencia/viñeta), compuesta sobre negro sólido con PIL,
+  guardada como `images/real/retrato-brazos-cruzados.webp` (1200x1800,
+  calidad 88). Los archivos viejos (`servicio-cirugia.webp`, compartido
+  con 4 blog posts + index.html; `retrato-scrubs.webp`, exclusivo de
+  Evaluación Corporal) se dejaron intactos, solo se cambió la
+  referencia `<img>` de cada página de tratamiento.
+- **Alidya:** foto nueva del producto (`Recursos/IMG_3002.PNG`, cutout
+  con transparencia), compuesta sobre blanco sólido, guardada como
+  `images/real/servicio-alidya-producto.webp` (1200x1800, calidad 88).
+  El archivo viejo `servicio-corporal-cutout.webp` (compartido con
+  services.html, index.html y Remodelado de Glúteos) quedó intacto.
+- Tarjetas de `services.html` actualizadas también:
+  `images/services/3.webp` y `9.webp` ← retrato-brazos-cruzados.webp,
+  `images/services/7.webp` ← servicio-alidya-producto.webp (los 3
+  archivos son exclusivos de services.html, confirmado por grep antes
+  de sobreescribir).
+- Verificado visualmente: heroes de las 3 páginas de tratamiento y las
+  3 tarjetas correspondientes en `services.html`, sin regresiones en
+  tarjetas vecinas. Commit `5c4c81d`.
+
+**Mismo día — Sección "Sobre el Doctor" (about.html):** Rodolfo mandó
+por WhatsApp el texto completo que el Dr. Paredes quiere en esa
+sección (venía reemplazando el párrafo único que había antes) más una
+foto nueva (fondo blanco, brazos cruzados). Se diagramó como:
+
+- Línea de título "Dr. Miguel Paredes S. — Médico Cirujano" +
+  especialidad "Medicina Estética Facial & Corporal".
+- Párrafo de trayectoria (desde 2015, ciencia y arte, etc.) tal cual lo
+  mandó el doctor.
+- Lista `ul-check` con Experiencia ("Más de 10 años") y Formación
+  (Universidad del Zulia, Maracaibo, Venezuela).
+- Bloque "Certificaciones" con las 6 certificaciones en `ul-check`.
+- El placeholder `[AÑOS]` del contador de estadísticas más abajo se
+  actualizó a **"10+"** — ya no es un dato fabricado, es el que
+  confirmó el propio doctor en este mensaje.
+- Foto nueva procesada desde `Recursos/WhatsApp Image 2026-09-20 at
+  8.21.45 PM.jpeg` (960x1280, sin transparencia, ya fondo blanco),
+  reescalada a 1350x1800 (mismo ratio) y guardada como
+  `images/real/retrato-brazos-cruzados-blanco.webp`. El archivo que
+  usaba antes esa sección (`images/misc/s1.webp`) está compartido con
+  `project-single.html` e `index.html`, así que no se tocó — se creó
+  un archivo nuevo solo para `about.html`.
+- Verificado visualmente en `about.html` (foto, párrafo, listas y
+  contador "10+ Años de Experiencia"). Commit `5c4c81d` (mismo commit
+  que las fotos de tratamiento, se hizo un solo push agrupado).

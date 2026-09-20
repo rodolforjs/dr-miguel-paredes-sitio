@@ -1278,3 +1278,10 @@ correctos, 17 `<li>` en ambas páginas). Commit `46fdc14`.
 PAREDES]`) — el Dr. Paredes también atiende en Clínica Riversso, Av.
 Concón Reñaca 4000, Concón (mismo accordion compartido en `faq.html`
 e `index.html`). Commit `3c6da02`.
+
+**Seguimiento 2 (mismo día):** se completó la última respuesta
+pendiente, "¿Qué incluye la evaluación inicial?", con la lista de 6
+ítems que mandó el Dr. Paredes (mismo estilo `ul-check` que el resto
+del sitio). **Con esto, las 5 preguntas del FAQ quedan sin
+placeholders** — ya no queda ningún `[POR CONFIRMAR CON EL DR.
+PAREDES]` en `faq.html` ni `index.html`. Commit `cb07133`.

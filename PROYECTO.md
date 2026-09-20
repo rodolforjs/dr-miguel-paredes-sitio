@@ -1253,3 +1253,22 @@ PIL, ya que Pillow no tiene soporte HEIC instalado en este entorno.
 Verificado visualmente en las 4 ubicaciones (2 heroes + services.html
 + carrusel del inicio) y por JS (links de Gmail con target="_blank").
 Commit `58795f1`.
+
+## FAQ: catálogo completo de tratamientos (2026-09-20)
+
+El Dr. Paredes mandó por WhatsApp su lista real y completa de
+tratamientos (17 en total, agrupados en Estética Facial/Corporal).
+Se reemplazó la respuesta genérica de "¿Qué tratamientos ofrece
+Clínica Vitelia?" (mismo accordion compartido en `faq.html` e
+`index.html`) por esta lista completa en 2 columnas con bullets. Los
+9 que ya tienen página propia quedan enlazados; los 8 que no la
+tienen quedan como texto plano.
+
+**Tratamientos del catálogo real del doctor sin página propia
+todavía** (oportunidad para sumar más adelante, no creados ahora
+porque no se pidió): Limpieza facial avanzada, Lipolítico facial,
+Mesoterapias, Peeling facial, Exosomas, Bioregenerador facial,
+Bioestimulación facial/cuello/escote, Lipolítico corporal.
+
+Verificado visualmente (2 columnas, 17 ítems) y por JS (9 links
+correctos, 17 `<li>` en ambas páginas). Commit `46fdc14`.

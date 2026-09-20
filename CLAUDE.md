@@ -219,6 +219,16 @@ conflicto con una entrada vieja de PROYECTO.md.
 6. Actualizar `PROYECTO.md` con una sección nueva describiendo qué se hizo,
    commitear eso aparte.
 
+**Por qué el archivo local a veces no coincide con GitHub Pages:**
+Rodolfo a veces edita `Intrio HTML/*.html` directo con su editor, en
+paralelo a esta sesión. Eso es normal y no es un bug — el archivo local
+solo se refleja en GitHub Pages (y en `git status` para otras sesiones)
+después de `git add` + `commit` + `push`. Si Rodolfo pregunta por qué su
+navegador no muestra un cambio: (1) confirmar si abrió el archivo local
+(`file://...`) o la URL de GitHub Pages — son cosas distintas; (2) correr
+`git status`/`git diff` para ver qué hay sin commitear; (3) recordar que
+GitHub Pages tarda uno o dos minutos en redesplegar después del push.
+
 ## Convenciones técnicas del repo
 
 - **Lista canónica de páginas reales** (no las huérfanas de demo que trae
@@ -241,6 +251,27 @@ conflicto con una entrada vieja de PROYECTO.md.
   final de que no quedó nada suelto — no confiar en que un solo `.replace()`
   cubrió todos los casos (pasó antes con textos en inglés que sobrevivieron
   varias pasadas).
+- **Fotos pegadas por el usuario en el chat** a veces quedan en una ruta
+  temporal de macOS (`.../NSIRD_screencaptureui.../...`) que el tool de
+  lectura de imágenes puede ver pero Bash/PIL no puede tocar (permisos TCC
+  de macOS, "Operation not permitted"). Si pasa, pedirle a Rodolfo que
+  guarde el archivo en `Recursos/` (ya gitignored) antes de procesarlo.
+- **Archivos `.HEIC`** (comunes en fotos de iPhone): Pillow en este entorno
+  no tiene soporte HEIC — convertir primero con `sips -s format jpeg
+  archivo.HEIC --out salida.jpg` (nativo de macOS) antes de abrir con PIL.
+- **Antes de reemplazar una foto real, revisar si el archivo se comparte
+  entre varias páginas** (`grep -rl nombre-archivo.webp *.html`) — varias
+  fotos de `images/real/` se reusan en más de un tratamiento/blog post. Si
+  es compartida, no sobreescribir el archivo: crear uno nuevo y actualizar
+  solo las referencias que correspondan al tratamiento en cuestión.
+- **Datos de contacto reales:** correo `viteliaclinic@gmail.com`, WhatsApp
+  `+56 9 6776 5335` (link `wa.me/56967765335`), dirección `Santa Teresa
+  580, La Ligua, V Región`. Aparecen en 3 bloques compartidos por las 25
+  páginas (panel off-canvas, footer, y el bloque propio de
+  `contact.html`/`consultation.html`). **Los links de correo van a Gmail
+  web, no a `mailto:`** — Rodolfo pidió explícitamente que siempre abra
+  Gmail: `https://mail.google.com/mail/?view=cm&fs=1&to=viteliaclinic@gmail.com`
+  con `target="_blank"`.
 
 ## Contexto de negocio (no resuelto, no asumir)
 

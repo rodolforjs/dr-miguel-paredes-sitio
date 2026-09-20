@@ -1200,3 +1200,56 @@ fuente confiable para verificar esto, no confiar ciegamente en
 `getComputedStyle` dentro de iframes anidados en este entorno.
 Verificado visualmente en mobile (390px) y desktop (1400px, hover del
 mega-menu). Commit `d4fd920`.
+
+## Datos de contacto reales + links funcionales (2026-09-19/20)
+
+Rodolfo pasó los datos reales de la clínica:
+- Correo: `viteliaclinic@gmail.com` (antes el personal del Dr. Paredes)
+- WhatsApp: `+56 9 6776 5335`
+- Dirección: `Santa Teresa 580, La Ligua, V Región`
+
+Aplicado en las 25 páginas reales (email/WhatsApp/ubicación aparecen
+en 3 bloques compartidos: panel off-canvas, footer, y el bloque de
+contacto propio de `contact.html`/`consultation.html`). Los correos
+son `mailto:` reales, los teléfonos enlazan a `wa.me` (WhatsApp
+click-to-chat) — antes eran solo texto plano. El ícono de WhatsApp del
+footer/panel off-canvas, que apuntaba a `href="#"` sin funcionalidad,
+también quedó conectado al mismo link de `wa.me`.
+
+**Actualización (mismo día):** Rodolfo pidió que el correo abriera
+Gmail siempre, no el cliente de correo por defecto del sistema — se
+cambiaron los 52 links de `mailto:` a la URL del compositor web de
+Gmail (`https://mail.google.com/mail/?view=cm&fs=1&to=...`), con
+`target="_blank"` para que abra en pestaña nueva.
+
+## Fotos reales de Ácido Hialurónico y Toxina Botulínica (2026-09-20)
+
+Rodolfo mandó 2 fotos reales nuevas del Dr. Paredes: una con vial en
+mano (bata blanca) para Ácido Hialurónico, y una inyectando en
+exterior con vista a la ciudad para Toxina Botulínica. Aplicadas de
+forma transversal (hero de la página de tratamiento + tarjeta de
+`services.html` + carrusel del inicio):
+
+- **Toxina Botulínica:** la foto anterior (`servicio-inyectable.webp`)
+  era de uso exclusivo de esa página, así que se reemplazó directo en
+  el mismo archivo.
+- **Ácido Hialurónico:** la foto anterior
+  (`servicio-perfil-inyeccion.webp`) está compartida con varios posts
+  del blog (`blog-perfiloplastia.html`, `blog-plasmage.html`,
+  `blog.html`) — no se tocó ahí. Se creó un archivo nuevo
+  (`servicio-vial-hialuronico.webp`) y solo se actualizó la referencia
+  en `tratamiento-acido-hialuronico.html` + los 2 usos numéricos
+  (`images/services/1.webp`, compartido entre `services.html` e
+  `index.html`, exclusivo de este tratamiento en ambos).
+
+**Nota técnica:** las fotos llegaron como archivos pegados en una
+ubicación temporal de macOS (`NSIRD_screencaptureui...`) que el Read
+tool puede ver pero Bash/PIL no puede tocar (permisos TCC de macOS) —
+hubo que pedirle a Rodolfo que las guardara en `Recursos/` (ya
+gitignored) para poder procesarlas. Una de las dos llegó en `.HEIC`,
+convertida a JPEG con `sips` (nativo de macOS) antes de procesar con
+PIL, ya que Pillow no tiene soporte HEIC instalado en este entorno.
+
+Verificado visualmente en las 4 ubicaciones (2 heroes + services.html
++ carrusel del inicio) y por JS (links de Gmail con target="_blank").
+Commit `58795f1`.

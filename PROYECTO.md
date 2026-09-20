@@ -1272,3 +1272,9 @@ Bioestimulación facial/cuello/escote, Lipolítico corporal.
 
 Verificado visualmente (2 columnas, 17 ítems) y por JS (9 links
 correctos, 17 `<li>` en ambas páginas). Commit `46fdc14`.
+
+**Seguimiento (mismo día):** se completó también la respuesta de
+"¿Atiende fuera de La Ligua?" (antes `[POR CONFIRMAR CON EL DR.
+PAREDES]`) — el Dr. Paredes también atiende en Clínica Riversso, Av.
+Concón Reñaca 4000, Concón (mismo accordion compartido en `faq.html`
+e `index.html`). Commit `3c6da02`.

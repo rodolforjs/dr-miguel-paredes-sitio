@@ -1386,3 +1386,13 @@ tarjeta `bg-light rounded-1 p-40` que ya existía. Los 25 botones
 no hubo que tocar nada transversal. Verificado visualmente: el widget
 carga el flujo real de 4 pasos (Selecciona Servicio → Profesional →
 Día y hora → Datos). Commit `825b7e2`.
+
+## 2026-09-20 — Placeholder [AÑOS] pendiente en index.html
+
+Rodolfo notó que el contador "Años de Experiencia" del inicio todavía
+no tenía el dato actualizado. Causa: `about.html` e `index.html`
+tienen cada uno su propio bloque de estadísticas independiente (no
+compartido), y al actualizar `[AÑOS]` → "10+" en `about.html` (mismo
+día, sección "Sobre el Doctor") no se revisó si `index.html` tenía el
+mismo placeholder suelto — sí lo tenía. Grep confirmó que no queda
+ningún `[AÑOS]` en el sitio después de este fix. Commit `138e898`.

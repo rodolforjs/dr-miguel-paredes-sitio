@@ -1339,3 +1339,20 @@ foto nueva (fondo blanco, brazos cruzados). Se diagramó como:
 - Verificado visualmente en `about.html` (foto, párrafo, listas y
   contador "10+ Años de Experiencia"). Commit `5c4c81d` (mismo commit
   que las fotos de tratamiento, se hizo un solo push agrupado).
+
+**Mismo día — Sección "Nuestro Equipo" con la primera persona real:**
+Rodolfo pasó los datos y foto de la primera integrante real del
+equipo — **Valeska Rojas Valenzuela**, Magíster en Cosmetología
+(Cosmetología Estética, Corporal y Terapéutica, Minsal Vigente). El
+carrusel demo (`#team-carousel`, `owl-2-cols`, con "John Smith"/"Anna
+Charline" e íconos sociales falsos) se reemplazó por **una sola
+tarjeta estática** (sin carrusel, sin flechas de navegación) ya que
+por ahora solo hay una persona en el equipo — se quitaron también los
+íconos de redes sociales porque Valeska aún no tiene cuentas
+vinculadas al sitio. Foto procesada desde `Recursos/WhatsApp Image
+2026-09-20 at 8.24.30 PM.jpeg` (1080x1305), recortada a cuadrado
+700x700 centrada en el rostro, guardada como
+`images/team/valeska-rojas.webp`. Los archivos viejos
+`images/team/2.webp`/`3.webp` quedaron sin uso pero intactos (no se
+borran archivos, solo se dejan de referenciar). Verificado visualmente
+en `about.html`. Commit `283dbde`.

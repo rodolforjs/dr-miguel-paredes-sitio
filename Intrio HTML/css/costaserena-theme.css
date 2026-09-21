@@ -302,3 +302,35 @@ footer .widget h3 {
   padding-top: 150px;
   padding-bottom: 150px;
 }
+
+/* Barra fija de "Agendar Evaluación" en mobile — el botón del header
+   queda escondido dentro del menú hamburguesa en mobile (menu_side_area
+   se oculta con el resto del nav), así que se repite como barra fija
+   abajo, visible todo el scroll. El footer tiene z-index mayor (ver
+   abajo) para que al llegar al final de la página quede por encima de
+   la barra en vez de que la barra lo tape — sin necesidad de JS.
+   Intrio ya usa su propia utilidad ".z-1000" en secciones tipo hero
+   (ver #section-intro) — la barra necesita superar eso para no quedar
+   tapada durante el scroll normal. */
+#mobile-cta-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+  padding: 12px 20px;
+  background: var(--bg-dark-1);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+}
+#mobile-cta-bar .btn-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+@media only screen and (max-width: 992px) {
+  footer {
+    position: relative;
+    z-index: 1002;
+  }
+}

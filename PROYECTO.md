@@ -1585,7 +1585,8 @@ Igual que en la auditoría de encuadre anterior, el hero (`.jarallax-img`,
 banner ancho y bajo) dejaba fuera lo importante con el `object-position`
 por defecto (20%) en 2 de las 3 fotos — se agregó excepción puntual en
 `css/costaserena-theme.css` para `retrato-antienvejecimiento.webp`
-(45%) y `torso-ginecomastia.webp` (40%), sin recortar los archivos.
+(45%) y `torso-ginecomastia.webp` (40%, luego reajustado a 34%, ver
+sección siguiente), sin recortar los archivos.
 `retrato-lipolitico-facial.webp` se veía bien con el valor por defecto.
 
 De paso, las tarjetas de Antienvejecimiento y Ginecomastia en
@@ -1597,4 +1598,42 @@ mantener la misma consistencia.
 
 Verificado con servidor local + Claude-in-Chrome en las 3 páginas de
 tratamiento y en `services.html` (hard reload para evitar cache de CSS
-viejo). Pendiente: commit + push.
+viejo). Commit `cdf456e`.
+
+## 2026-09-21 — Fotos reales mejoradas: Ginecomastia y Perfiloplastia
+
+Rodolfo mandó 2 fotos más (`Recursos/ginecomastia-3.png`,
+`Recursos/perfiloplastia-scaled.jpg`) para reemplazar las que se
+acababan de poner hace un rato en la misma sesión — mejores que las
+anteriores, así que se sobrescribió directo el mismo archivo
+(`torso-ginecomastia.webp` y `servicio-perfiloplastia-perfil.webp`,
+ninguna compartida con otra página, confirmado con grep antes de tocar).
+
+- **Ginecomastia:** foto de examen clínico real (guante de nitrilo
+  azul, portapapeles) en vez del torso genérico anterior — más
+  directamente relacionada con la consulta médica que con una pose de
+  estudio. Se probaron varios valores de `object-position` en el hero
+  (empezó en 40%, heredado de la foto anterior) hasta encontrar 34%,
+  que muestra el guante + gesto clínico + portapapeles sin centrar el
+  encuadre en el pezón. La tarjeta de `services.html` no tiene ese
+  control fino (no es `.jarallax-img`, usa `object-fit: cover` con
+  aspect-ratio fijo ~1:1.2 sin position custom) y ahí sí se ve el
+  pezón — se evaluó y se dejó así: es contenido médico de un
+  tratamiento que trata exactamente esa zona, no hay paciente real
+  identificable (foto de stock), incluido el gesto de examen que le da
+  contexto clínico.
+- **Perfiloplastia:** reemplaza la foto de baja resolución de la tanda
+  anterior (1146x812, la que Rodolfo había aceptado usar "igual,
+  aceptando algo de suavizado") por una de mucha mejor calidad
+  (2560x1708) — mismo concepto (perfil femenino, foco en nariz/mentón)
+  pero nítida. El `object-position` del hero también necesitó ajuste
+  (20% por defecto solo mostraba el pelo, se subió a 50% para centrar
+  nariz/labios/mentón).
+
+De paso se encontró que la tarjeta de Perfiloplastia en `services.html`
+todavía usaba el placeholder del template (`images/services/6.webp`,
+foto b/n genérica) — nunca se había actualizado a la foto real aunque
+el hero sí la tenía desde la tanda anterior. Se corrigió también.
+
+Verificado con servidor local + Claude-in-Chrome (hero + tarjeta de
+ambas páginas, hard reload). Pendiente: commit + push.

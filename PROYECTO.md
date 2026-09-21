@@ -1396,3 +1396,42 @@ compartido), y al actualizar `[AÑOS]` → "10+" en `about.html` (mismo
 día, sección "Sobre el Doctor") no se revisó si `index.html` tenía el
 mismo placeholder suelto — sí lo tenía. Grep confirmó que no queda
 ningún `[AÑOS]` en el sitio después de este fix. Commit `138e898`.
+
+## 2026-09-20 — Interacción del carrusel de tratamientos + barra fija de agenda en mobile
+
+Rodolfo pidió mejorar la interacción del carrusel "Nuestras
+Especialidades" del inicio ("está bien lo de las flechas pero
+podríamos agregar scroll horizontal?"). Se agregó soporte para el
+gesto de dos dedos del trackpad (deltaX del evento `wheel`) en
+`#services-carousel`, que dispara `next`/`prev.owl.carousel` — solo
+reacciona a gestos claramente horizontales para no interferir con el
+scroll vertical normal. Como le gustó, se extendió el mismo patrón a
+los otros 2 carruseles reales del sitio: el carrusel de testimonios
+(`owl-single-dots` en `about.html` e `index.html`, que hoy solo se
+navega con puntitos) y el slider antes/después (`.ba-carousel`, activo
+solo con 2+ parejas, igual que sus flechas). Commits `eabf747`,
+`28d55a6`.
+
+**Mismo día — barra fija de "Agendar Evaluación" en mobile:** Rodolfo
+notó que el CTA del header queda escondido dentro del menú hamburguesa
+en mobile (`menu_side_area` se oculta con el resto del nav junto al
+logo) — sin abrir el menú, no hay ningún llamado a la acción visible.
+Se investigó el patrón estándar en sitios de clínicas/servicios:
+**barra fija inferior con el CTA a ancho completo** es el más común
+(vs. un botón flotante circular tipo FAB, menos explícito). Rodolfo
+prefirió la barra.
+
+Implementación (`#mobile-cta-bar`, `d-lg-none`, insertada después de
+`<!-- header close -->` en las 25 páginas reales): al principio quedó
+completamente tapada por las secciones tipo hero, porque Intrio ya usa
+su propia utilidad `.z-1000` en esas secciones (`#section-intro`) —
+tuvo que subirse la barra a `z-index: 1001`. Rodolfo aclaró que quería
+el comportamiento más simple: la barra se queda fija todo el scroll, y
+al llegar al final de la página el **footer pasa a estar por encima**
+de la barra (tapándola) en vez de que la barra tape al footer — se
+logró solo con CSS (`footer { z-index: 1002 }` en mobile), sin
+necesidad de JS ni de esconder/mostrar nada dinámicamente (se descartó
+un primer intento con `IntersectionObserver` que ocultaba la barra al
+acercarse al footer, por ser más complejo de lo que Rodolfo pedía).
+Verificado visualmente: la barra se ve durante el scroll normal y el
+footer la cubre completo al llegar al final. Commit `c5b47f9`.

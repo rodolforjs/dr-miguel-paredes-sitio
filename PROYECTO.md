@@ -1555,3 +1555,46 @@ valor funciona bien en ambos breakpoints, no hizo falta media query.
 El resto de las fotos hero del sitio (incluyendo `retrato-scrubs.webp`,
 revisado por las dudas) se ven bien, no necesitaron ajuste. Commit
 `cddf79f`.
+
+## 2026-09-21 — 3 fotos reales más: Lipolítico Facial, Antienvejecimiento, Ginecomastia
+
+Rodolfo mandó 3 fotos nuevas (`Recursos/IMG_3049.PNG`, `IMG_3045.JPEG`,
+`IMG_3047.JPG.jpeg`) con capturas de contexto indicando en qué tarjeta
+va cada una. Reemplazan fotos placeholder que estaban en hero + tarjeta
+de `services.html` de esos 3 tratamientos:
+
+- **Lipolítico Facial:** `retrato-scrubs.webp` (genérica, compartida con
+  nada más) → `retrato-lipolitico-facial.webp`. Foto real: primer plano
+  de perfil de mandíbula/papada, exactamente el área que trata este
+  procedimiento.
+- **Antienvejecimiento:** `servicio-laser-facial.webp` (compartida con
+  varios posts de blog — no se tocó el archivo original, se creó uno
+  nuevo) → `retrato-antienvejecimiento.webp`. Foto real: composición
+  mitad rostro joven / mitad envejecido, concepto claro para la página.
+- **Ginecomastia:** `retrato-brazos-cruzados.webp` → `torso-ginecomastia.webp`.
+  Foto real: torso masculino con mano sobre el pecho, sin rostro visible.
+
+Las 3 fuentes son de resolución más baja que el estándar del sitio
+(1080x793, 1920x1916, 1161x789 aprox.) — mismo caso que la foto de
+Perfiloplastia de la tanda anterior. Se procesaron igual (recorte
+centrado a 2:3 o 3:4 según la imagen, resize a 1200x1800 o 1350x1800,
+webp calidad 88) sin pedir confirmación de nuevo porque Rodolfo ya
+había aceptado ese trade-off explícitamente para el mismo tipo de caso.
+
+Igual que en la auditoría de encuadre anterior, el hero (`.jarallax-img`,
+banner ancho y bajo) dejaba fuera lo importante con el `object-position`
+por defecto (20%) en 2 de las 3 fotos — se agregó excepción puntual en
+`css/costaserena-theme.css` para `retrato-antienvejecimiento.webp`
+(45%) y `torso-ginecomastia.webp` (40%), sin recortar los archivos.
+`retrato-lipolitico-facial.webp` se veía bien con el valor por defecto.
+
+De paso, las tarjetas de Antienvejecimiento y Ginecomastia en
+`services.html` todavía usaban placeholders del template
+(`images/services/2.webp` y `3.webp`, nunca reemplazados) — se
+actualizaron a las fotos reales nuevas también, ya que la tarjeta de
+Lipolítico Facial sí compartía imagen con el hero y correspondía
+mantener la misma consistencia.
+
+Verificado con servidor local + Claude-in-Chrome en las 3 páginas de
+tratamiento y en `services.html` (hard reload para evitar cache de CSS
+viejo). Pendiente: commit + push.

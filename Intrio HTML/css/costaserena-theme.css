@@ -45,6 +45,12 @@ img.jarallax-img[src*="retrato-marmol.webp"] {
 img.jarallax-img[src*="servicio-laser-facial.webp"] {
   object-position: center 45% !important;
 }
+img.jarallax-img[src*="retrato-antienvejecimiento.webp"] {
+  object-position: center 45% !important;
+}
+img.jarallax-img[src*="torso-ginecomastia.webp"] {
+  object-position: center 40% !important;
+}
 
 /* Tratamientos es un ítem de navegación principal (no un catálogo demo
    como "More"), así que en mobile se muestra como lista simple integrada

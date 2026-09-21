@@ -1435,3 +1435,18 @@ un primer intento con `IntersectionObserver` que ocultaba la barra al
 acercarse al footer, por ser más complejo de lo que Rodolfo pedía).
 Verificado visualmente: la barra se ve durante el scroll normal y el
 footer la cubre completo al llegar al final. Commit `c5b47f9`.
+
+**Seguimiento (mismo día):** Rodolfo notó que en `consultation.html`
+la barra era redundante (ya estás agendando, con el widget de Reservo
+ahí mismo) — se quitó solo en esa página, se mantiene en las otras 24.
+Commit `60c3112`.
+
+**Seguimiento 2 (mismo día):** Rodolfo pidió que la dirección de la
+clínica fuera clickeable y llevara a Google Maps con la ubicación
+exacta, "siempre que salga la dirección". Los 3 bloques compartidos
+que muestran "Santa Teresa 580, La Ligua, V Región" en las 25 páginas
+(panel off-canvas, widget de footer, bloque de contacto de
+`contact.html`/`consultation.html`) ahora enlazan a
+`google.com/maps/search/?api=1&query=Santa+Teresa+580,+La+Ligua,+Chile`
+con `target="_blank"` — mismo patrón ya usado para los links de correo
+(Gmail) y WhatsApp. Commit `687ee1b`.

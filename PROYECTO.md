@@ -1450,3 +1450,50 @@ que muestran "Santa Teresa 580, La Ligua, V Región" en las 25 páginas
 `google.com/maps/search/?api=1&query=Santa+Teresa+580,+La+Ligua,+Chile`
 con `target="_blank"` — mismo patrón ya usado para los links de correo
 (Gmail) y WhatsApp. Commit `687ee1b`.
+
+## 2026-09-21 — Auditoría de copy/consistencia/UX del sitio completo
+
+Rodolfo pidió una auditoría general de copy, inconsistencias y UX
+ahora que el sitio ya tiene las 33 páginas reales (25 originales + 8
+nuevas de tratamiento). Se delegó a un subagente en background (lectura
+de las 33 páginas, sin editar nada) para no gastar contexto propio
+extrayendo texto — devolvió un listado categorizado (Copy /
+Consistencia / UX / Notas del trabajo del día) que Rodolfo revisó y
+aprobó ítem por ítem. Ejecutado:
+
+- **"Mesoterapia" → "Mesoterapia Facial"** en las 33 páginas (mega-menú,
+  off-canvas, footer, `services.html`, FAQ) — era la única de las 19
+  páginas de tratamiento con desajuste entre su propio `<title>`/`<h1>`
+  y cómo se la nombraba en el resto del sitio.
+- **CTA final unificado** a "Agendar Evaluación" genérico en las 19
+  páginas de tratamiento (antes 6 personalizaban el botón con el
+  nombre del tratamiento, 13 no). El h2 "Conversemos sobre X" arriba
+  del botón se dejó intacto, sigue personalizado por página.
+- **FAQ en Title Case** (antes en minúscula sentence-case, único lugar
+  del sitio así) y **Alidya recupera su nombre de marca** en el ítem
+  del FAQ ("Tratamiento anticelulítico" → "Alidya (Anticelulítico)").
+- **Stat "El 90% de las mujeres tiene celulitis"** (`tratamiento-alidya.html`)
+  verificado con fuentes médicas (Sociedad Española de Medicina
+  Estética, citado también por medios chilenos) — es un dato real y
+  ampliamente reproducido en dermatología estética. Se agregó una
+  atribución chica y discreta debajo del bloque de stats, sin tocar el
+  diseño de los números grandes.
+- **Etiquetas de duración estandarizadas** a 2 variantes según el caso
+  ("Duración por sesión" para tratamientos multi-sesión, "Duración
+  aproximada" para procedimientos de una sola vez) en vez de 5 formas
+  distintas de decir lo mismo.
+- **Títulos SEO acortados** en `blog-congresos.html` (96→52 caracteres)
+  y `blog-piel.html` (71→35) para que no se corten en resultados de
+  búsqueda — el `<h1>` de cada artículo no se tocó.
+
+**⚠️ Pendiente de seguimiento — Pacientes Atendidos:** el placeholder
+`[Nº]` en `about.html`/`index.html` se completó con **"+300"** a
+pedido explícito de Rodolfo ("pongamos +300 por ahora"). A diferencia
+de "Años de Experiencia" (10+) y las certificaciones, que sí vienen
+confirmadas directamente por el Dr. Paredes, **este número no fue
+validado por él** — Rodolfo lo puso como estimación provisional.
+Queda anotado acá para que, cuando el Dr. Paredes confirme la cifra
+real (aunque sea aproximada), se actualice si corresponde.
+
+Commit `f1b0614` (Mesoterapia/CTA/FAQ/Alidya), `785c896` (pacientes
+atendidos, títulos SEO, etiquetas de duración).

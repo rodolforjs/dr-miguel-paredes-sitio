@@ -1497,3 +1497,61 @@ real (aunque sea aproximada), se actualice si corresponde.
 
 Commit `f1b0614` (Mesoterapia/CTA/FAQ/Alidya), `785c896` (pacientes
 atendidos, títulos SEO, etiquetas de duración).
+
+## 2026-09-21 — 4 fotos reales nuevas + auditoría de encuadre en todo el sitio
+
+Rodolfo mandó 4 fotos nuevas (ya en `Recursos/`) para reemplazar:
+
+- **Limpieza Facial Avanzada** ← foto del equipo/máquina de análisis
+  facial (`IMG_3020.PNG`, transparente con artefactos de color en los
+  bordes — se compuso sobre blanco sólido, quedó limpio). Reemplazó a
+  `retrato-desk-pensativo.webp`, que estaba compartido con
+  `services.html` — se actualizó en ambos lugares.
+- **Evaluación Corporal** ← foto del doctor en consulta con paciente
+  real (`IMG_3010.HEIC`, rostro del paciente no visible). El archivo
+  anterior (`retrato-brazos-cruzados.webp`) seguía compartido con
+  Ginecomastia — solo se cambió la referencia de Evaluación Corporal.
+- **Alidya** ← foto del doctor con la caja del producto (`IMG_2813.JPG.jpeg`).
+  Archivo exclusivo de esa página, reemplazo directo.
+- **Mesoterapia** ← foto real del procedimiento en curso (`IMG_3024.HEIC`,
+  mascarilla + dispositivo con luz verde). El archivo anterior
+  (`retrato-desk-sonrisa.webp`) estaba muy compartido (blogs, index,
+  otras páginas de tratamiento) — solo se cambió la referencia de
+  Mesoterapia.
+
+Las 4 tarjetas correspondientes en `services.html` se actualizaron
+también. Al hacerlo con un script (`sed`) se pisó por error la tarjeta
+de Exosomas (comparte el mismo archivo base que Mesoterapia) —
+detectado y corregido antes de commitear.
+
+**Encuadre de Alidya y Mesoterapia:** las fotos originales tenían al
+sujeto muy abajo en el encuadre vertical, y el CSS del sitio
+(`object-position: center 20%` en `.jarallax-img`, pensado para que
+los heroes anchos y cortos muestren la parte de arriba de la foto)
+dejaba ver solo pared vacía / gorro, cortando la cara y el producto.
+Se resolvió recortando de nuevo el archivo fuente (PIL, ventana
+vertical ajustada, mismo tamaño final 1200x1800) para traer al sujeto
+más arriba en el encuadre — en este caso el recorte usa una porción
+grande del frame original, sin pérdida de calidad relevante. Commit
+`ce46e92`.
+
+**Seguimiento (mismo día) — auditoría de encuadre en las 33 páginas:**
+Rodolfo pidió revisar si el mismo problema de encuadre afectaba a
+otras fotos hero del sitio. Se encontraron 2 casos más:
+`retrato-marmol.webp` (about, lipolitico-corporal, peeling-facial,
+bioregenerador-facial) y `servicio-laser-facial.webp` (blog-piel,
+antienvejecimiento) — en ambas, el sujeto quedaba fuera del recuadro
+visible (solo ojos/gorro, o directamente la nuca sin rostro).
+
+A diferencia de Alidya/Mesoterapia, acá **no se recortó el archivo** —
+se corrigió con `object-position` puntual en CSS (selector por nombre
+de archivo, `img.jarallax-img[src*="archivo.webp"]`), ajustando solo
+el punto de anclaje vertical (38% y 45% respectivamente) sin descartar
+ni re-comprimir ningún píxel de la foto original. Es el método
+preferido: recortar el archivo solo tiene sentido cuando el sujeto
+ocupa una porción muy chica de una foto mucho más grande y no hay
+forma de que el CSS alcance. Verificado en desktop y mobile — mismo
+valor funciona bien en ambos breakpoints, no hizo falta media query.
+El resto de las fotos hero del sitio (incluyendo `retrato-scrubs.webp`,
+revisado por las dudas) se ven bien, no necesitaron ajuste. Commit
+`cddf79f`.

@@ -33,6 +33,19 @@ img.jarallax-img {
   object-position: center 20% !important;
 }
 
+/* excepciones puntuales de encuadre (2026-09-21): en estas fotos el
+   20% general deja el rostro/sujeto fuera del recuadro visible del
+   hero (foto tomada más de cerca o desde otro ángulo que el resto) —
+   se ajusta el punto de anclaje vertical solo para estas imágenes,
+   sin recortar el archivo. Mismo valor sirve para desktop y mobile
+   (probado en ambos). */
+img.jarallax-img[src*="retrato-marmol.webp"] {
+  object-position: center 38% !important;
+}
+img.jarallax-img[src*="servicio-laser-facial.webp"] {
+  object-position: center 45% !important;
+}
+
 /* Tratamientos es un ítem de navegación principal (no un catálogo demo
    como "More"), así que en mobile se muestra como lista simple integrada
    al menú oscuro en vez de la tarjeta blanca flotante que Intrio usa por

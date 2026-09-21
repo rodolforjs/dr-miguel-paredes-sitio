@@ -57,15 +57,34 @@
             });
         }
 
+        function next() {
+            index = (index + 1) % pairs.length;
+            render();
+        }
+
+        function prev() {
+            index = (index - 1 + pairs.length) % pairs.length;
+            render();
+        }
+
         if (pairs.length > 1) {
             $nav.removeClass("d-none").addClass("d-flex");
-            $nav.find(".d-next").on("click", function () {
-                index = (index + 1) % pairs.length;
-                render();
-            });
-            $nav.find(".d-prev").on("click", function () {
-                index = (index - 1 + pairs.length) % pairs.length;
-                render();
+            $nav.find(".d-next").on("click", next);
+            $nav.find(".d-prev").on("click", prev);
+
+            // Swipe horizontal del trackpad para cambiar de pareja, igual
+            // que el carrusel de "Nuestras Especialidades" del inicio.
+            var wheelLocked = false;
+            $stage.on("wheel", function (e) {
+                var oe = e.originalEvent;
+                var deltaX = oe.deltaX || 0;
+                var deltaY = oe.deltaY || 0;
+                if (Math.abs(deltaX) <= Math.abs(deltaY) || Math.abs(deltaX) < 10) return;
+                e.preventDefault();
+                if (wheelLocked) return;
+                wheelLocked = true;
+                deltaX > 0 ? next() : prev();
+                setTimeout(function () { wheelLocked = false; }, 400);
             });
         }
 

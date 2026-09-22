@@ -1770,4 +1770,37 @@ todos los tratamientos", y que ese botón quedara solo ahí.
   bordes del carrusel y el click de "next" sigue funcionando
   (`owl.trigger('next.owl.carousel')`).
 
+Commit `d0a3b5a`.
+
+## 2026-09-22 — 2 fotos reales más para los blogs "Ginecomastia" y "Tu piel no miente"
+
+Rodolfo mandó `Recursos/IMG_3060.HEIC` (Dr. Paredes con instrumento en
+mano, gorro de marca) para el post `blog-ginecomastia.html`, y
+`Recursos/IMG_3058.HEIC` (Dr. Paredes atendiendo a un paciente, vista
+de La Ligua de fondo, rostro del paciente no visible) para
+`blog-piel.html`.
+
+Antes de tocar nada se verificó con grep que los archivos que se iban
+a reemplazar (`images/real/servicio-cirugia.webp` y
+`servicio-laser-facial.webp`) estuvieran usados **exclusivamente** para
+estos dos posts en todas sus apariciones (hero + tarjeta en
+`blog.html` + tarjetas de "relacionados" en `blog-congresos.html`,
+`blog-filosofia.html` y `blog-plasmage.html`) — confirmado, así que se
+sobrescribieron directo los mismos archivos sin necesidad de renombrar
+ni actualizar referencias en ningún HTML.
+
+Quirk encontrado en el procesamiento: `IMG_3058.HEIC` traía la
+orientación solo en el tag EXIF, no "horneada" en los píxeles (al
+revés que la mayoría de las fotos de este proyecto) — `sips` la
+convertía a JPEG pero PIL la seguía leyendo como landscape
+(4032x3024) en vez de portrait. Hubo que aplicar
+`ImageOps.exif_transpose()` antes de recortar; si no, el recorte
+quedaba centrado en el eje equivocado. Vale la pena revisar esto en
+futuras fotos que se vean raras al recortar aunque la vista previa
+del chat las muestre bien orientadas.
+
+Verificado con servidor local + Claude-in-Chrome: heroes de ambas
+páginas y tarjetas en `blog.html` se ven bien con el `object-position`
+existente, no hizo falta agregar ni tocar overrides de CSS.
+
 Pendiente: commit + push.

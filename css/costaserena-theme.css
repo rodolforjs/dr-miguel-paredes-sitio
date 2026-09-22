@@ -434,3 +434,21 @@ footer .widget h3 {
 .antes-despues-card {
   background: var(--bg-default);
 }
+
+/* Caja "antes y después" del inicio (#hero-before-after, ver
+   js/hero-before-after.js): antes arriba, después abajo — igual que
+   vienen las fotos originales — con alto fijo por mitad para que la
+   sección no salte de tamaño al rotar entre las 6 parejas del sitio
+   (proporciones muy distintas entre sí). object-fit: cover recorta
+   visualmente vía CSS, no toca el archivo. */
+.hero-ba-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hero-ba-half {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}

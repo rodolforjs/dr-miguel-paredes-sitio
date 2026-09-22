@@ -5,11 +5,16 @@
  * es solo variedad visual, NO afirma que la foto corresponda a la
  * persona del testimonio que se ve en pantalla en ese momento.
  *
- * A pedido de Rodolfo (2026-09-22): sin slider de arrastre (solo
- * antes/después lado a lado, estáticos) y sin recortar ni forzar el
- * tamaño de las fotos — se muestran tal cual vienen. Cada mitad abre
- * el visor (Magnific Popup, vía la clase .zoom-gallery del contenedor
- * padre en index.html) al hacer click.
+ * A pedido de Rodolfo (2026-09-22): sin slider de arrastre, antes
+ * arriba y después abajo (igual que vienen las fotos originales, no
+ * lado a lado), y con un tamaño fijo para la caja completa — si no,
+ * la sección salta de alto en cada rotación porque las 6 parejas
+ * tienen proporciones distintas (mala UX). El encuadre fijo se logra
+ * con CSS (object-fit: cover vía la clase .hero-ba-half en
+ * costaserena-theme.css), no recortando el archivo — mismo criterio
+ * que el resto del sitio. Cada mitad abre el visor (Magnific Popup,
+ * vía la clase .zoom-gallery del contenedor padre en index.html) al
+ * hacer click, mostrando la foto completa sin ese recorte.
  */
 (function () {
     var PARES = [
@@ -38,9 +43,9 @@
 
         Promise.all([preload(par.antes), preload(par.despues)]).then(function () {
             $cont.html(
-                '<div class="row g-1">' +
-                    '<div class="col-6"><a href="' + par.antes + '" title="' + par.alt + ' — Antes"><img src="' + par.antes + '" class="w-100" alt="' + par.alt + ' — Antes"></a></div>' +
-                    '<div class="col-6"><a href="' + par.despues + '" title="' + par.alt + ' — Después"><img src="' + par.despues + '" class="w-100" alt="' + par.alt + ' — Después"></a></div>' +
+                '<div class="hero-ba-stack">' +
+                    '<a href="' + par.antes + '" title="' + par.alt + ' — Antes"><img src="' + par.antes + '" class="hero-ba-half" alt="' + par.alt + ' — Antes"></a>' +
+                    '<a href="' + par.despues + '" title="' + par.alt + ' — Después"><img src="' + par.despues + '" class="hero-ba-half" alt="' + par.alt + ' — Después"></a>' +
                 '</div>'
             );
             // El contenedor #hero-before-after ya tiene la clase .zoom-gallery

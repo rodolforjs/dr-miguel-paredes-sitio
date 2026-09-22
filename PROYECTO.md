@@ -1948,4 +1948,28 @@ cambiar de testimonio (probado entrecejo → mandíbula), las fotos se
 ven completas sin recortar, y el click abre el visor con el título
 correcto y navegación propia del par ("1 of 2").
 
+Commit `d520e03`.
+
+## 2026-09-22 — Ajuste fino: apiladas (no lado a lado) + alto fijo
+
+Segunda corrección sobre la caja del inicio, mismo día. Rodolfo
+señaló dos cosas más: (1) las fotos originales vienen apiladas
+(antes arriba, después abajo, formato "cuadrado"), no lado a lado
+como las había puesto; (2) la sección no debía cambiar de alto al
+rotar — mala UX que la caja "salte" según la proporción de cada foto.
+
+- `js/hero-before-after.js`: el layout pasó de `row` (dos columnas,
+  lado a lado) a `.hero-ba-stack` (`flex-direction: column` — antes
+  arriba, después abajo).
+- CSS nuevo `.hero-ba-half` en `costaserena-theme.css`: alto fijo
+  (`height: 220px`) + `object-fit: cover` por mitad, así la caja mide
+  siempre lo mismo sin importar si la foto es panorámica (glúteos) o
+  vertical (Plasmage). Aclaración para no repetir el malentendido
+  anterior: esto es un recorte **visual vía CSS**, no toca el archivo
+  — la foto completa se sigue viendo sin recortar al abrir el visor
+  con click.
+- Verificado programáticamente midiendo la altura de la caja
+  (`getBoundingClientRect().height`) al forzar el render de las 6
+  parejas una por una: siempre 522px exactos, sin variación.
+
 Pendiente: commit + push.

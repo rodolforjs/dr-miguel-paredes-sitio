@@ -1636,4 +1636,56 @@ foto b/n genérica) — nunca se había actualizado a la foto real aunque
 el hero sí la tenía desde la tanda anterior. Se corrigió también.
 
 Verificado con servidor local + Claude-in-Chrome (hero + tarjeta de
-ambas páginas, hard reload). Pendiente: commit + push.
+ambas páginas, hard reload). Commit `70524ee`.
+
+## 2026-09-22 — Dominio propio (clinicavitelia.cl) + aplanado de la estructura del repo
+
+Rodolfo compró el dominio `clinicavitelia.cl` (registrado a nombre de
+"VITELIA CLINIC SPA"). Se armó todo el flujo de conexión con GitHub
+Pages, guiando a Rodolfo paso a paso por chat (no tengo acceso a sus
+cuentas, todo lo hizo él mismo):
+
+- El registrador del dominio no ofrece panel propio de registros DNS
+  (solo permite apuntar a nameservers externos), así que se usó
+  **Cloudflare (plan Free)** solo como proveedor de DNS — nada de
+  proxy/CDN/Workers, todos los registros quedaron en "DNS only".
+- Registros creados en Cloudflare: 4 A (`@`) apuntando a las IPs fijas
+  de GitHub Pages (185.199.108/109/110/111.153) + 1 CNAME (`www` →
+  `rodolforjs.github.io`).
+- Nameservers de Cloudflare (`blair.ns.cloudflare.com` y
+  `osmar.ns.cloudflare.com`) agregados en el panel del registrador,
+  reemplazando los que tenía por defecto.
+- De mi lado: agregué el archivo `CNAME` en la raíz del repo con
+  `clinicavitelia.cl` (commit `44b4013`) — GitHub Pages lo detectó
+  automáticamente y quedó configurado como dominio custom. El
+  certificado HTTPS lo emite GitHub solo, automáticamente, una vez que
+  el DNS termine de propagar (puede tardar horas).
+
+**Aplanado de la estructura del repo (mismo día, no planeado
+originalmente):** Rodolfo notó que con el dominio propio la URL se veía
+mal — `clinicavitelia.cl/Intrio%20HTML/index.html` en vez de
+`clinicavitelia.cl/index.html`, por el redirect viejo de la raíz hacia
+la subcarpeta `Intrio HTML/` (ver commit `ad2e40a`, sesión anterior).
+No es "reestructurar el sitio" en el sentido que prohíbe `CLAUDE.md`
+regla 2 (eso es sobre diseño/menús/secciones) — es solo mover archivos
+de carpeta, así que se hizo directo:
+
+- Se verificó primero que ningún HTML/CSS/JS tuviera rutas
+  hardcodeadas a `Intrio HTML/` (grep sin resultados) — todo usa rutas
+  relativas, así que mover la carpeta entera un nivel arriba era seguro.
+- `git mv` de todo el contenido de `Intrio HTML/` a la raíz del repo
+  (about.html, css/, js/, images/, fonts/, todos los `tratamiento-*`,
+  `blog-*`, etc.), reemplazando el viejo `index.html` (redirect stub)
+  por el `index.html` real que vivía adentro.
+- La carpeta `Intrio HTML/` queda vacía y sin trackear (borrada del
+  repo, solo le quedaba un `.DS_Store` ignorado).
+- Sin cambios en la config de GitHub Pages (`branch: main, path: /`) —
+  seguía apuntando a la raíz del repo, que ahora sí es donde vive el
+  sitio de verdad.
+- Actualizadas las referencias a `Intrio HTML/` en `CLAUDE.md` (working
+  copy, servidor local, nota sobre ediciones manuales de Rodolfo) para
+  reflejar la nueva estructura.
+
+Pendiente: commit + push de este cambio, y confirmar en un rato que
+`clinicavitelia.cl` resuelve y sirve el sitio con HTTPS una vez que
+termine de propagar el DNS.

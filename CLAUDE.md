@@ -10,15 +10,21 @@ también, pero las reglas de abajo tienen precedencia si algo entra en
 conflicto con una entrada vieja de PROYECTO.md.
 
 - **Repo:** https://github.com/rodolforjs/dr-miguel-paredes-sitio (público)
-- **Sitio en vivo:** https://rodolforjs.github.io/dr-miguel-paredes-sitio/
-- **Working copy:** `~/Downloads/DrMiguelParedes_Sitio/Intrio HTML/`
+- **Sitio en vivo:** https://clinicavitelia.cl/ (dominio propio, activado
+  2026-09-22; el link de GitHub Pages https://rodolforjs.github.io/dr-miguel-paredes-sitio/
+  sigue funcionando también, es el mismo sitio)
+- **Working copy:** `~/Downloads/DrMiguelParedes_Sitio/` (raíz del repo —
+  hasta el 2026-09-22 el sitio vivía en una subcarpeta `Intrio HTML/` con un
+  redirect en la raíz; se aplanó la estructura para que las URLs del dominio
+  propio queden limpias, ej. `clinicavitelia.cl/services.html` en vez de
+  `clinicavitelia.cl/Intrio%20HTML/services.html`)
 - **Template base:** Intrio (Designesia, licencia paga) — original intacto en
   `~/Downloads/Templates_Web/Intrio/Intrio HTML`, **nunca editar ahí directo**
 
 ## Reglas que no se rompen
 
 1. **Nunca editar el template original de Intrio.** Todo el trabajo ocurre en
-   la copia (`Intrio HTML/` dentro de este repo).
+   la copia (raíz de este repo, `~/Downloads/DrMiguelParedes_Sitio/`).
 2. **No reestructurar sin que Rodolfo lo pida explícitamente.** Reskinnear =
    solo colores, textos e imágenes en su lugar exacto. No quitar/reordenar
    secciones, menús ni componentes por iniciativa propia. Esto ya causó que
@@ -178,7 +184,7 @@ conflicto con una entrada vieja de PROYECTO.md.
 
 ## Flujo de verificación (antes de dar algo por terminado)
 
-1. Servidor local: `python3 -m http.server <puerto>` en `Intrio HTML/`.
+1. Servidor local: `python3 -m http.server <puerto>` en la raíz del repo.
 2. Claude-in-Chrome para navegar y confirmar visualmente — no basta con
    verificar solo el HTML/grep, hay que verlo renderizado.
 3. **Quirks conocidos de este entorno:**
@@ -234,7 +240,7 @@ conflicto con una entrada vieja de PROYECTO.md.
    commitear eso aparte.
 
 **Por qué el archivo local a veces no coincide con GitHub Pages:**
-Rodolfo a veces edita `Intrio HTML/*.html` directo con su editor, en
+Rodolfo a veces edita los `*.html` directo con su editor, en
 paralelo a esta sesión. Eso es normal y no es un bug — el archivo local
 solo se refleja en GitHub Pages (y en `git status` para otras sesiones)
 después de `git add` + `commit` + `push`. Si Rodolfo pregunta por qué su

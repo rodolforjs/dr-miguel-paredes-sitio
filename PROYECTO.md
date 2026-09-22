@@ -1972,4 +1972,51 @@ rotar — mala UX que la caja "salte" según la proporción de cada foto.
   (`getBoundingClientRect().height`) al forzar el render de las 6
   parejas una por una: siempre 522px exactos, sin variación.
 
+Commit `88b8b0e`.
+
+## 2026-09-22 — Mismo ajuste en la galería antes-despues.html
+
+Rodolfo pidió el mismo criterio para la galería de `antes-despues.html`:
+apiladas (no lado a lado) y **una sola imagen por tarjeta** en el
+visor — no dividir en antes/después separados, "ya una imagen viene
+con su antes y después".
+
+- Generadas 6 imágenes combinadas nuevas
+  (`images/real/antes-despues-<slug>-combo.webp`) con PIL, apilando
+  verticalmente los archivos `-antes.webp`/`-despues.webp` que ya
+  existían (sin recortar su contenido, solo unidos con una línea
+  blanca de separación — misma composición que traían las fotos
+  originales antes de separarlas). Los archivos `-antes`/`-despues`
+  sueltos NO se tocaron, los siguen usando los carruseles de arrastre
+  de las páginas de tratamiento.
+- `antes-despues.html`: cada tarjeta ahora es **un solo** `<a>` con la
+  imagen combinada (antes se dividía en 2 columnas con 2 links y 2
+  etiquetas "Antes"/"Después" superpuestas).
+- **Bug encontrado y corregido en el mismo cambio:** el visor mostraba
+  "9 of 12" en vez de "1 of 6" — el `.zoom-gallery` global de
+  `designesia.js` usa `delegate: 'a'` sobre todo el contenedor, así
+  que también agarraba los 6 links "Ver tratamiento" como si fueran
+  fotos. Se resolvió sin tocar `designesia.js` (archivo del template):
+  se renombró el contenedor a `.antes-despues-gallery`, se agregó
+  clase `.ad-lightbox` solo a los 6 links de imagen, y se agregó una
+  inicialización de Magnific Popup propia e inline al final de
+  `antes-despues.html` con `delegate: 'a.ad-lightbox'` (mismo config
+  visual que `.zoom-gallery`, solo más acotado).
+- CSS: `.antes-despues-thumb` pasó de mitad-lado-a-lado con
+  `aspect-ratio: 3/4` a imagen única con `height: 340px` fijo +
+  `object-fit: cover`. Se sacaron `.antes-despues-tag` (ya no aplica,
+  no hay mitades que etiquetar).
+- Caso especial: el combo de Plasmage (par 1) es muy angosto y alto
+  (recorte original de párpado en primer plano) — el centro por
+  defecto del `object-fit: cover` caía justo en la costura entre
+  antes/después, mostrando pelo/oreja en vez del ojo. Se agregó un
+  `object-position: center 67%` acotado a ese archivo específico
+  (mismo patrón que los overrides de hero images de sesiones
+  anteriores) para anclar al ojo del "después".
+
+Verificado con Claude-in-Chrome: las 6 tarjetas se ven apiladas y del
+mismo alto; el click abre la imagen completa sin dividir ("1 of 6",
+título correcto); "Ver tratamiento" navega normal, ya no lo agarra el
+visor.
+
 Pendiente: commit + push.

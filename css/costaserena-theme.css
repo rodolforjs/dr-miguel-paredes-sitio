@@ -411,25 +411,25 @@ footer .widget h3 {
 }
 
 /* Galería "Antes y Después" (antes-despues.html, 2026-09-22): cada
-   tarjeta muestra las 2 mitades antes/después lado a lado, clicables
-   por separado hacia el visor (.zoom-gallery de magnificPopup, ya
-   trae el plugin el template, solo faltaba usarlo). */
+   tarjeta muestra UNA sola imagen combinada (antes arriba, después
+   abajo, generada con PIL uniendo los archivos ya existentes tal
+   cual, sin recortar su contenido) — el visor abre esa misma imagen
+   combinada, no divide en dos. Alto fijo por tarjeta (object-fit:
+   cover) para que el grid no quede parejo de ancho pero disparejo de
+   alto entre tratamientos con fotos de proporciones muy distintas. */
 .antes-despues-thumb {
-  aspect-ratio: 3 / 4;
+  width: 100%;
+  height: 340px;
   object-fit: cover;
   display: block;
 }
-.antes-despues-tag {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: rgba(0, 0, 0, 0.55);
-  color: #fff;
-  font-size: 12px;
-  padding: 3px 10px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+/* antes-despues-plasmage-combo.webp es angosta y muy alta (recorte
+   original de párpado en primer plano) — el centro por defecto cae
+   justo en la costura entre antes/después, mostrando pelo/oreja en
+   vez del ojo. Se ancla al ojo del "después". La foto completa sigue
+   viéndose sin recortar al abrir el visor. */
+img.antes-despues-thumb[src*="antes-despues-plasmage-combo.webp"] {
+  object-position: center 67%;
 }
 .antes-despues-card {
   background: var(--bg-default);

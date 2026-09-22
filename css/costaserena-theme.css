@@ -409,3 +409,28 @@ footer .widget h3 {
     display: none;
   }
 }
+
+/* Galería "Antes y Después" (antes-despues.html, 2026-09-22): cada
+   tarjeta muestra las 2 mitades antes/después lado a lado, clicables
+   por separado hacia el visor (.zoom-gallery de magnificPopup, ya
+   trae el plugin el template, solo faltaba usarlo). */
+.antes-despues-thumb {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+.antes-despues-tag {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.antes-despues-card {
+  background: var(--bg-default);
+}

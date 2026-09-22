@@ -1860,10 +1860,59 @@ Alidya (par único, sin flechas — comportamiento esperado), y en
 Plasmage el contador "2/2" + flecha "next" cargan correctamente el
 segundo par.
 
-Pendiente de esta sesión (todavía no implementado, plan más grande):
-quitar el slider interactivo del inicio por una imagen estática
-(guardando el código actual), y evaluar la sección/galería "Antes y
-Después" en "Más" con visor lightbox — mirar la UI de Intrio para ver
-qué componente de galería conviene reusar.
+Commit `0235655`.
 
-Pendiente: commit + push de las 2 fotos nuevas.
+## 2026-09-22 — Galería "Antes y Después" + imagen estática en el inicio
+
+Implementado el resto del plan grande de la sesión (slider del inicio
+→ imagen estática, y galería nueva bajo "Más"):
+
+**Investigación primero:** el template Intrio ya trae Magnific Popup
+cargado (`js/vendors.js`) con varias configuraciones armadas en
+`js/designesia.js` (`loadMagnificPopup()`) — entre ellas `.zoom-gallery`
+(delegate a cualquier `<a>` adentro, tipo imagen, con zoom + navegación
+de galería) y `.image-popup` (imagen suelta, sin galería). No hizo
+falta agregar ninguna librería nueva, solo usar las clases correctas.
+
+**Inicio (`index.html`):** el slider interactivo (`#hero-before-after`,
+poblado por `js/hero-before-after.js`, rotaba entre pares cada vez que
+cambiaba el testimonio) se reemplazó por una imagen estática
+compuesta — `images/real/antes-despues-home-static.webp`, generada con
+PIL uniendo antes+después del par "mandíbula" lado a lado (mismo par
+que ya se usaba en esa rotación por tener formato apaisado). La imagen
+está envuelta en `<a class="image-popup">` — al hacer click abre el
+visor de Magnific Popup en grande. Debajo se agregó un link "Ver más
+resultados" hacia la nueva galería.
+
+El markup viejo (`<div id="hero-before-after"></div>`) se dejó
+**comentado en el HTML, no borrado**, y el script
+`js/hero-before-after.js` se dejó de cargar en `index.html` pero el
+archivo sigue intacto en el repo — todo reversible si se quiere
+reactivar la rotación más adelante.
+
+**Galería nueva (`antes-despues.html`):** página nueva, mismo patrón de
+header/footer que el resto del sitio (duplicado de `testimonials.html`
+como base). Grid de 6 tarjetas (una por par antes/después existente en
+el sitio: glúteos/Alidya, mandíbula y ojeras/Ácido Hialurónico,
+entrecejo/Antienvejecimiento, y los 2 de Plasmage) — cada tarjeta
+muestra las mitades antes/después lado a lado con etiqueta, ambas
+clicables por separado. Todas las tarjetas están dentro de un único
+contenedor `.zoom-gallery`, así que el visor navega las 12 fotos
+completas (antes y después de los 6 tratamientos) con flechas
+prev/next, sin tener que cerrar y volver a abrir.
+
+**Nav:** se agregó "Antes y Después" al dropdown "Más" en las 33
+páginas reales (script Python, verificado que el bloque de 3 líneas
+era único por página antes de tocar nada) — más `antes-despues.html`
+sumada a `sitemap.xml`.
+
+**CSS nuevo** en `costaserena-theme.css`: `.antes-despues-thumb`
+(aspect-ratio 3/4, object-fit cover) y `.antes-despues-tag` (etiqueta
+"Antes"/"Después" superpuesta).
+
+Verificado con Claude-in-Chrome: el click en la imagen del inicio abre
+el visor correctamente con el título del `title` del link; en la
+galería, el visor abre en la posición correcta ("1 of 18") y el botón
+"next" avanza bien (probado hasta "2 of 18", Alidya Antes → Después).
+
+Pendiente: commit + push.

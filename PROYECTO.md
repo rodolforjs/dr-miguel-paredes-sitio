@@ -1803,4 +1803,67 @@ Verificado con servidor local + Claude-in-Chrome: heroes de ambas
 páginas y tarjetas en `blog.html` se ven bien con el `object-position`
 existente, no hizo falta agregar ni tocar overrides de CSS.
 
-Pendiente: commit + push.
+Commit `c27305b`.
+
+## 2026-09-22 — 6 fotos antes/después: 4 ya existían, 2 nuevas agregadas
+
+Rodolfo mandó 6 fotos antes/después (`Recursos/IMG_2943.PNG`,
+`IMG_2930/2933/2941/2932/2927.JPG.jpeg`) pidiendo agregarlas a las
+páginas de tratamiento correspondientes, más un plan más grande:
+sacar el slider interactivo del inicio (dejar imagen estática, guardar
+el código por si se reactiva más adelante), y evaluar una sección/
+galería "Antes y Después" nueva bajo el menú "Más" con visor tipo
+lightbox.
+
+**Antes de tocar nada**, se comparó cada foto nueva contra los pares
+`antes-despues-*.webp` ya existentes en `images/real/` — **4 de las 6
+resultaron ser fotos que ya estaban en el sitio** (mismo paciente,
+mismo encuadre, solo reenviadas de nuevo sin darse cuenta):
+
+- Foto "párpado con lunar" = `antes-despues-plasmage` (ya en
+  `tratamiento-plasmage.html`)
+- Foto "mejilla/mandíbula" = `antes-despues-mandibula` (ya en
+  `tratamiento-acido-hialuronico.html`, no Exosomas como se propuso)
+- Foto "entrecejo" = `antes-despues-entrecejo` (ya en
+  `tratamiento-antienvejecimiento.html`, no Toxina Botulínica)
+- Foto "ojeras" = `antes-despues-ojeras` (ya en
+  `tratamiento-acido-hialuronico.html`)
+
+Se le consultó a Rodolfo con `AskUserQuestion` qué hacer con las 2 que
+tenían propuesta de tratamiento distinta al actual (mejilla→Exosomas,
+entrecejo→Toxina Botulínica) — decidió **dejarlas donde están**, no
+moverlas ni duplicarlas.
+
+**Las 2 fotos genuinamente nuevas** se procesaron y agregaron:
+
+- **Glúteos** (`IMG_2943.PNG`, imagen apilada antes arriba/después
+  abajo separada por línea blanca) → dividida programáticamente
+  detectando la fila blanca con numpy (`row_means>240`), guardada como
+  `antes-despues-gluteos-antes/despues.webp`. Se agregó una sección
+  "Antes y Después" completamente nueva en `tratamiento-alidya.html`
+  (no tenía una antes) — mismo patrón exacto que las demás páginas
+  (`.ba-carousel` + `.de-custom-nav`), y se agregaron los 3 scripts que
+  le faltaban al final del `<body>` (`jquery.event.move.js`,
+  `jquery.twentytwenty.js`, `before-after-carousel.js`), que las otras
+  páginas con este componente ya tenían y esta no.
+- **Párpados (paciente distinta)** (`IMG_2932.JPG.jpeg`, 4320x4320
+  cuadrada) → dividida igual, con la complicación de que traía márgenes
+  blancos en los 4 bordes además de la franja divisoria central; hubo
+  que iterar el recorte 3 veces revisando visualmente hasta eliminar
+  del todo el borde blanco residual. Guardada como
+  `antes-despues-plasmage2-antes/despues.webp` y agregada como **segundo
+  par** en el `data-pairs` JSON que ya existía en
+  `tratamiento-plasmage.html` (ahora muestra "1/2" con flechas).
+
+Verificado con Claude-in-Chrome: el slider de arrastre funciona en
+Alidya (par único, sin flechas — comportamiento esperado), y en
+Plasmage el contador "2/2" + flecha "next" cargan correctamente el
+segundo par.
+
+Pendiente de esta sesión (todavía no implementado, plan más grande):
+quitar el slider interactivo del inicio por una imagen estática
+(guardando el código actual), y evaluar la sección/galería "Antes y
+Después" en "Más" con visor lightbox — mirar la UI de Intrio para ver
+qué componente de galería conviene reusar.
+
+Pendiente: commit + push de las 2 fotos nuevas.

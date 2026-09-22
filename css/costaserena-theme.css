@@ -378,3 +378,34 @@ footer .widget h3 {
     z-index: 1002;
   }
 }
+
+/* Flechas del carrusel "Nuestras Especialidades" (inicio) a los costados
+   del carrusel en vez de junto al botón "Ver todos los tratamientos"
+   (pedido de Rodolfo, 2026-09-22). Scoped a .services-carousel-nav-sides
+   para no afectar otros usos de .de-custom-nav en el sitio. */
+.services-carousel-nav-sides {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 5;
+  pointer-events: none;
+}
+.services-carousel-nav-sides .d-prev,
+.services-carousel-nav-sides .d-next {
+  position: absolute;
+  top: 0;
+  pointer-events: auto;
+}
+.services-carousel-nav-sides .d-prev {
+  left: 20px;
+}
+.services-carousel-nav-sides .d-next {
+  right: 20px;
+}
+@media only screen and (max-width: 767px) {
+  .services-carousel-nav-sides {
+    display: none;
+  }
+}

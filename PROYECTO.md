@@ -1742,4 +1742,32 @@ de estructura).
 
 Verificado con servidor local que las páginas reales y los assets
 compartidos (CSS/JS) siguen cargando bien después de la limpieza.
+Commit `471489f`.
+
+## 2026-09-22 — Flechas del carrusel "Nuestras Especialidades" a los costados
+
+Rodolfo pidió mover las flechas prev/next del carrusel de tratamientos
+(inicio) a los costados del carrusel en vez de junto al botón "Ver
+todos los tratamientos", y que ese botón quedara solo ahí.
+
+- Se movió el markup de `.de-custom-nav[data-target="#services-carousel"]`
+  (con sus `.d-prev`/`.d-next`) desde el header de la sección hacia
+  adentro del `.col-lg-12` que envuelve el carrusel — la estructura
+  interna (wrapper + data-target + hijos) se mantuvo intacta porque
+  `designesia.js` depende de ese patrón exacto para bindear los clicks
+  (`$nav.find('.d-next')`/`.d-prev`).
+- CSS nuevo, **scoped** a una clase propia
+  (`.services-carousel-nav-sides`) en vez de tocar `.de-custom-nav` en
+  general — ese selector genérico también lo usa un carrusel
+  "Contenido Educativo" que está comentado/oculto en `index.html`, no
+  quería que esta iteración lo afectara si se reactiva en el futuro.
+  Las flechas quedan `position: absolute`, ancladas a 20px del borde
+  izquierdo/derecho del carrusel, centradas verticalmente.
+- En mobile (`max-width: 767px`) las flechas se ocultan — igual
+  criterio que el resto de los carruseles del sitio, ahí se navega con
+  swipe/scroll táctil.
+- Verificado con Claude-in-Chrome en desktop: las flechas se ven en los
+  bordes del carrusel y el click de "next" sigue funcionando
+  (`owl.trigger('next.owl.carousel')`).
+
 Pendiente: commit + push.

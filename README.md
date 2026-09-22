@@ -46,10 +46,10 @@ de Intrio (Google Sans) sin modificar.
 | `--bg-default` | `#F5F0E6` | Fondo cálido (sand) |
 | `--bg-dark-1` | `#26323A` | Secciones oscuras (gris-azulado, no verde) |
 
-Ver [`theme/costaserena-theme.css`](theme/costaserena-theme.css) y
-[`theme/scheme-costaserena.css`](theme/scheme-costaserena.css) — estos
-archivos son nuestros, se cargan como overrides sobre el CSS del template
-sin tocar sus archivos originales.
+Ver [`css/costaserena-theme.css`](css/costaserena-theme.css) y
+[`css/colors/scheme-costaserena.css`](css/colors/scheme-costaserena.css) —
+estos archivos son nuestros, se cargan como overrides sobre el CSS del
+template sin tocar sus archivos originales.
 
 ## Contenido
 

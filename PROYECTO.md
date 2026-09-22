@@ -1686,6 +1686,60 @@ de carpeta, así que se hizo directo:
   copy, servidor local, nota sobre ediciones manuales de Rodolfo) para
   reflejar la nueva estructura.
 
-Pendiente: commit + push de este cambio, y confirmar en un rato que
-`clinicavitelia.cl` resuelve y sirve el sitio con HTTPS una vez que
-termine de propagar el DNS.
+Commit `42c07de`. El DNS terminó de propagar y `clinicavitelia.cl` quedó
+resolviendo y sirviendo el sitio correctamente (confirmado con `dig` y
+`curl`, código 200). Después, ese mismo día, GitHub emitió el
+certificado HTTPS automáticamente — activé "Enforce HTTPS" vía API en
+cuanto detecté que el certificado ya existía (`gh api -X PUT
+repos/.../pages -F https_enforced=true`), sin esperar a que apareciera
+el checkbox habilitado en la UI. `https_enforced: true` confirmado,
+sitio sirviendo en `https://clinicavitelia.cl/` con candado.
+
+## 2026-09-22 — Limpieza del repo: fuera rastro del template sin usar
+
+Rodolfo pidió un inventario de todo lo que se pudiera sacar del repo
+para que quedara "sano" (sin residuos del template Intrio original) y
+aprobó ejecutar la limpieza, excepto un punto que prefirió dejar para
+después (fotos huérfanas en `images/real/` y `images/services/`, por
+si acaso). Antes de borrar nada se verificó con grep que cada archivo
+no tuviera ninguna referencia desde las 33 páginas reales del sitio.
+
+Borrado (todo recuperable del historial de git si hiciera falta):
+
+- **7 páginas demo del template**, que solo se referenciaban entre sí,
+  ninguna real las enlazaba: `blog-single.html`, `project-single.html`,
+  `projects.html`, `projects-style-2.html`, `service-single.html`,
+  `services-style-2.html`, `services-style-3.html`.
+- **2 formularios PHP legacy**, reemplazados hace tiempo por WhatsApp/
+  Reservo y sin ninguna referencia: `contact.php`,
+  `action-consultation.php`.
+- **8 carpetas de imágenes demo** del template, cero referencias en
+  todo el sitio real: `images/blog/`, `images/blog-thumbnail/`,
+  `images/demo/`, `images/products/`, `images/projects-wide/`,
+  `images/services-landscape/`, `images/slider-wide/`,
+  `images/testimonial/`.
+- **6 archivos CSS/JS sin usar**: los 4 esquemas de color alternativos
+  del template (`css/colors/scheme-01.css` a `scheme-04.css` — solo se
+  usa `scheme-costaserena.css`), `css/bootstrap.rtl.min.css` (versión
+  RTL, no aplica), y los 2 JS de validación de los formularios PHP ya
+  eliminados (`js/validation-consultation.js`,
+  `js/validation-contact.js`).
+- **Carpeta `theme/` completa**: eran copias de
+  `costaserena-theme.css` y `scheme-costaserena.css` para linkear desde
+  el README, pero ya estaban desincronizadas de los archivos reales en
+  `css/` (confirmado con `diff`) — un riesgo de confusión, no solo
+  desorden. Se actualizó el README para linkear directo a `css/`.
+
+No se tocó (aprobado explícitamente para más adelante): las fotos
+huérfanas `images/real/retrato-brazos-cruzados.webp`,
+`retrato-scrubs.webp`, `retrato-desk-pensativo.webp`,
+`servicio-alidya-producto.webp`, ni los placeholders sueltos
+`images/services/2.webp`, `3.webp`, `6.webp`.
+
+También se actualizaron los comentarios de `.gitignore` (referenciaban
+la ruta vieja `Intrio HTML/images/...`, ya no existe desde el aplanado
+de estructura).
+
+Verificado con servidor local que las páginas reales y los assets
+compartidos (CSS/JS) siguen cargando bien después de la limpieza.
+Pendiente: commit + push.

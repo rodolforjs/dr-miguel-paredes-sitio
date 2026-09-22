@@ -1915,4 +1915,37 @@ el visor correctamente con el título del `title` del link; en la
 galería, el visor abre en la posición correcta ("1 of 18") y el botón
 "next" avanza bien (probado hasta "2 of 18", Alidya Antes → Después).
 
+Commit `c18f5a6`.
+
+## 2026-09-22 — Corrección: Rodolfo quería rotación, no imagen fija
+
+Malentendí el pedido original. Rodolfo aclaró: quería las **6** fotos
+antes/después rotando por testimonio (como ya rotaba antes, pero con
+las 6 parejas en vez de solo 2), **no** una sola imagen fija — y
+explícitamente pidió no recortar ni "jugar con la diagramación" de
+las fotos, mostrarlas tal cual vienen.
+
+- Se revirtió la imagen estática compuesta
+  (`antes-despues-home-static.webp`, unía antes+después en un solo
+  archivo con PIL) — se borró del repo, era justo la manipulación que
+  no quería.
+- `js/hero-before-after.js` reescrito: mismo mecanismo de rotación
+  original (cambia junto con `changed.owl.carousel` del carrusel de
+  testimonios), pero con las **6 parejas** del sitio (antes solo tenía
+  2 curadas por formato) y **sin** inicializar `.twentytwenty()` — ya
+  no hay slider de arrastre, solo las dos mitades lado a lado con
+  `w-100` (sin forzar aspect-ratio ni cropear).
+- `index.html`: el contenedor `#hero-before-after` volvió a estar
+  activo (ya no comentado) con clase `.zoom-gallery` agregada, así el
+  click en cualquier mitad abre el visor de Magnific Popup — se
+  reutiliza el binding delegado que ya inicializa `designesia.js`
+  (`.zoom-gallery` con `delegate:'a'`), no hizo falta re-inicializar
+  manualmente por cada rotación.
+- Vuelve a cargarse `js/hero-before-after.js` en `index.html`.
+
+Verificado con Claude-in-Chrome: el par cambia correctamente al
+cambiar de testimonio (probado entrecejo → mandíbula), las fotos se
+ven completas sin recortar, y el click abre el visor con el título
+correcto y navegación propia del par ("1 of 2").
+
 Pendiente: commit + push.

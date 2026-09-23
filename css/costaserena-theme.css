@@ -411,44 +411,32 @@ footer .widget h3 {
 }
 
 /* Galería "Antes y Después" (antes-despues.html, 2026-09-22): cada
-   tarjeta muestra UNA sola imagen combinada (antes arriba, después
-   abajo, generada con PIL uniendo los archivos ya existentes tal
-   cual, sin recortar su contenido) — el visor abre esa misma imagen
-   combinada, no divide en dos. Alto fijo por tarjeta (object-fit:
-   cover) para que el grid no quede parejo de ancho pero disparejo de
-   alto entre tratamientos con fotos de proporciones muy distintas. */
+   tarjeta muestra UNA sola imagen combinada, la foto original tal
+   cual la mandó Rodolfo (antes+después ya juntos en el archivo que
+   subió — apilados o lado a lado según venía cada una, sin volver a
+   diagramarla) — el visor abre esa misma imagen, no divide en dos.
+   Alto fijo por tarjeta (object-fit: cover) para que el grid no quede
+   parejo de ancho pero disparejo de alto entre tratamientos. */
 .antes-despues-thumb {
   width: 100%;
   height: 340px;
   object-fit: cover;
   display: block;
 }
-/* antes-despues-plasmage-combo.webp es angosta y muy alta (recorte
-   original de párpado en primer plano) — el centro por defecto cae
-   justo en la costura entre antes/después, mostrando pelo/oreja en
-   vez del ojo. Se ancla al ojo del "después". La foto completa sigue
-   viéndose sin recortar al abrir el visor. */
-img.antes-despues-thumb[src*="antes-despues-plasmage-combo.webp"] {
-  object-position: center 67%;
-}
 .antes-despues-card {
   background: var(--bg-default);
 }
 
 /* Caja "antes y después" del inicio (#hero-before-after, ver
-   js/hero-before-after.js): antes arriba, después abajo — igual que
-   vienen las fotos originales — con alto fijo por mitad para que la
+   js/hero-before-after.js): una sola imagen, la original tal cual la
+   subió Rodolfo (antes+después ya juntos en el archivo, apilados o
+   lado a lado según venía cada foto) — con alto fijo para que la
    sección no salte de tamaño al rotar entre las 6 parejas del sitio
    (proporciones muy distintas entre sí). object-fit: cover recorta
    visualmente vía CSS, no toca el archivo. */
-.hero-ba-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.hero-ba-half {
+.hero-ba-combo {
   width: 100%;
-  height: 220px;
+  height: 460px;
   object-fit: cover;
   display: block;
 }

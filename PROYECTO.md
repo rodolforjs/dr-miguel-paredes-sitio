@@ -2019,4 +2019,40 @@ mismo alto; el click abre la imagen completa sin dividir ("1 of 6",
 título correcto); "Ver tratamiento" navega normal, ya no lo agarra el
 visor.
 
+Commit `a418a5f`.
+
+## 2026-09-22 — Corrección: usar la foto original, no una recompuesta
+
+Rodolfo mostró un ejemplo puntual (Plasmage) donde la imagen original
+que mandó viene **lado a lado**, no apilada — y señaló que en vez de
+recomponer las fotos con PIL, debía usar el archivo tal cual él lo
+subió. Las 6 fotos originales seguían disponibles en `Recursos/`
+(gitignored, pero no borradas de la sesión), así que se reprocesaron
+desde ahí:
+
+- `IMG_2930.JPG.jpeg` (Plasmage, par 1): confirmado lado a lado, no
+  apilado — mi composite anterior asumía mal el layout.
+- Las otras 5 (`IMG_2943.PNG` glúteos, `IMG_2933` mandíbula, `IMG_2941`
+  entrecejo, `IMG_2932` Plasmage par 2, `IMG_2927` ojeras) sí venían
+  apiladas — coincide con lo que ya se había generado, pero igual se
+  reemplazaron por el archivo original real (recortando solo el
+  borde blanco/crema exterior con detección automática por
+  brillo de fila/columna, sin tocar el contenido) en vez de mi
+  versión recompuesta.
+- Se eliminó el override de CSS `object-position: center 67%` que
+  había puesto para la versión vertical vieja de Plasmage — ya no
+  aplica con el archivo original (formato lado a lado, centrado por
+  defecto se ve bien).
+- **Mismo criterio aplicado también a la caja del inicio**
+  (`#hero-before-after`), no solo a la galería: `js/hero-before-after.js`
+  se simplificó para usar directamente los 6 archivos `-combo.webp`
+  (una sola imagen por rotación, sin armar el apilado a mano con JS) —
+  más simple y automáticamente respeta el layout real de cada foto
+  (apilada o lado a lado). CSS: `.hero-ba-stack`/`.hero-ba-half` se
+  reemplazó por `.hero-ba-combo` (una sola clase, alto fijo 460px).
+
+Verificado con Claude-in-Chrome: las 6 fotos del inicio miden 538px de
+alto sin variar (probado forzando las 6 una por una), y la de Plasmage
+(lado a lado) se ve completa y bien encuadrada en esa caja.
+
 Pendiente: commit + push.

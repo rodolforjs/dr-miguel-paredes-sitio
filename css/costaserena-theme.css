@@ -461,3 +461,10 @@ footer .widget h3 {
   object-fit: cover;
   display: block;
 }
+
+/* Hero de Alidya (2026-09-23): el 20% general deja la caja "ALIDYA"
+   fuera del banner corto, mostrando solo la cara. Se baja el ancla
+   para que entren cara + caja. */
+img.jarallax-img[src*="servicio-alidya-caja.webp"] {
+  object-position: center 40% !important;
+}

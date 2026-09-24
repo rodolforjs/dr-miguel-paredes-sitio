@@ -2177,4 +2177,35 @@ tarjetas — ocupa el mismo espacio que el link real pero sin mostrarse
 (`.invisible` de Bootstrap, `visibility: hidden` sin sacar el elemento
 del flujo), así el grid queda parejo sin necesitar CSS nuevo.
 
+Commit `8f10e2f`.
+
+## 2026-09-23 — Foto de Alidya: recorte nuevo con la palabra completa
+
+Rodolfo notó que en la tarjeta de Alidya (`services.html`) la "A" de
+"ALIDYA" en la caja del producto quedaba cortada por el encuadre.
+Investigando, no era un tema de `object-position` — el archivo
+guardado (`images/services/7.webp`, y también
+`images/real/servicio-alidya-caja.webp` que comparte la misma foto en
+el hero de `tratamiento-alidya.html`) ya tenía la "A" recortada
+físicamente desde una sesión anterior a esta, y no había un original
+sin recortar guardado en el repo para rehacer el encuadre.
+
+Se le pidió la foto original a Rodolfo (la tenía en `Recursos/
+IMG_2813.JPG.jpeg`, 2340x4160) y se rehizo el recorte con Python/PIL:
+recorte vertical (ancho completo, alto ajustado a la proporción 2:3)
+con un offset de 500px desde arriba para no desperdiciar el espacio
+vacío de pared/techo por encima de la cabeza — deja "ALIDYA" completo
+y la cara bien encuadrada, mejor aprovechado que un recorte simple
+desde el borde superior.
+
+Se guardó el mismo recorte en ambos archivos (comparten la foto). El
+hero de `tratamiento-alidya.html` (banner ancho y corto) necesitó
+además un `object-position: center 40%` nuevo en
+`costaserena-theme.css` — el 20% por defecto solo mostraba la cara,
+dejando la caja fuera del banner.
+
+Verificado con Claude-in-Chrome: la tarjeta de `services.html` y el
+hero de `tratamiento-alidya.html` muestran "ALIDYA" completo y la cara
+del Dr. Paredes visibles a la vez.
+
 Pendiente: commit + push.

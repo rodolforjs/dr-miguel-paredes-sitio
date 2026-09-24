@@ -2226,4 +2226,17 @@ Se agregó `object-position: center 0%` acotado a ese archivo en
 recortar el archivo. Verificado con Claude-in-Chrome (zoom sobre el
 gorro): las 3 líneas de texto se leen completas.
 
+Commit `f548ef9`.
+
+## 2026-09-23 — Mismo ajuste en la tarjeta de Plasmage
+
+Mismo caso que Toxina Botulínica, esta vez en la tarjeta de Plasmage
+(`services.html`, `images/services/4.webp`) — el recorte centrado por
+defecto dejaba el gorro fuera, mostrando desde el mentón hacia abajo.
+Rodolfo mandó una referencia de cómo debía verse (cabeza completa).
+Se agregó `object-position: center 0%` acotado a ese archivo en
+`costaserena-theme.css`, mismo patrón que el caso anterior. Verificado
+con Claude-in-Chrome: la tarjeta ahora muestra la cabeza completa con
+el gorro.
+
 Pendiente: commit + push.

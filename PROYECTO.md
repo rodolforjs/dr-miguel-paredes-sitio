@@ -2055,4 +2055,37 @@ Verificado con Claude-in-Chrome: las 6 fotos del inicio miden 538px de
 alto sin variar (probado forzando las 6 una por una), y la de Plasmage
 (lado a lado) se ve completa y bien encuadrada en esa caja.
 
+Commit `2c8b7b0`.
+
+## 2026-09-23 — Setup de Google Search Console + datos estructurados
+
+Rodolfo terminó de configurar Search Console (propiedad de dominio
+verificada, sitemap enviado, indexación manual solicitada para
+inicio/services/consultation). Explícitamente decidió **no** armar el
+Google Business Profile — "no me pagaron para eso", queda fuera de
+alcance, no volver a proponerlo salvo que él lo pida.
+
+Encontró que el resultado de Google mostraba como descripción el
+texto del footer (email/WhatsApp/dirección) en vez de la meta
+description real. Causa: el sitio no tenía **datos estructurados**
+(schema.org) en ninguna página, así que Google no tenía una fuente
+"oficial" de qué es el negocio y arma el snippet solo, agarrando
+texto visible que le pareció relevante (el bloque de contacto del
+footer, que es denso en información).
+
+- Se acortó la meta description del inicio (de ~179 a ~138
+  caracteres, dentro del límite recomendado de Google).
+- Se agregó un bloque `<script type="application/ld+json">` con
+  schema.org `MedicalBusiness` en `index.html`: nombre, descripción,
+  dirección (`PostalAddress`), teléfono, email, Instagram. Es la
+  fuente estructurada que le faltaba a Google — no garantiza que el
+  snippet cambie de inmediato (depende de cuándo Google vuelva a
+  rastrear), pero es la corrección técnica correcta, no solo esperar.
+- Validado el JSON con `json.loads()` antes de subir.
+
+No se agregó a las demás páginas por ahora (el snippet problemático
+era específicamente el del inicio, que es la URL que la gente
+comparte/busca) — si en el futuro se quiere replicar en otras páginas
+clave, es directo.
+
 Pendiente: commit + push.

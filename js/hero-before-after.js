@@ -1,64 +1,59 @@
 /*
  * Caja de "antes y después" junto al carrusel de testimonios del inicio.
- * Rota entre las 6 parejas de fotos reales del sitio cada vez que
- * cambia el testimonio (automático o al hacer click en los puntos) —
- * es solo variedad visual, NO afirma que la foto corresponda a la
- * persona del testimonio que se ve en pantalla en ese momento.
  *
- * A pedido de Rodolfo (2026-09-22): sin slider de arrastre, usando la
- * foto tal cual la subió (archivo `-combo.webp`, antes+después ya
- * juntos en el mismo archivo original — apilados o lado a lado según
- * venía cada una, sin volver a diagramarla), y con un tamaño fijo
- * para la caja completa — si no, la sección salta de alto en cada
- * rotación porque las 6 parejas tienen proporciones distintas (mala
- * UX). El encuadre fijo se logra con CSS (object-fit: cover vía la
- * clase .hero-ba-combo en costaserena-theme.css), no recortando el
- * archivo. El click abre el visor (Magnific Popup, vía la clase
- * .zoom-gallery del contenedor padre en index.html) mostrando la
- * foto completa sin ese recorte.
+ * A pedido de Rodolfo (2026-09-23): ya no rota sincronizada con el
+ * carrusel de testimonios (no tiene relación una cosa con la otra, y
+ * ahora hay más fotos que testimonios) — tiene su propia transición
+ * automática, independiente. Además, todas las fotos quedan presentes
+ * en el DOM a la vez (una visible por vez, las demás con opacity:0),
+ * así el visor (Magnific Popup vía .zoom-gallery en index.html) las
+ * detecta todas y muestra flechas para recorrerlas, igual que en
+ * antes-despues.html — antes solo había una foto en el DOM por vez y
+ * el visor no tenía cómo navegar.
+ *
+ * Usa la foto tal cual la subió Rodolfo (archivo `-combo.webp`,
+ * antes+después ya juntos en el archivo original — apilados o lado a
+ * lado según venía cada una).
  */
 (function () {
     var PARES = [
-        { src: "images/real/antes-despues-entrecejo-combo.webp", alt: "Antienvejecimiento" },
+        { src: "images/real/antes-despues-entrecejo-combo.webp", alt: "Toxina Botulínica" },
+        { src: "images/real/antes-despues-toxina-botulinica2-combo.webp", alt: "Toxina Botulínica" },
         { src: "images/real/antes-despues-mandibula-combo.webp", alt: "Ácido Hialurónico" },
-        { src: "images/real/antes-despues-ojeras-combo.webp", alt: "Ácido Hialurónico (Ojeras)" },
+        { src: "images/real/antes-despues-ojeras-combo.webp", alt: "Ácido Hialurónico" },
         { src: "images/real/antes-despues-gluteos-combo.webp", alt: "Alidya (Anticelulítico)" },
         { src: "images/real/antes-despues-plasmage-combo.webp", alt: "Plasmage" },
-        { src: "images/real/antes-despues-plasmage2-combo.webp", alt: "Plasmage" }
+        { src: "images/real/antes-despues-plasmage2-combo.webp", alt: "Plasmage" },
+        { src: "images/real/antes-despues-bioestimulacion-cuello-combo.webp", alt: "Bioestimulación de Cuello" },
+        { src: "images/real/antes-despues-rinomodelacion-combo.webp", alt: "Rinomodelación" },
+        { src: "images/real/antes-despues-lipopapada-enzimatica-combo.webp", alt: "Lipopapada Enzimática" }
     ];
-    var indice = 0;
+    var ROTATE_MS = 4500;
 
-    function preload(src) {
-        return new Promise(function (resolve) {
-            var img = new Image();
-            img.onload = resolve;
-            img.onerror = resolve;
-            img.src = src;
-        });
-    }
-
-    function renderPar(i) {
-        var par = PARES[i % PARES.length];
+    jQuery(window).on("load", function () {
         var $cont = jQuery("#hero-before-after");
         if (!$cont.length) return;
 
-        preload(par.src).then(function () {
-            $cont.html(
-                '<a href="' + par.src + '" title="' + par.alt + ' — Antes y Después"><img src="' + par.src + '" class="hero-ba-combo" alt="' + par.alt + ' — Antes y Después"></a>'
-            );
-            // El contenedor #hero-before-after ya tiene la clase .zoom-gallery
-            // (inicializada una sola vez por designesia.js con delegate:'a'),
-            // así que no hace falta re-inicializar magnificPopup acá — el
-            // delegate detecta el <a> nuevo que se inyecta en cada rotación.
+        var html = '<div class="hero-ba-slideshow">';
+        PARES.forEach(function (par, i) {
+            html +=
+                '<a href="' + par.src + '" title="' + par.alt + ' — Antes y Después" class="hero-ba-slide' + (i === 0 ? " is-active" : "") + '">' +
+                    '<img src="' + par.src + '" alt="' + par.alt + ' — Antes y Después">' +
+                '</a>';
         });
-    }
+        html += "</div>";
+        $cont.html(html);
 
-    jQuery(window).on("load", function () {
-        renderPar(indice);
+        var $slides = $cont.find(".hero-ba-slide");
+        var indice = 0;
+        setInterval(function () {
+            $slides.eq(indice).removeClass("is-active");
+            indice = (indice + 1) % $slides.length;
+            $slides.eq(indice).addClass("is-active");
+        }, ROTATE_MS);
 
-        jQuery(".owl-single-dots").on("changed.owl.carousel", function () {
-            indice++;
-            renderPar(indice);
-        });
+        // El contenedor #hero-before-after ya tiene la clase .zoom-gallery
+        // (inicializada una sola vez por designesia.js con delegate:'a'),
+        // así que no hace falta re-inicializar magnificPopup acá.
     });
 })();

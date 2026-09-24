@@ -428,15 +428,36 @@ footer .widget h3 {
 }
 
 /* Caja "antes y después" del inicio (#hero-before-after, ver
-   js/hero-before-after.js): una sola imagen, la original tal cual la
-   subió Rodolfo (antes+después ya juntos en el archivo, apilados o
-   lado a lado según venía cada foto) — con alto fijo para que la
-   sección no salte de tamaño al rotar entre las 6 parejas del sitio
+   js/hero-before-after.js): todas las fotos quedan en el DOM a la vez
+   (position: absolute, apiladas unas sobre otras) y se cruzan con
+   fade — solo una visible (.is-active) por vez, alto fijo para que la
+   sección no salte de tamaño entre las 10 parejas del sitio
    (proporciones muy distintas entre sí). object-fit: cover recorta
-   visualmente vía CSS, no toca el archivo. */
-.hero-ba-combo {
+   visualmente vía CSS, no toca el archivo. Todas siguen presentes en
+   el DOM (aunque no visibles) para que el visor de Magnific Popup las
+   detecte y muestre flechas de navegación entre las 10. */
+.hero-ba-slideshow {
+  position: relative;
   width: 100%;
   height: 460px;
+}
+.hero-ba-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.hero-ba-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.hero-ba-slide img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
 }

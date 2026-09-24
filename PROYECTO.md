@@ -2088,4 +2088,81 @@ era específicamente el del inicio, que es la URL que la gente
 comparte/busca) — si en el futuro se quiere replicar en otras páginas
 clave, es directo.
 
+Commit `4acb183`.
+
+## 2026-09-23 — 4 fotos antes/después nuevas + reasignación + rediseño del hero del inicio
+
+Tanda grande de cambios sobre antes/después:
+
+**Reasignación de tratamiento:** la pareja "entrecejo" (frown lines)
+que venía atribuida a Antienvejecimiento en realidad corresponde a
+Toxina Botulínica — Rodolfo lo señaló directo, no fue una pregunta.
+Se movió: sacada de `tratamiento-antienvejecimiento.html` (quedó sin
+sección de antes/después, era la única pareja que tenía) y agregada a
+`tratamiento-toxina-botulinica.html` (no tenía sección, se creó una
+nueva). También se actualizó su tarjeta en `antes-despues.html`
+(label + link) y su `alt` en `js/hero-before-after.js`.
+
+**4 fotos nuevas** (`Recursos/IMG_2988.PNG`, `IMG_2998.JPG.jpeg`,
+`IMG_2989.PNG`, `IMG_2994.JPG.jpeg`), procesadas igual que la tanda
+anterior (recorte de borde blanco/negro exterior automático por
+brillo, división en antes/despues separados detectando la franja
+divisoria — esta vez una era oscura casi negra en vez de blanca,
+hubo que buscarla por brillo mínimo en vez de máximo):
+
+- **Rinomodelación** (perfil de nariz) → tratamiento nuevo, **no existe
+  página** en el catálogo. Regla del proyecto (`CLAUDE.md` #5): no se
+  crea la página sin verificar que el tratamiento sea real — Rodolfo
+  confirmó explícitamente que en estos casos solo hay que poner el
+  nombre que él dio, sin link "Ver tratamiento". Aparece en la
+  galería y en el inicio, sin página propia.
+- **Lipopapada Enzimática** (perfil de mentón/papada) → mismo caso,
+  sin página, sin link.
+- **Bioestimulación de Cuello** → coincide con
+  `tratamiento-bioestimulacion.html` (ya existía, cubre "Facial,
+  Cuello y Escote") — se le agregó su primera sección de antes/después
+  (no tenía ninguna).
+- **Toxina Botulínica** (segunda pareja, paciente distinta) →
+  agregada como segundo par en el carrusel nuevo de
+  `tratamiento-toxina-botulinica.html`.
+
+Se agregaron los 3 scripts del carrusel (`jquery.event.move.js`,
+`jquery.twentytwenty.js`, `before-after-carousel.js`) a
+`tratamiento-toxina-botulinica.html` y `tratamiento-bioestimulacion.html`,
+que no los tenían por no haber usado antes este componente.
+
+**Galería (`antes-despues.html`):** ahora 10 tarjetas (antes 6). Las 2
+sin tratamiento verificado (Rinomodelación, Lipopapada Enzimática) no
+llevan el link "Ver tratamiento" en su tarjeta.
+
+**Rediseño del hero del inicio** (`#hero-before-after`,
+`js/hero-before-after.js`): dos pedidos de Rodolfo sobre el mismo
+componente:
+
+1. "Hay más fotos que testimonios, que no tengan relación" — se sacó
+   la sincronización con el cambio de testimonio
+   (`changed.owl.carousel`) y ahora tiene su **propia transición
+   automática** cada 4.5s, independiente.
+2. "Faltan las flechitas del visor como en antes-despues.html" — la
+   causa era que antes solo se inyectaba **una** foto a la vez en el
+   DOM (se reemplazaba en cada rotación), así que Magnific Popup no
+   tenía con qué armar la galería de navegación. Ahora las **10**
+   fotos se inyectan todas de una vez al cargar la página
+   (`position: absolute`, apiladas, solo una con `opacity:1` vía la
+   clase `.is-active`) — el crossfade lo hace un `setInterval` que
+   mueve la clase, y el visor las detecta todas (`.zoom-gallery` ya
+   estaba en el contenedor padre), mostrando flechas y contador "X de
+   10" igual que en la página de galería completa.
+
+CSS nuevo en `costaserena-theme.css`: `.hero-ba-slideshow` (contenedor
+con alto fijo) + `.hero-ba-slide` (position absolute, fade por
+opacity) — reemplaza a `.hero-ba-combo` de la sesión anterior.
+
+Verificado con Claude-in-Chrome: el inicio cambia de foto solo (sin
+esperar el testimonio), el visor abre con flechas y contador ("7 of
+10" probado); la galería tiene 10 tarjetas, las 2 sin tratamiento no
+tienen "Ver tratamiento"; Toxina Botulínica muestra "1/2" en su
+carrusel; Bioestimulación muestra su primer par; Antienvejecimiento ya
+no tiene sección de antes/después.
+
 Pendiente: commit + push.

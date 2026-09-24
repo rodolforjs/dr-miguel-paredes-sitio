@@ -485,3 +485,21 @@ img.treatment-card-thumb[src*="images/services/5.webp"] {
 img.treatment-card-thumb[src*="images/services/4.webp"] {
   object-position: center 0%;
 }
+
+/* servicio-corporal-cutout.webp (2026-09-23): foto tipo "cutout" muy
+   angosta y alta (946x1800) — el recorte centrado por defecto en las
+   tarjetas (services.html, index.html) deja la cara/gorro fuera,
+   mostrando solo el torso. Se ancla arriba SOLO en las tarjetas — el
+   hero de tratamiento-remodelado-gluteos.html (.jarallax-img, banner
+   ancho y corto) ya se veía bien con el 20% por defecto y con 0%
+   quedaba mostrando solo la coronilla del gorro. */
+img.treatment-card-thumb[src*="servicio-corporal-cutout.webp"],
+img.treatment-thumb[src*="servicio-corporal-cutout.webp"] {
+  object-position: center 0%;
+}
+
+/* Tarjeta de Bioregenerador Facial en services.html (2026-09-23):
+   mismo problema, el recorte centrado dejaba ojos y gorro fuera. */
+img.treatment-card-thumb[src*="retrato-bioregenerador.webp"] {
+  object-position: center 0%;
+}

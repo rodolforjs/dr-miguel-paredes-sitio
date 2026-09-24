@@ -2239,4 +2239,40 @@ Se agregó `object-position: center 0%` acotado a ese archivo en
 con Claude-in-Chrome: la tarjeta ahora muestra la cabeza completa con
 el gorro.
 
+Commit `9200a66`.
+
+## 2026-09-23 — Ajuste de encuadre: Remodelado de Glúteos y Bioregenerador Facial
+
+Rodolfo pidió revisar dos tarjetas más de `services.html`.
+
+- **Bioregenerador Facial** (`retrato-bioregenerador.webp`): mismo
+  patrón de los casos anteriores, recorte centrado dejaba ojos y gorro
+  fuera. `object-position: center 0%` acotado a `.treatment-card-thumb`.
+- **Remodelado de Glúteos** (`servicio-corporal-cutout.webp`): foto
+  tipo "cutout" muy angosta y alta (946x1800) — acá encontré y corregí
+  un error propio en el camino: al probar el fix apliqué
+  `object-position: center 0% !important` a **todas** las apariciones
+  del archivo por selector de `src`, sin darme cuenta de que ese mismo
+  archivo se usa también como hero (`.jarallax-img`) en
+  `tratamiento-remodelado-gluteos.html`, que ya se veía bien con el
+  20% por defecto — con el cambio quedó mostrando solo la coronilla
+  del gorro (mal). Se corrigió acotando el override a los selectores
+  `.treatment-card-thumb`/`.treatment-thumb` únicamente, dejando el
+  hero sin tocar.
+  - Nota técnica del proceso: hubo un momento de confusión real
+    verificando este caso — el `object-position` sí se estaba
+    aplicando bien, pero yo estaba haciendo zoom sobre una región de
+    pantalla que correspondía a la parte de ABAJO de la tarjeta (el
+    `getBoundingClientRect().top` de la imagen daba negativo, es
+    decir la tarjeta estaba parcialmente arriba del viewport) — no era
+    un bug del CSS, era mi propia medición mal alineada. Vale la pena
+    recordar: si un `object-position` "no hace nada" visualmente,
+    chequear primero `getBoundingClientRect()` del elemento antes de
+    asumir que el CSS está mal.
+
+Verificado con Claude-in-Chrome: tarjeta de Bioregenerador con
+ojos/gorro visibles; tarjeta de Remodelado de Glúteos con cara/gorro
+visibles; hero de `tratamiento-remodelado-gluteos.html` sin cambios
+(sigue mostrando la cara con mascarilla, como antes).
+
 Pendiente: commit + push.

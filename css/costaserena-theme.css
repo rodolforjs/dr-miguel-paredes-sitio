@@ -511,3 +511,14 @@ img.treatment-card-thumb[src*="retrato-bioregenerador.webp"] {
 img.jarallax-img[src*="servicio-peeling-laser.webp"] {
   object-position: center 45% !important;
 }
+
+/* Tarjetas combinadas de antes-despues.html / #hero-before-after
+   (2026-09-24): ajustes puntuales de encuadre pedidos por Rodolfo. */
+img.antes-despues-thumb[src*="antes-despues-toxina-botulinica2-combo.webp"],
+.hero-ba-slide img[src*="antes-despues-toxina-botulinica2-combo.webp"] {
+  object-position: center 95%;
+}
+img.antes-despues-thumb[src*="antes-despues-rinomodelacion-combo.webp"],
+.hero-ba-slide img[src*="antes-despues-rinomodelacion-combo.webp"] {
+  object-position: center 15%;
+}

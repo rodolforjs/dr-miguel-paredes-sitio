@@ -2305,4 +2305,27 @@ que se viera "todo", lo más expandida posible, sin recortar de más.
 
 Verificado con Claude-in-Chrome en ambos lugares.
 
+Commit `01be853`.
+
+## 2026-09-24 — Ajustes de encuadre en tarjetas combinadas de antes/después
+
+Rodolfo pidió dos ajustes puntuales de `object-position`, transversales
+entre `antes-despues.html` y el widget del inicio (mismas imágenes,
+mismo archivo `-combo.webp` en ambos lugares):
+
+- **Toxina Botulínica (segunda pareja, `antes-despues-toxina-botulinica2-combo.webp`)**:
+  el "después" solo mostraba el gorro, los ojos quedaban fuera del
+  recorte fijo de 340px de alto. Se fue subiendo el valor por pasos
+  (75% → 85% → 95%) verificando cada vez con Claude-in-Chrome hasta
+  que los ojos y cejas del "después" quedaron completos — a costa de
+  que el "antes" ahora muestra menos (solo frente, sin ojos), trade-off
+  aceptado porque el pedido explícito era arreglar el "después".
+- **Rinomodelación (`antes-despues-rinomodelacion-combo.webp`)**: la
+  nariz del "antes" se veía cortada arriba. Se bajó a 15% (menos
+  recorte desde arriba) y quedó la nariz completa en ambas mitades.
+
+Se agregaron ambas reglas con selector doble (`.antes-despues-thumb` +
+`.hero-ba-slide img`) para que apliquen igual en la galería y en el
+widget rotativo del inicio, sin duplicar código por página.
+
 Pendiente: commit + push.

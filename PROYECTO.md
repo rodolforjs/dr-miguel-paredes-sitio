@@ -2275,4 +2275,34 @@ ojos/gorro visibles; tarjeta de Remodelado de Glúteos con cara/gorro
 visibles; hero de `tratamiento-remodelado-gluteos.html` sin cambios
 (sigue mostrando la cara con mascarilla, como antes).
 
+Commit `99b7ed7`.
+
+## 2026-09-24 — Foto nueva para Peeling Facial
+
+Rodolfo pidió reemplazar la portada de Peeling Facial con
+`Recursos/IMG_8336.HEIF` (Dr. Paredes con lentes de protección láser,
+mascarilla y dispositivo, tratando a un paciente) — pidió explícitamente
+que se viera "todo", lo más expandida posible, sin recortar de más.
+
+- Antes usaba `retrato-marmol.webp`, un archivo **compartido** con
+  `about.html` e `index.html` — se verificó con grep antes de tocar
+  nada y se confirmó que no se podía sobreescribir. Se creó un archivo
+  nuevo (`servicio-peeling-laser.webp`) y se actualizaron solo las 2
+  referencias de Peeling Facial (hero + tarjeta de `services.html`).
+- La foto se guardó **sin recortar**: el aspecto original (3024x4032 =
+  3:4 exacto) coincide con el 1350x1800 que se usa en el resto del
+  sitio, así que fue un resize directo, cero pérdida de encuadre —
+  justo lo que pidió Rodolfo.
+- Hero (`tratamiento-peeling-facial.html`, banner ancho y corto): el
+  20% por defecto solo mostraba la coronilla del gorro. Se agregó
+  `object-position: center 45%` acotado al archivo — muestra los
+  lentes, la mascarilla y el torso (no entra la escena completa con
+  paciente y dispositivo en un banner tan bajo, pero es el mejor
+  balance posible sin recortar el archivo).
+- Tarjeta de `services.html`: el 50% por defecto ya se veía bien
+  (gorro, lentes y mascarilla completos), no hizo falta agregar
+  override ahí.
+
+Verificado con Claude-in-Chrome en ambos lugares.
+
 Pendiente: commit + push.

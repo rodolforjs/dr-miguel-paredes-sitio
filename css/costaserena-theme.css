@@ -503,3 +503,11 @@ img.treatment-thumb[src*="servicio-corporal-cutout.webp"] {
 img.treatment-card-thumb[src*="retrato-bioregenerador.webp"] {
   object-position: center 0%;
 }
+
+/* servicio-peeling-laser.webp (2026-09-24): hero de Peeling Facial —
+   el 20% por defecto solo muestra la coronilla del gorro, el gesto
+   clínico (lentes, mascarilla, dispositivo, paciente) queda más abajo
+   en la foto. */
+img.jarallax-img[src*="servicio-peeling-laser.webp"] {
+  object-position: center 45% !important;
+}

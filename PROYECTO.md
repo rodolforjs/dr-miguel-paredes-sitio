@@ -2564,3 +2564,36 @@ explicado en contexto: al ser `object-fit: cover` sobre una caja de
 banner fija, no hay forma de "alejar la cámara" de verdad (eso
 requeriría agrandar el banner o usar `object-fit: contain` con
 franjas — no se tocó, solo se reposicionó el recorte existente).
+
+## 2026-09-24 — Foto nueva de Lipolítico Facial + 2° par de Endoláser (Abdomen)
+
+Rodolfo mandó una foto de stock para Lipolítico Facial y 2 fotos más
+(separadas) de antes/después de Endoláser, esta vez de abdomen (no
+ginecomastia) de otro paciente.
+
+**Lipolítico Facial:** `images/real/retrato-lipolitico-facial.webp`
+reemplazada (el archivo original de la foto de stock venía nombrado
+"mesoterapia-con-adn-de-salmon..." — es una foto genérica de
+inyectable facial, el nombre no coincide con el tratamiento pero
+Rodolfo pidió explícitamente usarla acá). Foto cuadrada (600×600),
+resolución más baja que el resto de las fotos del sitio (~1200px)
+— se ve bien en la tarjeta (ancho ~360px) pero puede notarse algo
+menos nítida en el hero (banner ancho, foto estirada más de 2x). Se
+quitó el override viejo (`object-position: center 25%`, pensado para
+el retrato de mandíbula anterior, ya no aplica) y se agregó
+`object-position: center 40% !important` en el hero para no perder
+ojos/jeringa (contenido balanceado a lo ancho, la tarjeta se ve bien
+sin ancla adicional).
+
+**Endoláser (Abdomen), 2° caso:** mismo patrón que Ginecomastia de
+hace un rato — 2 archivos separados (`IMG_3099`/`IMG_3100`,
+1080×1350 cada uno), combo armado con Pillow (stack vertical + 8px de
+margen negro), tarjeta nueva en `antes-despues.html` con formato de 2
+`<img>` independientes desde el inicio (mismo criterio: no esperar a
+que se rompa el encuadre para split-earlas), entrada con `halves` en
+`js/hero-before-after.js`. A diferencia del caso anterior, esta vez
+`tratamiento-endolaser.html` YA tenía su carrusel `.ba-carousel` (se
+había armado hace un rato) — se agregó como 2° par dentro del mismo
+`data-pairs` (mismo patrón que Plasmage, que también tiene 2 pares
+en un solo carrusel). Verificado que el contador del carrusel
+muestra "1 / 2".

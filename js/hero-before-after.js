@@ -35,7 +35,8 @@
         { src: "images/real/antes-despues-bioestimulacion-cuello-combo.webp", alt: "Bioestimulación de Cuello" },
         { src: "images/real/antes-despues-rinomodelacion-combo.webp", alt: "Rinomodelación", halves: ["images/real/antes-despues-rinomodelacion-antes.webp", "images/real/antes-despues-rinomodelacion-despues.webp"] },
         { src: "images/real/antes-despues-lipopapada-enzimatica-combo.webp", alt: "Lipopapada Enzimática" },
-        { src: "images/real/antes-despues-ginecomastia-combo.webp", alt: "Ginecomastia (Endoláser)", halves: ["images/real/antes-despues-ginecomastia-antes.webp", "images/real/antes-despues-ginecomastia-despues.webp"] }
+        { src: "images/real/antes-despues-ginecomastia-combo.webp", alt: "Ginecomastia (Endoláser)", halves: ["images/real/antes-despues-ginecomastia-antes.webp", "images/real/antes-despues-ginecomastia-despues.webp"] },
+        { src: "images/real/antes-despues-endolaser-abdomen-combo.webp", alt: "Endoláser (Abdomen)", halves: ["images/real/antes-despues-endolaser-abdomen-antes.webp", "images/real/antes-despues-endolaser-abdomen-despues.webp"] }
     ];
     var ROTATE_MS = 4500;
 

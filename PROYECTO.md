@@ -2610,3 +2610,18 @@ de esas 2 imágenes específicas a 300px (de 170px), mostrando ~68% de
 la foto en vertical en vez de ~39% — ahora entran sostén + ombligo +
 ropa interior en ambas mitades. El widget del inicio (230px de alto)
 no tenía este problema, no se tocó.
+
+**Segunda corrección, mismo día:** Rodolfo aclaró que no se refería a
+"más alto apilado" sino a un formato distinto — mostró como
+referencia cómo se ve "Bioestimulación de Cuello" (foto que vino ya
+combinada LADO A LADO por quien la subió, no apilada). Pidió ese
+mismo estilo para Endoláser (Abdomen). Como estas 2 fotos vienen en
+archivos separados (no un collage ya armado), se armó el lado a lado
+con CSS: nueva clase `.ba-half-row` (`display:flex` en el `<a>`,
+cada `<img>` al 50% de ancho) + `aspect-ratio: 1080/1350` (la
+proporción real de la foto) en vez de una altura fija en px — así
+`object-fit: cover` casi no recorta, se ve prácticamente la foto
+completa. Reemplaza el fix anterior (300px de alto), que igual no
+lograba el mismo efecto visual. Scoped únicamente a estas 2 imágenes
+(el resto de las tarjetas -half se quedan con el formato apilado
+original, que ya se veía bien).

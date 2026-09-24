@@ -14,18 +14,26 @@
  * Usa la foto tal cual la subió Rodolfo (archivo `-combo.webp`,
  * antes+después ya juntos en el archivo original — apilados o lado a
  * lado según venía cada una).
+ *
+ * Excepción (2026-09-24): en Toxina Botulínica (2ª pareja) y
+ * Rinomodelación, un solo object-position sobre la imagen combinada
+ * no alcanza para encuadrar bien las dos mitades a la vez (mover el
+ * recorte para arreglar una mitad desajustaba la otra). Para esos 2
+ * casos puntuales se arma con 2 `<img>` independientes (`halves`),
+ * cada una con su propio recorte — el link sigue apuntando al archivo
+ * `-combo.webp` completo, así el visor no cambia.
  */
 (function () {
     var PARES = [
         { src: "images/real/antes-despues-entrecejo-combo.webp", alt: "Toxina Botulínica" },
-        { src: "images/real/antes-despues-toxina-botulinica2-combo.webp", alt: "Toxina Botulínica" },
+        { src: "images/real/antes-despues-toxina-botulinica2-combo.webp", alt: "Toxina Botulínica", halves: ["images/real/antes-despues-toxina-botulinica2-antes.webp", "images/real/antes-despues-toxina-botulinica2-despues.webp"] },
         { src: "images/real/antes-despues-mandibula-combo.webp", alt: "Ácido Hialurónico" },
         { src: "images/real/antes-despues-ojeras-combo.webp", alt: "Ácido Hialurónico" },
         { src: "images/real/antes-despues-gluteos-combo.webp", alt: "Alidya (Anticelulítico)" },
         { src: "images/real/antes-despues-plasmage-combo.webp", alt: "Plasmage" },
         { src: "images/real/antes-despues-plasmage2-combo.webp", alt: "Plasmage" },
         { src: "images/real/antes-despues-bioestimulacion-cuello-combo.webp", alt: "Bioestimulación de Cuello" },
-        { src: "images/real/antes-despues-rinomodelacion-combo.webp", alt: "Rinomodelación" },
+        { src: "images/real/antes-despues-rinomodelacion-combo.webp", alt: "Rinomodelación", halves: ["images/real/antes-despues-rinomodelacion-antes.webp", "images/real/antes-despues-rinomodelacion-despues.webp"] },
         { src: "images/real/antes-despues-lipopapada-enzimatica-combo.webp", alt: "Lipopapada Enzimática" }
     ];
     var ROTATE_MS = 4500;
@@ -36,9 +44,17 @@
 
         var html = '<div class="hero-ba-slideshow">';
         PARES.forEach(function (par, i) {
+            var inner;
+            if (par.halves) {
+                inner =
+                    '<img class="hero-ba-half-img" src="' + par.halves[0] + '" alt="' + par.alt + ' — Antes">' +
+                    '<img class="hero-ba-half-img" src="' + par.halves[1] + '" alt="' + par.alt + ' — Después">';
+            } else {
+                inner = '<img src="' + par.src + '" alt="' + par.alt + ' — Antes y Después">';
+            }
             html +=
                 '<a href="' + par.src + '" title="' + par.alt + ' — Antes y Después" class="hero-ba-slide' + (i === 0 ? " is-active" : "") + '">' +
-                    '<img src="' + par.src + '" alt="' + par.alt + ' — Antes y Después">' +
+                    inner +
                 '</a>';
         });
         html += "</div>";

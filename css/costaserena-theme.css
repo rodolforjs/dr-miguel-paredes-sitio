@@ -512,13 +512,29 @@ img.jarallax-img[src*="servicio-peeling-laser.webp"] {
   object-position: center 45% !important;
 }
 
-/* Tarjetas combinadas de antes-despues.html / #hero-before-after
-   (2026-09-24): ajustes puntuales de encuadre pedidos por Rodolfo. */
-img.antes-despues-thumb[src*="antes-despues-toxina-botulinica2-combo.webp"],
-.hero-ba-slide img[src*="antes-despues-toxina-botulinica2-combo.webp"] {
-  object-position: center 95%;
+/* Toxina Botulínica (2ª pareja) y Rinomodelación — caso especial
+   (2026-09-24): en estas 2 tarjetas puntuales (de las 10 de la
+   galería) la imagen combinada no permite mostrar bien las dos
+   mitades a la vez con un solo object-position (mover el recorte
+   para arreglar una mitad desajustaba la otra, ver PROYECTO.md).
+   Rodolfo pidió volver a 2 imágenes independientes SOLO en la
+   previsualización de estas 2 (grid + widget del inicio) — el visor
+   sigue abriendo el archivo `-combo.webp` completo sin dividir. */
+.antes-despues-thumb-half {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
 }
-img.antes-despues-thumb[src*="antes-despues-rinomodelacion-combo.webp"],
-.hero-ba-slide img[src*="antes-despues-rinomodelacion-combo.webp"] {
-  object-position: center 15%;
+.hero-ba-slide .hero-ba-half-img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+img[src*="antes-despues-toxina-botulinica2-antes.webp"] {
+  object-position: center 88%;
+}
+img[src*="antes-despues-toxina-botulinica2-despues.webp"] {
+  object-position: center 88%;
 }

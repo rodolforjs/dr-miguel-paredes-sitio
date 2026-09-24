@@ -2328,4 +2328,51 @@ Se agregaron ambas reglas con selector doble (`.antes-despues-thumb` +
 `.hero-ba-slide img`) para que apliquen igual en la galería y en el
 widget rotativo del inicio, sin duplicar código por página.
 
+Commit `ba5f31b`.
+
+## 2026-09-24 — Corrección: el ajuste anterior estaba mal planteado
+
+Rodolfo marcó que el fix de la sesión anterior no funcionaba como
+esperaba: al subir el `object-position` al 95% para el caso de Toxina
+Botulínica, apareció un hueco negro enorme entre el "antes" y el
+"después" — porque **una sola imagen combinada solo admite un punto
+de anclaje**, así que mover el recorte para mostrar mejor una mitad
+arrastra el recorte de la otra mitad con ella (no son dos "marcos"
+independientes, es una ventana de recorte deslizándose sobre TODA la
+imagen). Antes de tocar código, se le explicó esto a Rodolfo y se le
+preguntó cómo prefería resolverlo — confirmó entender y pidió volver
+al formato de 2 imágenes independientes, pero **solo para estos 2
+casos puntuales** (Toxina Botulínica 2ª pareja y Rinomodelación) y
+**solo en la previsualización** (grid de `antes-despues.html` +
+widget del inicio) — el visor debía seguir abriendo el archivo
+`-combo.webp` completo, sin dividir, porque ahí sí se veía bien.
+
+Implementación:
+
+- CSS: nuevas clases `.antes-despues-thumb-half` (170px de alto, para
+  la galería) y `.hero-ba-half-img` (230px, para el widget del
+  inicio) — cada mitad son 170/230px para sumar el mismo alto total
+  que las tarjetas de una sola imagen (340px / 460px), así el grid
+  sigue parejo. Se quitaron los overrides de `object-position` sobre
+  los archivos `-combo.webp` (ya no se muestran así en la
+  previsualización) y se agregaron overrides independientes por mitad
+  (`antes-despues-toxina-botulinica2-antes.webp` y `-despues.webp` en
+  88%, ninguno para las mitades de Rinomodelación porque ya se veían
+  bien con el valor por defecto).
+- `antes-despues.html`: las 2 tarjetas afectadas ahora tienen **2**
+  `<img>` dentro del mismo `<a>` (que sigue apuntando al
+  `-combo.webp` para el visor) en vez de 1.
+- `js/hero-before-after.js`: se agregó una propiedad opcional
+  `halves: [antes, despues]` a las entradas de `PARES` — cuando está
+  presente, `renderPar` arma 2 `<img class="hero-ba-half-img">` en vez
+  de 1, dentro del mismo `<a href>` (combo, para el visor). Los otros
+  8 pares del array no la tienen y siguen funcionando exactamente
+  igual que antes (1 sola imagen).
+
+Verificado con Claude-in-Chrome: ambas tarjetas de la galería muestran
+las dos mitades completas (cejas+ojos en Toxina Botulínica, nariz
+completa en Rinomodelación) sin hueco negro; el visor sigue abriendo
+la imagen combinada completa ("9 of 10", sin dividir); el widget del
+inicio replica el mismo comportamiento.
+
 Pendiente: commit + push.

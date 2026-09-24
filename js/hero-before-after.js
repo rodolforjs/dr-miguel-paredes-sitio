@@ -28,7 +28,7 @@
         { src: "images/real/antes-despues-entrecejo-combo.webp", alt: "Toxina Botulínica" },
         { src: "images/real/antes-despues-toxina-botulinica2-combo.webp", alt: "Toxina Botulínica", halves: ["images/real/antes-despues-toxina-botulinica2-antes.webp", "images/real/antes-despues-toxina-botulinica2-despues.webp"] },
         { src: "images/real/antes-despues-mandibula-combo.webp", alt: "Ácido Hialurónico" },
-        { src: "images/real/antes-despues-ojeras-combo.webp", alt: "Ácido Hialurónico" },
+        { src: "images/real/antes-despues-ojeras-combo.webp", alt: "Ácido Hialurónico", halves: ["images/real/antes-despues-ojeras-antes.webp", "images/real/antes-despues-ojeras-despues.webp"] },
         { src: "images/real/antes-despues-gluteos-combo.webp", alt: "Alidya (Anticelulítico)" },
         { src: "images/real/antes-despues-plasmage-combo.webp", alt: "Plasmage" },
         { src: "images/real/antes-despues-plasmage2-combo.webp", alt: "Plasmage" },

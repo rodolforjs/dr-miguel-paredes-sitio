@@ -538,3 +538,7 @@ img[src*="antes-despues-toxina-botulinica2-antes.webp"] {
 img[src*="antes-despues-toxina-botulinica2-despues.webp"] {
   object-position: center 88%;
 }
+img[src*="antes-despues-ojeras-antes.webp"],
+img[src*="antes-despues-ojeras-despues.webp"] {
+  object-position: center 15%;
+}

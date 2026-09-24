@@ -2375,4 +2375,39 @@ completa en Rinomodelación) sin hueco negro; el visor sigue abriendo
 la imagen combinada completa ("9 of 10", sin dividir); el widget del
 inicio replica el mismo comportamiento.
 
+Commit `0512504`.
+
+## 2026-09-24 — Tercer caso: Ácido Hialurónico (Ojeras)
+
+Mismo problema, tercer caso puntual: la tarjeta de Ojeras dejaba las
+cejas cortadas arriba en ambas mitades (el recorte por defecto de la
+imagen combinada quedaba demasiado ajustado — las cejas están muy
+pegadas al borde superior en ambos archivos fuente). Esta vez, antes
+de tocar código, le expliqué a Rodolfo el plan completo (mismo
+patrón que los 2 casos anteriores: 2 `<img>` independientes solo en
+la previsualización, visor sin cambios) y pidió que se lo explicara
+primero — aprobó y se implementó igual que Toxina Botulínica/
+Rinomodelación:
+
+- `antes-despues.html`: la tarjeta de Ojeras pasa de 1 `<img
+  class="antes-despues-thumb">` a 2 `<img class="antes-despues-thumb-half">`
+  (antes + después), dentro del mismo `<a>` que sigue apuntando al
+  `-combo.webp` para el visor.
+- `js/hero-before-after.js`: se agregó `halves: [...]` a la entrada
+  de Ojeras en `PARES` (mismo mecanismo ya construido para los 2
+  casos anteriores, no hizo falta tocar la lógica de `renderPar`).
+- CSS: `object-position: center 15%` para
+  `antes-despues-ojeras-antes.webp` y `-despues.webp` — ancla el
+  recorte casi arriba del todo para no perder las cejas. Selector
+  genérico por `src` (no scoped a `.antes-despues-thumb-half`) porque
+  estas mismas 2 fotos también las usa el carrusel de arrastre de
+  `tratamiento-acido-hialuronico.html`, pero ese componente
+  (`twentytwenty`) no usa `object-fit`, así que el `object-position`
+  no tiene ningún efecto ahí — confirmado antes de aplicar el
+  selector amplio, no hizo falta acotarlo más.
+
+Verificado con Claude-in-Chrome en la galería (cejas+ojos completos,
+visor sigue abriendo la imagen combinada "3 of 10") y en el widget del
+inicio (mismo resultado).
+
 Pendiente: commit + push.

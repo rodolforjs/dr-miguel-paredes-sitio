@@ -578,3 +578,16 @@ img[src*="antes-despues-ojeras-antes.webp"],
 img[src*="antes-despues-ojeras-despues.webp"] {
   object-position: center 15%;
 }
+
+/* Endoláser (Abdomen), tarjeta de antes-despues.html (2026-09-24):
+   con los 170px estándar de .antes-despues-thumb-half el recorte
+   solo mostraba una franja angosta de piel sin ningún punto de
+   referencia (ni sostén ni ropa interior), no se entendía que era un
+   torso — Rodolfo pidió "más vertical y muy zoom out". Se le da más
+   alto SOLO a estas 2 imágenes puntuales (no al resto de las
+   tarjetas -half, que ya se ven bien con 170px) para que entre
+   sostén + ombligo + ropa interior en el recorte. */
+img.antes-despues-thumb-half[src*="antes-despues-endolaser-abdomen-antes.webp"],
+img.antes-despues-thumb-half[src*="antes-despues-endolaser-abdomen-despues.webp"] {
+  height: 300px;
+}

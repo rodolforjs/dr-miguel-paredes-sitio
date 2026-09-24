@@ -2597,3 +2597,16 @@ había armado hace un rato) — se agregó como 2° par dentro del mismo
 `data-pairs` (mismo patrón que Plasmage, que también tiene 2 pares
 en un solo carrusel). Verificado que el contador del carrusel
 muestra "1 / 2".
+
+**Corrección el mismo día:** Rodolfo revisó la tarjeta de Endoláser
+(Abdomen) en `antes-despues.html` y no se entendía — con los 170px
+estándar de `.antes-despues-thumb-half` el recorte solo mostraba una
+franja angosta de piel de abdomen, sin sostén ni ropa interior de
+referencia, no se leía como "antes/después de un cuerpo". Pidió
+hacerlo "más vertical y muy zoom out". Se agregó un override puntual
+(por `src`, no toca `.antes-despues-thumb-half` en general — las
+otras 4 tarjetas con este formato ya se veían bien) que sube el alto
+de esas 2 imágenes específicas a 300px (de 170px), mostrando ~68% de
+la foto en vertical en vez de ~39% — ahora entran sostén + ombligo +
+ropa interior en ambas mitades. El widget del inicio (230px de alto)
+no tenía este problema, no se tocó.

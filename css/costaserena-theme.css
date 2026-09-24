@@ -486,16 +486,15 @@ img.treatment-card-thumb[src*="images/services/4.webp"] {
   object-position: center 0%;
 }
 
-/* servicio-corporal-cutout.webp (2026-09-23): foto tipo "cutout" muy
-   angosta y alta (946x1800) — el recorte centrado por defecto en las
-   tarjetas (services.html, index.html) deja la cara/gorro fuera,
-   mostrando solo el torso. Se ancla arriba SOLO en las tarjetas — el
-   hero de tratamiento-remodelado-gluteos.html (.jarallax-img, banner
-   ancho y corto) ya se veía bien con el 20% por defecto y con 0%
-   quedaba mostrando solo la coronilla del gorro. */
-img.treatment-card-thumb[src*="servicio-corporal-cutout.webp"],
-img.treatment-thumb[src*="servicio-corporal-cutout.webp"] {
-  object-position: center 0%;
+/* servicio-gluteos-inyeccion.webp (2026-09-24): foto de stock nueva
+   (Rodolfo, reemplaza la foto "cutout" anterior) — horizontal
+   (1400x933), más ancha que las cajas verticales de tarjeta/hero, así
+   que el recorte por defecto es horizontal, no vertical. Ancla el
+   punto de inyección (centro-derecha de la foto) en vez del centro
+   geométrico. */
+img.treatment-card-thumb[src*="servicio-gluteos-inyeccion.webp"],
+img.treatment-thumb[src*="servicio-gluteos-inyeccion.webp"] {
+  object-position: 62% center;
 }
 
 /* Tarjeta de Bioregenerador Facial en services.html (2026-09-23):
@@ -511,6 +510,9 @@ img.treatment-card-thumb[src*="retrato-bioregenerador.webp"] {
 img.jarallax-img[src*="servicio-peeling-laser.webp"] {
   object-position: center 45% !important;
 }
+img.jarallax-img[src*="servicio-lipolitico-corporal.webp"] {
+  object-position: center 70% !important;
+}
 
 /* Tarjetas de services.html (2026-09-24): 6 fotos más con el mismo
    problema de recorte por defecto (retrato 2:3 dentro de la caja
@@ -525,8 +527,12 @@ img.treatment-card-thumb[src*="servicio-equipo-facial.webp"] {
 img.treatment-card-thumb[src*="retrato-lipolitico-facial.webp"] {
   object-position: center 25%;
 }
+/* servicio-lipolitico-corporal.webp (2026-09-24): foto de stock nueva
+   (Rodolfo, reemplaza la foto anterior del Dr. Paredes) — horizontal
+   (1080x711), recorte horizontal en vez de vertical. Ancla el punto
+   de inyección (centro-derecha) igual que la de Glúteos. */
 img.treatment-card-thumb[src*="servicio-lipolitico-corporal.webp"] {
-  object-position: center 55%;
+  object-position: 65% center;
 }
 img.treatment-card-thumb[src*="retrato-mesoterapia.webp"] {
   object-position: center 12%;

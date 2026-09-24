@@ -2458,3 +2458,59 @@ Cada regla scoped por `[src*="archivo.webp"]` en `.treatment-card-thumb`
 fotos ni la caja compartida — no afecta otras páginas que reusen estos
 archivos. Verificado visualmente con Claude-in-Chrome, las 8 tarjetas
 completas del listado (recorriendo todo `services.html`).
+
+## 2026-09-24 — Fotos de stock nuevas: Lipolítico Corporal y Remodelado de Glúteos
+
+Rodolfo mandó 2 fotos de banco de imágenes (confirmó explícitamente que
+son de stock, no de pacientes reales) para reemplazar las fotos
+existentes de estos 2 tratamientos. Antes de aplicar se señalaron dos
+cosas: (1) usar fotos de stock rompe el patrón del sitio hasta ahora
+(toda la fotografía era documentación real del Dr. Paredes) — Rodolfo
+confirmó que igual quiere usarlas; (2) la primera foto (inyección en
+abdomen) no calzaba con el tratamiento sugerido originalmente
+("Lipolítico Facial", que es papada/mandíbula, zona facial) — Rodolfo
+confirmó reasignarla a Lipolítico Corporal (sí es zona de abdomen) y
+la segunda (inyección en glúteo) a Remodelado de Glúteos.
+
+**Archivos:** las 2 fotos originales quedaron en `Recursos/` (`IMG_3087.PNG`
+y `cuidado-anticelulitico-mujer-joven-...-2048x1365.jpg` — nombre de
+archivo típico de banco de imágenes, confirma que es stock), convertidas
+a webp con Pillow (sips no soporta escribir webp en este entorno) y
+optimizadas.
+
+- `images/real/servicio-lipolitico-corporal.webp`: se sobreescribió en
+  el mismo nombre (1080×711, antes era una foto vertical del Dr.
+  Paredes) — usada en la tarjeta de `services.html` y el hero
+  (`.jarallax-img`) de `tratamiento-lipolitico-corporal.html`, ambos
+  usos son del mismo tratamiento, no hay conflicto de compartir con
+  otro tratamiento distinto.
+- `images/real/servicio-corporal-cutout.webp` → renombrado a
+  `images/real/servicio-gluteos-inyeccion.webp` (el nombre "cutout"
+  ya no aplica — la foto anterior era un recorte tipo silueta, la
+  nueva es una foto normal horizontal; se actualizó el nombre para que
+  siga siendo descriptivo, por convención del proyecto). Referencias
+  actualizadas en `index.html`, `services.html` y
+  `tratamiento-remodelado-gluteos.html` (`git mv` + `sed` sobre los 3
+  archivos + el selector CSS).
+
+**CSS:** ambas fotos nuevas son horizontales (~1.5 de aspecto), a
+diferencia de las verticales que tenía el sitio — el recorte de
+`.treatment-card-thumb`/`.treatment-thumb` (cajas verticales) y de
+`.jarallax-img` (banner ancho y corto) ahora es HORIZONTAL en vez de
+vertical en las tarjetas, y sigue siendo vertical mismo en el hero
+(banner más ancho que la foto). Se reemplazaron las reglas viejas
+(tuneadas para las fotos anteriores) por unas nuevas ancladas al punto
+de inyección de cada foto: `object-position: 62% center` (Glúteos,
+tarjeta), `65% center` (Lipolítico Corporal, tarjeta), `center 70%
+!important` (Lipolítico Corporal, hero — el 20% general de
+`.jarallax-img` dejaba solo el guante/jeringa arriba, sin mostrar la
+piel/punto de inyección).
+
+Verificado visualmente con Claude-in-Chrome en las 4 ubicaciones:
+tarjetas de `services.html` (ambos tratamientos), hero de
+`tratamiento-remodelado-gluteos.html` (ya se veía bien con el 20%
+general, no necesitó override), hero de
+`tratamiento-lipolitico-corporal.html` (sí necesitó el override de
+70%), y el widget carrusel "Nuestras Especialidades" de `index.html`
+(usa `.treatment-thumb`, mismo archivo de Glúteos, se ve bien sin
+ajuste adicional).

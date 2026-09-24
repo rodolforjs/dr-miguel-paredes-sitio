@@ -2625,3 +2625,18 @@ completa. Reemplaza el fix anterior (300px de alto), que igual no
 lograba el mismo efecto visual. Scoped únicamente a estas 2 imágenes
 (el resto de las tarjetas -half se quedan con el formato apilado
 original, que ya se veía bien).
+
+**Tercera corrección, mismo día — REGLA FIJA nueva:** el
+`aspect-ratio: 1080/1350` del fix anterior hacía la tarjeta más alta
+que TODAS las demás de la grilla (se nota inmediato al lado de
+"Ginecomastia" y "Lipopapada Enzimática"). Rodolfo marcó esto como
+regla fija a partir de ahora: **la tarjeta de antes/después nunca
+cambia de tamaño, ni más chica ni más grande que las demás** — van
+dos correcciones seguidas rompiendo esto (300px de alto en el intento
+1, aspect-ratio en el intento 2). Se corrigió usando `height: 340px`
+en el contenedor `.ba-half-row` + `height: 100%` en cada `<img>` (no
+`aspect-ratio`) — mismo alto de imagen que **todas** las demás
+tarjetas (`.antes-despues-thumb` y `.antes-despues-thumb-half`
+apiladas también sumaban 340px). Verificado con
+`getBoundingClientRect()` que las 3 tarjetas de la fila miden
+exactamente lo mismo (437px), no solo "a ojo" por screenshot.

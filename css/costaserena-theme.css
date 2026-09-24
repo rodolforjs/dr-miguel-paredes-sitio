@@ -580,23 +580,23 @@ img[src*="antes-despues-ojeras-despues.webp"] {
 }
 
 /* Endoláser (Abdomen), tarjeta de antes-despues.html (2026-09-24):
-   el formato apilado arriba/abajo (.antes-despues-thumb-half, 170px
-   cada mitad) no se entendía para este caso — muy poco alto para un
-   cuerpo completo. Rodolfo mostró como referencia el formato de
-   "Bioestimulación de Cuello" (foto ya combinada lado a lado por
-   quien la subió) y pidió ese mismo estilo: lado a lado en vez de
-   apiladas, mostrando cada foto casi completa. Como estas 2 vienen
-   en archivos separados (no un collage ya armado), se arma el lado a
-   lado con CSS: cada mitad usa el aspect-ratio real de la foto
-   (1080x1350) en vez de una altura fija en px, así `object-fit:
-   cover` casi no recorta (solo lo mínimo para parejar el aspecto
-   exacto del contenedor) — efecto "zoom out" real, no aproximado. */
+   Rodolfo pidió el mismo estilo lado a lado de "Bioestimulación de
+   Cuello" (foto ya combinada así por quien la subió) en vez del
+   apilado arriba/abajo. REGLA FIJA (Rodolfo, 2026-09-24): la tarjeta
+   de antes/después NUNCA cambia de tamaño — misma altura total que
+   TODAS las demás (340px de imagen, igual que `.antes-despues-thumb`
+   y que `.antes-despues-thumb-half` apiladas). Por eso acá cada
+   mitad usa `height: 100%` de un contenedor de 340px (NO
+   aspect-ratio, que había hecho la tarjeta más alta que las otras la
+   primera vez) — lado a lado, mismo alto que el resto de la grilla,
+   solo se recorta el ancho lo necesario. */
 .ba-half-row {
+  height: 340px;
   align-items: stretch;
 }
 .ba-half-row img {
   width: 50%;
-  aspect-ratio: 1080 / 1350;
+  height: 100%;
   object-fit: cover;
   display: block;
 }

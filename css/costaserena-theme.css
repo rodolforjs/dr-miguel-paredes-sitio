@@ -512,6 +512,29 @@ img.jarallax-img[src*="servicio-peeling-laser.webp"] {
   object-position: center 45% !important;
 }
 
+/* Tarjetas de services.html (2026-09-24): 6 fotos más con el mismo
+   problema de recorte por defecto (retrato 2:3 dentro de la caja
+   1/1.2135, más angosta que la foto) — se ancla cada una según dónde
+   está el contenido clave, mismo criterio que las de arriba. */
+img.treatment-card-thumb[src*="torso-ginecomastia.webp"] {
+  object-position: center 15%;
+}
+img.treatment-card-thumb[src*="servicio-equipo-facial.webp"] {
+  object-position: 42% center;
+}
+img.treatment-card-thumb[src*="retrato-lipolitico-facial.webp"] {
+  object-position: center 25%;
+}
+img.treatment-card-thumb[src*="servicio-lipolitico-corporal.webp"] {
+  object-position: center 55%;
+}
+img.treatment-card-thumb[src*="retrato-mesoterapia.webp"] {
+  object-position: center 12%;
+}
+img.treatment-card-thumb[src*="servicio-microneedling.webp"] {
+  object-position: center 35%;
+}
+
 /* Toxina Botulínica (2ª pareja) y Rinomodelación — caso especial
    (2026-09-24): en estas 2 tarjetas puntuales (de las 10 de la
    galería) la imagen combinada no permite mostrar bien las dos

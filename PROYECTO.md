@@ -2410,4 +2410,51 @@ Verificado con Claude-in-Chrome en la galería (cejas+ojos completos,
 visor sigue abriendo la imagen combinada "3 of 10") y en el widget del
 inicio (mismo resultado).
 
-Pendiente: commit + push.
+Commit `de2164b`.
+
+## 2026-09-24 — Encuadre de 6 tarjetas más en services.html
+
+Rodolfo señaló que varias portadas de `services.html` se veían "muy
+zoom", cortando la imagen más de la cuenta: Ginecomastia, Limpieza
+Facial Avanzada, Lipolítico Facial, Lipolítico Corporal, Mesoterapia
+Facial y Exosomas (más Remodelado de Glúteos y Bioregenerador Facial,
+que ya tenían un ajuste previo del 2026-09-23).
+
+**Causa (ya explicada antes de tocar código):** las 19 tarjetas de la
+grilla comparten `.treatment-card-thumb` (`aspect-ratio: 1/1.2135`,
+`object-fit: cover`). La mayoría de las fotos fuente son retratos
+2:3 (aspect 0.667), más angostos que la caja (0.824) — `cover` escala
+para llenar el ANCHO de la caja, y ese escalado de más recorta bastante
+alto/bajo de la foto. `object-position` solo elige DÓNDE anclar ese
+recorte ya fijo, no puede "alejar el zoom" — eso requeriría agrandar
+la caja compartida, afectando las 19 tarjetas a la vez. Rodolfo eligió
+NO tocar la caja compartida (opción 2: ajustar solo `object-position`
+por fototarjeta) y pidió tratar la caja como un marco — la imagen ya
+llena el ancho de la caja por defecto (eso lo hace `object-fit: cover`
+solo), y buscar el mejor anclaje vertical (u horizontal, en el único
+caso más ancho que alto) para cada una.
+
+Medidas reales confirmadas con `sips` antes de tocar el CSS (Rodolfo
+advirtió que a veces la foto original es más grande de lo que se
+recuerda — se verificó en vez de asumir):
+
+- `torso-ginecomastia.webp` 1200×1800 → `object-position: center 15%`
+  (mano + examen quedan arriba, dentro del recorte).
+- `servicio-equipo-facial.webp` 1200×1252 — única más ANCHA que la
+  caja (recorte horizontal, no vertical) → `object-position: 42%
+  center` (pantalla + cuerpo del equipo completos).
+- `retrato-lipolitico-facial.webp` 1200×1800 → `center 25%` (labios +
+  mandíbula, se sacrifica cuello de más abajo).
+- `servicio-lipolitico-corporal.webp` 1200×1800 → `center 55%` (tras
+  probar 72% y verse el gesto clínico tapado por el texto, se ajustó a
+  55% — mascarilla, guantes y jeringa visibles).
+- `retrato-mesoterapia.webp` 1200×1800 → `center 12%` (cara del doctor
+  + dispositivo pen completos).
+- `servicio-microneedling.webp` 1200×1800 → `center 35%` (punta del
+  dispositivo entrando en la piel, visible).
+
+Cada regla scoped por `[src*="archivo.webp"]` en `.treatment-card-thumb`
+(mismo patrón que las 4 tarjetas ya corregidas antes), sin tocar las
+fotos ni la caja compartida — no afecta otras páginas que reusen estos
+archivos. Verificado visualmente con Claude-in-Chrome, las 8 tarjetas
+completas del listado (recorriendo todo `services.html`).

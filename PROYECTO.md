@@ -2165,4 +2165,16 @@ tienen "Ver tratamiento"; Toxina Botulínica muestra "1/2" en su
 carrusel; Bioestimulación muestra su primer par; Antienvejecimiento ya
 no tiene sección de antes/después.
 
+Commit `9fa5519`.
+
+## 2026-09-23 — Ajuste: tarjetas sin "Ver tratamiento" del mismo alto
+
+Rodolfo notó que las tarjetas de Rinomodelación y Lipopapada
+Enzimática (sin link "Ver tratamiento") quedaban más bajas que el
+resto del grid en `antes-despues.html`. Se agregó un
+`<span class="fs-14 invisible">Ver tratamiento</span>` en esas 2
+tarjetas — ocupa el mismo espacio que el link real pero sin mostrarse
+(`.invisible` de Bootstrap, `visibility: hidden` sin sacar el elemento
+del flujo), así el grid queda parejo sin necesitar CSS nuevo.
+
 Pendiente: commit + push.

@@ -2514,3 +2514,53 @@ general, no necesitó override), hero de
 70%), y el widget carrusel "Nuestras Especialidades" de `index.html`
 (usa `.treatment-thumb`, mismo archivo de Glúteos, se ve bien sin
 ajuste adicional).
+
+## 2026-09-24 — Antes/Después de Ginecomastia (Endoláser) + ajuste fino Lipolítico Corporal
+
+Rodolfo mandó 2 fotos reales de un paciente (antes/después de
+Endoláser por ginecomastia), esta vez como 2 archivos separados (no
+un collage único como las anteriores). Se armaron con el mismo
+patrón que el resto de la galería:
+
+- Convertidas a webp: `images/real/antes-despues-ginecomastia-antes.webp`
+  y `-despues.webp` (1080×1350 cada una).
+- Se generó `images/real/antes-despues-ginecomastia-combo.webp`
+  (apilado vertical con un margen negro de 8px entre ambas, mismo
+  formato que ya usan los demás combos) para que el visor siga
+  abriendo un solo archivo — no vino combinada del paciente/Rodolfo
+  esta vez, así que se armó localmente con Pillow en vez de mano.
+- **Se usó directamente el formato de 2 `<img>` independientes**
+  (`antes-despues-thumb-half`) en `antes-despues.html` y `halves` en
+  `js/hero-before-after.js`, sin pasar primero por el formato de 1
+  sola imagen — ya se sabía (por los 3 casos de esta semana) que una
+  imagen combinada muy alta dentro de una caja de recorte fijo baja
+  suele desincronizar el encuadre de ambas mitades. Verificado
+  visualmente que con el recorte por defecto (sin `object-position`
+  extra) ya se ve bien en ambas mitades — no hizo falta agregar CSS
+  nuevo para este caso.
+- Nueva tarjeta en `antes-despues.html` con link real a
+  `tratamiento-endolaser.html` (si tenía tratamiento asociado, a
+  diferencia de Rinomodelación/Lipopapada que no lo tienen).
+- **`tratamiento-endolaser.html` no tenía sección "Antes y Después"
+  todavía** (era el único tratamiento de los que sí tienen fotos
+  reales sin esa sección) — se agregó siguiendo el patrón exacto de
+  `tratamiento-plasmage.html` (`.ba-carousel` con `data-pairs`, antes
+  de "Cuidados Posteriores"). Se detectó que a la página le faltaban
+  las 2 dependencias JS del slider arrastrable
+  (`jquery.event.move.js`, `jquery.twentytwenty.js`) — sin ellas el
+  `.ba-carousel-stage` quedaba vacío aunque el HTML se generaba bien
+  (`before-after-carousel.js` sí estaba). Se agregaron los 3 scripts
+  en el orden correcto al final de la página. Verificado que el
+  slider arrastrable funciona.
+
+**Ajuste fino de Lipolítico Corporal (foto de stock nueva de ayer):**
+Rodolfo pidió subir un poco el encuadre del hero para que se vea más
+la inyección entrando en la piel y, dentro de lo posible, apreciar
+más la mano — se probaron 3 valores (`object-position` vertical del
+`.jarallax-img`: 70% mostraba la aguja pero cortaba casi toda la
+mano; 45% mostraba la mano completa pero perdía casi toda la aguja;
+se dejó en **58%**, el mejor punto medio entre ambos). Recordatorio
+explicado en contexto: al ser `object-fit: cover` sobre una caja de
+banner fija, no hay forma de "alejar la cámara" de verdad (eso
+requeriría agrandar el banner o usar `object-fit: contain` con
+franjas — no se tocó, solo se reposicionó el recorte existente).

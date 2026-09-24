@@ -2208,4 +2208,22 @@ Verificado con Claude-in-Chrome: la tarjeta de `services.html` y el
 hero de `tratamiento-alidya.html` muestran "ALIDYA" completo y la cara
 del Dr. Paredes visibles a la vez.
 
+Commit `ef1dd26`.
+
+## 2026-09-23 — Ajuste de encuadre: tarjeta de Toxina Botulínica
+
+Rodolfo señaló que el texto bordado del gorro ("Dr. Miguel Paredes S.
+— Medicina Estética Regenerativa") quedaba cortado arriba en la
+tarjeta de Toxina Botulínica (`services.html`, `images/services/5.webp`).
+A diferencia del caso de Alidya, acá sí era puramente un tema de
+`object-position` — el archivo tiene el texto completo, pero el texto
+queda muy pegado al borde superior de la foto original, así que hasta
+el recorte chico por defecto de `.treatment-card-thumb` (aspect-ratio
+1/1.2135 vs. la foto 1350x1800) alcanzaba a cortarlo.
+
+Se agregó `object-position: center 0%` acotado a ese archivo en
+`costaserena-theme.css` — ancla el recorte arriba del todo, sin
+recortar el archivo. Verificado con Claude-in-Chrome (zoom sobre el
+gorro): las 3 líneas de texto se leen completas.
+
 Pendiente: commit + push.

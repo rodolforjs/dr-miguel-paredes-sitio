@@ -136,4 +136,16 @@
     <loc>https://clinicavitelia.cl/tratamiento-toxina-botulinica.html</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://clinicavitelia.cl/politica-de-privacidad.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://clinicavitelia.cl/politica-de-cookies.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://clinicavitelia.cl/terminos-y-condiciones.html</loc>
+    <priority>0.3</priority>
+  </url>
 </urlset>

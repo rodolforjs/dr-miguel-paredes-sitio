@@ -2805,3 +2805,63 @@ especialización":
 Verificado que "Miembro SOCHIMCE"/"IX Congreso 2024" no aparecía en
 ningún otro lugar del sitio (single-source, solo este artículo).
 Verificado visualmente con Claude-in-Chrome.
+
+## 2026-09-25 — Política de Privacidad, Cookies y Términos y Condiciones
+
+Rodolfo preguntó por requisitos legales de privacidad/cookies para
+sitios web en Chile — se investigó antes de escribir nada (ver
+fuentes abajo). Estado legal encontrado:
+
+- **Ley 19.628 (vigente hoy):** cualquier sitio que recolecte datos
+  personales, incluso con solo un formulario de contacto, ya debería
+  tener una Política de Privacidad. No distingue tamaño de empresa.
+- **Ley 21.719 (reforma ya publicada, entra en vigor el 1 de
+  diciembre de 2026):** exige además un aviso de cookies opt-in real
+  (Aceptar/Rechazar con el mismo peso visual, no solo un botón
+  grande de "Aceptar"), mecanismo de derechos ARCO+, y trata los
+  datos de salud como categoría "sensible" — relevante porque este
+  es un sitio de una clínica médica.
+
+Se auditó primero qué recolecta/usa realmente el sitio (no se
+escribió una política genérica copiada): el sitio **no tiene** Google
+Analytics, píxel de Meta/Facebook, ni ningún cookie de seguimiento.
+Sí usa: el iframe de agendamiento de **Reservo** (`consultation.html`,
+datos van directo a Reservo), enlaces de WhatsApp/Gmail, el feed de
+Instagram vía **Behold.so** (`js/instagram-feed.js`, con caché en
+`localStorage` de 6h, sin datos personales), y **Google Fonts**
+(carga tipografía desde servidores de Google).
+
+**3 páginas nuevas creadas** (mismo template/header/footer que el
+resto del sitio, sin tocar la estructura de Intrio):
+`politica-de-privacidad.html`, `politica-de-cookies.html`,
+`terminos-y-condiciones.html`. Contenido escrito desde cero en base a
+lo que el sitio realmente ofrece (agendamiento vía Reservo, fotos de
+antes/después con consentimiento ya confirmado, sin backend de
+formulario propio, etc.) — no se copió texto de otra clínica, solo se
+usó como referencia estructural el formato estándar de estas páginas
+(secciones típicas: responsable del tratamiento, qué datos se
+recolectan, terceros, derechos, cookies usadas vs. no usadas, ley
+aplicable). Rodolfo pidió explícitamente dejarlas listas para que él
+y el Dr. Paredes las revisen antes de darlas por definitivas — no son
+texto legal certificado por un abogado, es un borrador fundamentado.
+
+**Cambio transversal:** se agregó una fila de links
+("Política de Privacidad · Política de Cookies · Términos y
+Condiciones") en el subfooter de las 34 páginas reales existentes,
+junto al copyright — hecho con script Python (reporta conteo de
+coincidencias, ver convención de cambios transversales grandes),
+verificado que las 34 cambiaron y ninguna quedó sin el link. Nueva
+clase `.legal-links` en `costaserena-theme.css` (discreta, pasa a su
+propia fila en mobile). Se agregaron las 3 páginas nuevas a
+`sitemap.xml` con prioridad baja (0.3, son páginas legales, no de
+contenido/conversión).
+
+**Pendiente, fuera de este alcance:** el banner de cookies opt-in con
+botones parejos (Aceptar/Rechazar) recién es obligatorio desde
+diciembre 2026, y como el sitio no usa cookies de analítica/marketing
+hoy, no hay nada que consentir todavía — si en el futuro se agrega
+Google Analytics u otra herramienta de seguimiento, ahí sí hace falta
+ese banner.
+
+Fuentes consultadas: Ley 21.719 (Klevo, Idónea, SysifosWeb, Weblike),
+Ley 19.628 (BCN, digital.gob.cl).

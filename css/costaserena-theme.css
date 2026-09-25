@@ -679,3 +679,33 @@ img.jarallax-img[src*="servicio-perfil-inyeccion.webp"] {
   font-size: 14px;
   font-weight: 400;
 }
+
+/* Links legales en el subfooter (2026-09-25): Política de Privacidad,
+   Política de Cookies y Términos y Condiciones — transversal en las
+   34 páginas reales, junto al copyright. Separados con un punto
+   medio, discretos (mismo tono apagado que el copyright de al lado),
+   se subrayan/aclaran solo al pasar el mouse. En mobile pasan a su
+   propia fila para no apretarse contra el copyright. */
+.subfooter .legal-links {
+  margin-left: 12px;
+}
+.subfooter .legal-links a {
+  color: inherit;
+  opacity: .7;
+  text-decoration: none;
+  margin: 0 8px;
+}
+.subfooter .legal-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+@media only screen and (max-width: 767px) {
+  .subfooter .legal-links {
+    display: block;
+    margin-left: 0;
+    margin-top: 8px;
+  }
+  .subfooter .legal-links a {
+    margin: 0 6px;
+  }
+}

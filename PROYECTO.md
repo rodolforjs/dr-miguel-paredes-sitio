@@ -2771,3 +2771,18 @@ Rodolfo confirmó/corrigió 2 de los 4 antes de dar luz verde:
    el equipo con el logo "Dr. Miguel Paredes Soto" de fondo.
 
 Verificado visualmente con Claude-in-Chrome en las 4 páginas.
+
+## 2026-09-24 — Foto nueva de Ginecomastia (más zoom out, enfocada a la derecha)
+
+Rodolfo mandó una foto nueva para Ginecomastia (torso completo, mano
+con guante azul examinando, portapapeles) y pidió que quedara con
+más zoom out y corrida hacia la derecha para enfocar el pecho con la
+mano en vez del torso vacío de la izquierda.
+`images/real/torso-ginecomastia.webp` sobreescrita — cambia de
+vertical (1200×1800) a horizontal (1254×837), usada en la tarjeta de
+`services.html` y el hero de `tratamiento-ginecomastia.html` (única 2
+páginas que la referencian). Recorte horizontal en la tarjeta
+(`object-position: 58% center`, corrido a la derecha como pidió) y
+vertical en el hero (`center 30% !important`). Verificado visualmente
+en ambas ubicaciones — pezón, mano y portapapeles visibles en las
+dos, mucho más contexto que el recorte angosto de la foto anterior.

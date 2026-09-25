@@ -48,8 +48,10 @@ img.jarallax-img[src*="servicio-laser-facial.webp"] {
 img.jarallax-img[src*="retrato-antienvejecimiento.webp"] {
   object-position: center 45% !important;
 }
+/* torso-ginecomastia.webp (2026-09-24, foto nueva — reemplaza la
+   anterior): horizontal (1254x837), no vertical como la de antes. */
 img.jarallax-img[src*="torso-ginecomastia.webp"] {
-  object-position: center 34% !important;
+  object-position: center 30% !important;
 }
 img.jarallax-img[src*="servicio-perfiloplastia-perfil.webp"] {
   object-position: center 50% !important;
@@ -522,8 +524,12 @@ img.jarallax-img[src*="servicio-lipolitico-corporal.webp"] {
    problema de recorte por defecto (retrato 2:3 dentro de la caja
    1/1.2135, más angosta que la foto) — se ancla cada una según dónde
    está el contenido clave, mismo criterio que las de arriba. */
+/* torso-ginecomastia.webp (2026-09-24, foto nueva): horizontal, la
+   caja de tarjeta es más angosta que la foto (recorte horizontal).
+   Rodolfo pidió correr el encuadre a la derecha para enfocar más el
+   pecho con la mano, en vez del torso vacío de la izquierda. */
 img.treatment-card-thumb[src*="torso-ginecomastia.webp"] {
-  object-position: center 15%;
+  object-position: 58% center;
 }
 img.treatment-card-thumb[src*="servicio-equipo-facial.webp"] {
   object-position: 42% center;

@@ -510,6 +510,10 @@ img.treatment-card-thumb[src*="retrato-bioregenerador.webp"] {
 img.jarallax-img[src*="servicio-peeling-laser.webp"] {
   object-position: center 45% !important;
 }
+/* servicio-lipolitico-corporal.webp (2026-09-24, 2ª foto de stock —
+   reemplaza la anterior): cuadrada (1536x1425), aguja/inyección casi
+   centrada en el origen (x≈53%, y≈55%), se ancla ahí directo en vez
+   de tantear varios valores como la vez anterior. */
 img.jarallax-img[src*="servicio-lipolitico-corporal.webp"] {
   object-position: center 58% !important;
 }
@@ -534,12 +538,8 @@ img.treatment-card-thumb[src*="servicio-equipo-facial.webp"] {
 img.jarallax-img[src*="retrato-lipolitico-facial.webp"] {
   object-position: center 40% !important;
 }
-/* servicio-lipolitico-corporal.webp (2026-09-24): foto de stock nueva
-   (Rodolfo, reemplaza la foto anterior del Dr. Paredes) — horizontal
-   (1080x711), recorte horizontal en vez de vertical. Ancla el punto
-   de inyección (centro-derecha) igual que la de Glúteos. */
 img.treatment-card-thumb[src*="servicio-lipolitico-corporal.webp"] {
-  object-position: 65% center;
+  object-position: 53% center;
 }
 img.treatment-card-thumb[src*="retrato-mesoterapia.webp"] {
   object-position: center 12%;

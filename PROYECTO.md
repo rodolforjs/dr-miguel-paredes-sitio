@@ -2640,3 +2640,17 @@ tarjetas (`.antes-despues-thumb` y `.antes-despues-thumb-half`
 apiladas también sumaban 340px). Verificado con
 `getBoundingClientRect()` que las 3 tarjetas de la fila miden
 exactamente lo mismo (437px), no solo "a ojo" por screenshot.
+
+## 2026-09-24 — Tercera foto de Lipolítico Corporal (inyección centrada)
+
+Rodolfo mandó otra foto de stock más para Lipolítico Corporal
+(reemplaza la de ayer), pidiendo explícitamente que la inyección
+quede centrada. `images/real/servicio-lipolitico-corporal.webp`
+sobreescrita (1536×1425, casi cuadrada) — la aguja ya estaba casi
+centrada en el archivo original (x≈53%, y≈55%), así que se ancló
+directo ahí en vez de tantear varios valores como la vez anterior:
+`object-position: 53% center` en la tarjeta (recorte horizontal, caja
+más angosta que la foto) y `center 58% !important` en el hero
+(recorte vertical, banner mucho más ancho). Verificado visualmente
+con zoom en el hero (aguja entrando en la piel, nítida y centrada) y
+en la tarjeta de `services.html`.

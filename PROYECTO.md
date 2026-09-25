@@ -2786,3 +2786,22 @@ páginas que la referencian). Recorte horizontal en la tarjeta
 vertical en el hero (`center 30% !important`). Verificado visualmente
 en ambas ubicaciones — pezón, mano y portapapeles visibles en las
 dos, mucho más contexto que el recorte angosto de la foto anterior.
+
+## 2026-09-25 — Corrección directa del Dr. Paredes: SOCHIMCE
+
+Feedback llegó directo del Dr. Paredes por WhatsApp a Rodolfo (no
+ambiguo, instrucción explícita, no requirió preguntar). En
+`blog-congresos.html`, ítem 2 de la lista numerada "Formación de
+especialización":
+
+- Título: "Miembro SOCHIMCE" → **"SOCHIMCE"** (se quita "Miembro").
+- Descripción: "Miembro de la Sociedad Chilena de Medicina y Cirugía
+  Estética (SOCHIMCE), con asistencia al IX Congreso 2024." →
+  **"Asistencia al Congreso 2025 de la Sociedad Chilena de Medicina y
+  Cirugía Estética (SOCHIMCE)."** (año corregido a 2025, se quita el
+  numeral "IX" que no fue confirmado para esa edición — no se
+  fabrica un numeral sin que el doctor lo confirme).
+
+Verificado que "Miembro SOCHIMCE"/"IX Congreso 2024" no aparecía en
+ningún otro lugar del sitio (single-source, solo este artículo).
+Verificado visualmente con Claude-in-Chrome.

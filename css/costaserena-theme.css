@@ -648,10 +648,10 @@ img.jarallax-img[src*="servicio-equipo-facial.webp"] {
   object-position: center 45% !important;
 }
 img.jarallax-img[src*="retrato-mesoterapia.webp"] {
-  object-position: center 15% !important;
+  object-position: center 50% !important;
 }
 img.jarallax-img[src*="servicio-plasmage.webp"] {
-  object-position: center 12% !important;
+  object-position: center 48% !important;
 }
 img.jarallax-img[src*="credencial-congreso.webp"] {
   object-position: center 10% !important;
@@ -661,4 +661,15 @@ img.jarallax-img[src*="servicio-cirugia.webp"] {
 }
 img.jarallax-img[src*="servicio-perfil-inyeccion.webp"] {
   object-position: center 14% !important;
+}
+
+/* Tarjeta de "Ácido Hialurónico (Surco Nasogeniano)" en
+   antes-despues.html (2026-09-24): el médico pidió aclarar la zona
+   entre paréntesis para distinguirla de la otra tarjeta de Ácido
+   Hialurónico (Ojeras). Solo el texto entre paréntesis va más chico
+   (no todo el título) para que quepa cómodo en una línea junto al
+   nombre del tratamiento. */
+.ad-card-title-paren {
+  font-size: 14px;
+  font-weight: 400;
 }

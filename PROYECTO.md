@@ -2736,3 +2736,38 @@ SOLO en estos 27 banners. Verificado visualmente en 4 páginas
 (Toxina Botulínica, Plasmage, Limpieza Facial, blog Congresos): las
 fotos se ven notoriamente más oscuras/con mejor contraste de texto,
 sin afectar el hero del inicio ni la sección de testimonios.
+
+## 2026-09-24 — 4 ajustes puntuales de feedback (aprobados uno por uno)
+
+Antes de implementar, expliqué mi entendimiento de cada punto y
+Rodolfo confirmó/corrigió 2 de los 4 antes de dar luz verde:
+
+1. **Tarjeta "Ácido Hialurónico" (mandíbula) en `antes-despues.html`:**
+   el Dr. Paredes pidió aclarar "(Surco Nasogeniano)" en el título
+   para distinguirla de la otra tarjeta de Ácido Hialurónico (Ojeras).
+   Rodolfo corrigió mi propuesta inicial: **solo el texto entre
+   paréntesis va más chico**, no todo el título. Se agregó
+   `<span class="ad-card-title-paren">` (14px) alrededor de
+   "(Surco Nasogeniano)" — el resto del `<h3 class="fs-20">` queda
+   igual. `title`/`alt` de la imagen también actualizados con el
+   nombre completo.
+2. **Hero de `tratamiento-antienvejecimiento.html`:** el título
+   "ANTIENVEJECIMIENTO" (una palabra larga, no corta sola) chocaba
+   con el subtítulo de la derecha. Rodolfo propuso una solución
+   distinta a la mía (yo iba a reducir el tamaño de fuente): **cortar
+   la palabra en dos líneas manualmente** ("Anti" arriba,
+   "envejecimiento" abajo, con un `<br>`) sin tocar el tamaño — así
+   el `<h1>` se mantiene igual de grande que en el resto de páginas.
+3. **Hero de `tratamiento-mesoterapia.html`:** el 15% que se había
+   fijado en la auditoría de banners de hoy priorizaba la cara del
+   doctor pero dejaba fuera el dispositivo/lápiz que sostiene en la
+   mano (más abajo en la foto). Se sube a `object-position: center
+   50% !important` para que entre el dispositivo.
+4. **Hero de `tratamiento-plasmage.html`:** mismo caso — el 12%
+   mostraba solo frente/ojos, sin la mano señalando el equipo (que se
+   ve de fondo, borroso, más abajo). Se probó 30% (mostraba mentón/
+   cuello pero la mano seguía fuera) y se subió a `object-position:
+   center 48% !important`, donde sí entra la mano completa señalando
+   el equipo con el logo "Dr. Miguel Paredes Soto" de fondo.
+
+Verificado visualmente con Claude-in-Chrome en las 4 páginas.

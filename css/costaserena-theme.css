@@ -544,8 +544,15 @@ img.treatment-card-thumb[src*="servicio-lipolitico-corporal.webp"] {
 img.treatment-card-thumb[src*="retrato-mesoterapia.webp"] {
   object-position: center 12%;
 }
+/* servicio-microneedling.webp (2026-09-24, foto de stock nueva —
+   reemplaza la anterior): cuadrada (1080x1080), la caja de tarjeta
+   es más angosta que la foto (recorte horizontal), la cara queda del
+   lado derecho. */
 img.treatment-card-thumb[src*="servicio-microneedling.webp"] {
-  object-position: center 35%;
+  object-position: 60% center;
+}
+img.jarallax-img[src*="servicio-microneedling.webp"] {
+  object-position: center 55% !important;
 }
 
 /* Toxina Botulínica (2ª pareja) y Rinomodelación — caso especial

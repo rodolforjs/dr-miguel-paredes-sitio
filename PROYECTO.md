@@ -2654,3 +2654,25 @@ más angosta que la foto) y `center 58% !important` en el hero
 (recorte vertical, banner mucho más ancho). Verificado visualmente
 con zoom en el hero (aguja entrando en la piel, nítida y centrada) y
 en la tarjeta de `services.html`.
+
+## 2026-09-24 — Foto de Bioestimulación reencuadrada + foto nueva de Exosomas
+
+**Bioestimulación Facial, Cuello y Escote:** Rodolfo mandó una
+referencia de cómo quería ver la foto (más aire alrededor, menos
+recortada) y señaló que el archivo original ya estaba guardado en
+`Recursos/IMG_3016.jpg` (foto de cámara, 3024×4032 — mucho más
+resolución que la versión ya procesada en el sitio, 1200×1800). En
+vez de ajustar `object-position` sobre el recorte angosto existente,
+se regeneró `images/real/retrato-bioestimulacion.webp` directo desde
+el original (reducido a 1600px de ancho, mismo aspecto 3:4 del
+archivo de cámara — antes se había recortado a un aspecto más angosto
+2:3 sin necesidad). Sin overrides de CSS nuevos, el recorte por
+defecto ya se ve bien en tarjeta y hero con el nuevo aspecto.
+
+**Exosomas:** `images/real/servicio-microneedling.webp` reemplazada
+por una foto de stock nueva (Rodolfo) — cuadrada (1080×1080),
+dispositivo + ceja/pestañas. Se quitó el override viejo (pensado para
+la foto anterior) y se agregaron `object-position: 60% center`
+(tarjeta, recorte horizontal) y `center 55% !important` (hero,
+recorte vertical). Verificado visualmente en las 4 ubicaciones
+(tarjeta y hero de cada tratamiento).

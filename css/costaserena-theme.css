@@ -607,3 +607,58 @@ img[src*="antes-despues-ojeras-despues.webp"] {
   object-fit: cover;
   display: block;
 }
+
+/* Auditoría de banners de página (2026-09-24): Rodolfo pidió revisar
+   TODAS las barras cortas de "foto + título + breadcrumb" al inicio
+   de cada página de tratamiento/blog (`.jarallax-img` dentro de
+   `section.bg-dark.text-light.relative.jarallax`) — el hero completo
+   del inicio (#section-intro) y la franja de testimonios
+   (#hero-testimonials, about.html) quedan fuera a propósito, no usan
+   fotos reales del doctor. Se ajusta el punto de anclaje vertical de
+   las fotos que aún no tenían override (quedaban con el 20% general,
+   que no siempre cae bien) y se oscurece un poco más el degradado
+   existente de Intrio (`.sw-overlay`/`.gradient-edge-bottom`, antes
+   op-5/op-6) SOLO en estas secciones — ayuda a disimular un recorte
+   que nunca va a ser perfecto (mismo límite de `object-fit: cover`
+   ya explicado antes) sin tocar el resto de usos de esas clases
+   (swiper del inicio, sección de testimonios). */
+section.bg-dark.text-light.relative.jarallax .sw-overlay {
+  opacity: .65;
+}
+section.bg-dark.text-light.relative.jarallax .gradient-edge-bottom {
+  opacity: .75;
+}
+
+img.jarallax-img[src*="servicio-vial-hialuronico.webp"] {
+  object-position: center 25% !important;
+}
+img.jarallax-img[src*="retrato-bioregenerador.webp"] {
+  object-position: center 23% !important;
+}
+img.jarallax-img[src*="servicio-laser-fibra.webp"] {
+  object-position: center 15% !important;
+}
+img.jarallax-img[src*="retrato-evaluacion-corporal.webp"] {
+  object-position: center 25% !important;
+}
+img.jarallax-img[src*="retrato-desk-sonrisa.webp"] {
+  object-position: center 20% !important;
+}
+img.jarallax-img[src*="servicio-equipo-facial.webp"] {
+  object-position: center 45% !important;
+}
+img.jarallax-img[src*="retrato-mesoterapia.webp"] {
+  object-position: center 15% !important;
+}
+img.jarallax-img[src*="servicio-plasmage.webp"] {
+  object-position: center 12% !important;
+}
+img.jarallax-img[src*="credencial-congreso.webp"] {
+  object-position: center 10% !important;
+}
+img.jarallax-img[src*="servicio-cirugia.webp"] {
+  object-position: center 15% !important;
+}
+img.jarallax-img[src*="servicio-perfil-inyeccion.webp"] {
+  object-position: center 14% !important;
+}

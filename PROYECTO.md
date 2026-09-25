@@ -2676,3 +2676,63 @@ la foto anterior) y se agregaron `object-position: 60% center`
 (tarjeta, recorte horizontal) y `center 55% !important` (hero,
 recorte vertical). Verificado visualmente en las 4 ubicaciones
 (tarjeta y hero de cada tratamiento).
+
+## 2026-09-24 — Auditoría de todos los banners de página
+
+Rodolfo pidió auditar todas las barras cortas "foto + título +
+breadcrumb" al inicio de cada página de tratamiento/blog
+(`.jarallax-img` dentro de `section.bg-dark.text-light.relative.jarallax`)
+para que cada una quede en la mejor posición y "el mayor zoom out
+posible" — **explícitamente excluidos**: el hero completo del inicio
+(`#section-intro`, carrusel) y la franja de testimonios con fotos
+(`#hero-testimonials` del inicio, y la de `about.html`), que no son
+este tipo de banner. También pidió oscurecer un poco más el
+degradado para disimular mejor un recorte que nunca va a ser
+perfecto (límite de `object-fit: cover` ya explicado antes en varias
+correcciones de esta sesión).
+
+**Inventario:** 27 páginas usan este patrón de banner con una foto
+real (`grep` de `class="bg-dark text-light relative jarallax"` +
+`jarallax-img`). De esas, 10 ya tenían `object-position` ajustado en
+sesiones anteriores (retrato-marmol, servicio-laser-facial,
+retrato-antienvejecimiento, torso-ginecomastia,
+servicio-perfiloplastia-perfil, servicio-alidya-caja,
+servicio-peeling-laser, servicio-lipolitico-corporal,
+retrato-lipolitico-facial, servicio-microneedling) — no se tocaron,
+ya estaban verificados. De las 17 restantes con el 20% genérico, se
+revisó cada foto (viendo el archivo directo, sin depender del
+navegador) y se ajustó el punto de anclaje en las que el 20% dejaba
+fuera la cara o el gesto clínico:
+
+- `servicio-vial-hialuronico.webp` (Ácido Hialurónico) → 25%
+- `retrato-bioregenerador.webp` (Bioregenerador Facial) → 23%
+- `servicio-laser-fibra.webp` (Endoláser) → 15%
+- `retrato-evaluacion-corporal.webp` (Evaluación Corporal) → 25%
+- `retrato-desk-sonrisa.webp` (Evaluación Facial + blog Filosofía) → 20%
+- `servicio-equipo-facial.webp` (Limpieza Facial) → 45%
+- `retrato-mesoterapia.webp` (Mesoterapia) → 15%
+- `servicio-plasmage.webp` (Plasmage + blog Plasmage) → 12%
+- `credencial-congreso.webp` (blog Congresos) → 10%
+- `servicio-cirugia.webp` (blog Ginecomastia) → 15%
+- `servicio-perfil-inyeccion.webp` (blog Perfiloplastia) → 14%
+
+Dejadas en el 20% general por verse ya bien (contenido repartido a
+lo largo de toda la foto, sin un punto único que se pierda):
+`servicio-inyectable.webp` (Toxina Botulínica — la foto que Rodolfo
+usó como ejemplo del tipo de banner a auditar, pero que en sí ya
+estaba bien encuadrada), `retrato-bioestimulacion.webp` (recién
+cambiada hoy), `servicio-vista-mar.webp` (services.html + blog.html),
+`servicio-gluteos-inyeccion.webp` (ya verificado en una corrección
+anterior).
+
+**Degradado más oscuro:** en vez de tocar `.sw-overlay`/
+`.gradient-edge-bottom` (clases genéricas de Intrio reusadas también
+en el carrusel del inicio y en la franja de testimonios — tocarlas
+directo habría oscurecido justo lo que Rodolfo pidió dejar fuera), se
+agregó un override scoped por el selector completo de la sección
+(`section.bg-dark.text-light.relative.jarallax .sw-overlay` /
+`.gradient-edge-bottom`) que sube la opacidad de .5→.65 y de .6→.75
+SOLO en estos 27 banners. Verificado visualmente en 4 páginas
+(Toxina Botulínica, Plasmage, Limpieza Facial, blog Congresos): las
+fotos se ven notoriamente más oscuras/con mejor contraste de texto,
+sin afectar el hero del inicio ni la sección de testimonios.

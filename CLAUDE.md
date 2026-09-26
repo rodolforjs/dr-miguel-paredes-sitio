@@ -297,8 +297,10 @@ GitHub Pages tarda uno o dos minutos en redesplegar después del push.
 
 - **Precio:** Rodolfo y el Dr. Paredes no han cerrado el monto todavía —
   es una conversación entre ellos, no algo que resolver en el código.
-- **Dominio propio:** el sitio sigue en GitHub Pages, sin dominio propio
-  comprado todavía.
+- **Dominio propio:** comprado y conectado desde 2026-09-22 —
+  `clinicavitelia.cl` (Cloudflare DNS, HTTPS activo), sitio también sigue
+  respondiendo en `rodolforjs.github.io/dr-miguel-paredes-sitio`. Esta nota
+  quedó obsoleta una vez, no repetir el error.
 - **Alcance "medicina general + estética":** el Dr. Paredes pidió en algún
   momento ampliar el posicionamiento más allá de estética pura — **no
   tocar copy/estructura sobre esto** hasta que él especifique qué otros

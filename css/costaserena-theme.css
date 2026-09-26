@@ -60,7 +60,7 @@ img.jarallax-img[src*="servicio-perfiloplastia-perfil.webp"] {
    horizontal (1920x1080), ancla abajo para mostrar la lapicera +
    manos del paciente en vez de solo el pecho/estetoscopio. */
 img.jarallax-img[src*="servicio-consulta-manos.webp"] {
-  object-position: center 60% !important;
+  object-position: center 10% !important;
 }
 
 /* Tratamientos es un ítem de navegación principal (no un catálogo demo

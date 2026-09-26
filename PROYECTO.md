@@ -2885,3 +2885,11 @@ mecanismo (`object-position`/`background-position` según el caso,
 archivo `css/costaserena-theme.css`, nunca tocar el tamaño de la
 caja) para que pueda seguir ajustando sin depender de mí en cada
 detalle.
+
+**Mismo día:** Rodolfo pidió la misma foto (`servicio-consulta-manos.webp`)
+para el héroe de `consultation.html` (antes también el fondo
+genérico `images/background/2.webp`) — mismo override CSS ya
+existente, no hizo falta uno nuevo. Rodolfo ya había ajustado el
+valor de `60%` a `30%` por su cuenta en `contact.html` (usando el
+mecanismo que se le explicó), y `consultation.html` queda con el
+mismo valor.

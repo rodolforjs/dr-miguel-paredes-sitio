@@ -709,3 +709,6 @@ img.jarallax-img[src*="servicio-perfil-inyeccion.webp"] {
     margin: 0 6px;
   }
 }
+.swiper-inner[data-bgimage*="images/slider/2.webp"] {
+  background-position: center 10% !important;
+}

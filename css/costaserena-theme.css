@@ -555,14 +555,21 @@ img.treatment-card-thumb[src*="torso-ginecomastia.webp"] {
 img.treatment-card-thumb[src*="servicio-equipo-facial.webp"] {
   object-position: 42% center;
 }
-/* retrato-lipolitico-facial.webp (2026-09-24): foto de stock nueva
-   (Rodolfo, reemplaza el retrato de mandíbula anterior) — cuadrada
-   (600x600), contenido balanceado a lo ancho (cara a la izquierda,
-   mano+jeringa a la derecha), el recorte horizontal por defecto de
-   la tarjeta ya se ve bien centrado, no necesita ancla. El hero
-   (banner mucho más ancho que alto) sí necesita ancla vertical para
-   no perder los ojos/la jeringa. */
+/* retrato-lipolitico-facial.webp (2026-09-26, 3ª foto — reemplaza a
+   la anterior): horizontal (1920x1080), rostro + jeringa cerca del
+   mentón, usada en el hero Y la tarjeta (Rodolfo pidió ambas). */
 img.jarallax-img[src*="retrato-lipolitico-facial.webp"] {
+  object-position: center 85% !important;
+}
+/* servicio-peeling-inyectable.webp (2026-09-26): mismo archivo de
+   foto que retrato-lipolitico-facial.webp, pero SOLO para el hero de
+   Peeling Facial — la tarjeta de ese tratamiento no se toca. */
+img.jarallax-img[src*="servicio-peeling-inyectable.webp"] {
+  object-position: center 85% !important;
+}
+/* retrato-mesoterapia-perfil.webp (2026-09-26): hero de Mesoterapia
+   Facial — solo el hero, la tarjeta sigue con retrato-mesoterapia.webp. */
+img.jarallax-img[src*="retrato-mesoterapia-perfil.webp"] {
   object-position: center 40% !important;
 }
 img.treatment-card-thumb[src*="servicio-lipolitico-corporal.webp"] {

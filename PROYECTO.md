@@ -2935,3 +2935,31 @@ Verificado visualmente con Claude-in-Chrome en las 3 páginas.
 `tratamiento-evaluacion-corporal.html` (antes
 `retrato-evaluacion-corporal.webp`) — mismo override CSS ya
 existente (`center bottom`), no hizo falta uno nuevo.
+
+## 2026-09-26 — Fotos nuevas en Peeling Facial, Lipolítico Facial y Mesoterapia
+
+Rodolfo mandó 2 fotos de stock más, con instrucciones puntuales
+sobre dónde aplicar cada una (banner solo, o banner + tarjeta):
+
+- **Foto 1** (rostro de frente, jeringa cerca del mentón) → héroe de
+  `tratamiento-peeling-facial.html` (nuevo archivo
+  `images/real/servicio-peeling-inyectable.webp`, la tarjeta de ese
+  tratamiento en `services.html` NO se toca, sigue con
+  `servicio-peeling-laser.webp`) **y** héroe + tarjeta de
+  `tratamiento-lipolitico-facial.html` — en este caso Rodolfo pidió
+  explícitamente ambos lugares, así que se sobreescribió
+  `images/real/retrato-lipolitico-facial.webp` directo (ya era el
+  mismo archivo compartido entre hero y tarjeta desde la sesión
+  anterior, no hizo falta tocar el HTML de esa página). El héroe
+  necesitó bastante ajuste: `object-position: center 85% !important`
+  para que entren los labios (el 20%/45%/65% probados antes dejaban
+  la jeringa fuera de cuadro) — la tarjeta se ve bien con el recorte
+  por defecto, sin ancla.
+- **Foto 2** (perfil de mujer mayor, jeringa junto a la sien) → SOLO
+  el héroe de `tratamiento-mesoterapia.html` (nuevo archivo
+  `images/real/retrato-mesoterapia-perfil.webp`; la tarjeta sigue con
+  `retrato-mesoterapia.webp` sin cambios). `object-position: center
+  40% !important`.
+
+Verificado visualmente con Claude-in-Chrome en las 4 ubicaciones
+(3 héroes + la tarjeta de Lipolítico Facial).

@@ -2977,3 +2977,27 @@ compartido). Mismo override CSS ya existente (`center bottom`).
 `retrato-bioregenerador.webp`, que sigue usándose en la tarjeta de
 `services.html` — solo se cambió el `src` del héroe, archivo
 compartido no tocado). Mismo override CSS ya existente (`center 20%`).
+
+## 2026-09-26 — Límite de alto para fotos dentro de artículos del blog
+
+Rodolfo notó que las fotos dentro del contenido de los 6 artículos
+del blog (patrón compartido `<img class="w-100 mb-4 rounded-1">`
+dentro de `.blog-read`) se veían enormes — al ser retratos verticales
+(2:3 o más angostos) dentro de una columna de ~800px, algunas
+llegaban a 1000px+ de alto (el caso más extremo:
+`antes-despues-plasmage-despues.webp` en `blog-plasmage.html`, una
+foto de ceja muy de cerca que se disparaba a más de 1200px). Se
+agregó una regla transversal en `costaserena-theme.css`:
+
+```css
+.blog-read img.w-100 {
+  max-height: 520px;
+  object-fit: cover;
+}
+```
+
+Aplica automáticamente a los 6 artículos (mismo patrón de clase en
+todos, no hizo falta tocar el HTML). `object-fit: cover` recorta en
+vez de deformar — las fotos ya panorámicas (más anchas que 520px de
+alto) no cambian nada. Verificado visualmente en `blog-plasmage.html`
+(el caso extremo) y `blog-piel.html`.

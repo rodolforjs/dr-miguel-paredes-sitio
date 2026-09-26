@@ -740,3 +740,15 @@ img.jarallax-img[src*="servicio-perfil-inyeccion.webp"] {
 .swiper-inner[data-bgimage*="images/slider/2.webp"] {
   background-position: center 10% !important;
 }
+
+/* Fotos dentro del contenido de los artículos del blog (2026-09-26):
+   todas usan el mismo patrón <img class="w-100 mb-4 rounded-1"> —
+   al ser retratos verticales (2:3 o más angostos) dentro de una
+   columna de ~800px, se disparaban a 1000px+ de alto. Se limita el
+   alto máximo con object-fit: cover (recorta, no deforma) para que
+   el artículo se sienta parejo sin importar la proporción de la
+   foto que se suba. */
+.blog-read img.w-100 {
+  max-height: 520px;
+  object-fit: cover;
+}

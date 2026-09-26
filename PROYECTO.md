@@ -3017,3 +3017,13 @@ falta `object-position` puntual. Verificado visualmente en
 `testimonials.html` y `politica-de-privacidad.html`; las otras 2
 comparten exactamente el mismo patrón sin overrides, así que el
 resultado es idéntico.
+
+**Mismo día:** foto nueva en el héroe de `tratamiento-plasmage.html`
+(dispositivo de plasma + guante azul, nuevo archivo
+`images/real/servicio-plasmage-tecnica.webp`) — reemplaza
+`servicio-plasmage.webp`, que sigue usándose sin cambios en varios
+blogs, `index.html` y la tarjeta de `services.html` (esta última usa
+un archivo distinto, `images/services/4.webp`, no afectado). Se ve
+bien con el recorte por defecto. Nota: la foto original es de baja
+resolución (766×365px) — se estira bastante en un banner de ancho
+completo, se ve algo menos nítida que el resto pero aceptable.

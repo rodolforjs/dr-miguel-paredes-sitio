@@ -754,6 +754,14 @@ img.jarallax-img[src*="servicio-perfil-inyeccion.webp"] {
    dentro del alto máximo, sin cortar ningún borde. Las fotos
    angostas/verticales quedan centradas en la columna en vez de
    estirarse a los 100% de ancho. */
+/* servicio-plasmage-tecnica.webp (2026-09-26, 2ª foto — reemplaza
+   la de baja resolución de hace un rato): mano con el dispositivo +
+   ojo cerrado, ambos en la mitad superior de la foto. Se ancla más
+   abajo que el 20% general para que entren los dos. */
+img.jarallax-img[src*="servicio-plasmage-tecnica.webp"] {
+  object-position: center 42% !important;
+}
+
 .blog-read img.w-100 {
   width: auto !important;
   max-width: 100%;

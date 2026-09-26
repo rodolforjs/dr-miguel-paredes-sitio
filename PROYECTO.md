@@ -3046,3 +3046,11 @@ la cascada (se depuró con `getComputedStyle` + inspección de qué
 regla CSS estaba matcheando, no a ojo). Verificado en
 `blog-plasmage.html` (foto muy vertical, 492×1024 → queda en 250×520,
 proporción exacta preservada) y `blog-piel.html`.
+
+**Mismo día:** foto reemplazada de nuevo en el héroe de
+`tratamiento-plasmage.html` — Rodolfo mandó una versión de mucha
+mejor resolución (3000×2002, contra los 766×365 de la anterior),
+mano con el dispositivo + ojo cerrado. Pidió "enfoque en la
+herramienta y en los ojos" — el 20% general dejaba el ojo casi
+totalmente fuera de cuadro; se ancló a `object-position: center 42%
+!important` para que entren ambos. Verificado visualmente.

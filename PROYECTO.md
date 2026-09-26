@@ -2911,3 +2911,21 @@ el fondo genérico. Nuevo archivo
 por defecto (20% general) ya se veía bien en ambas páginas — cara,
 jeringa y guante visibles, sin necesidad de `object-position`
 puntual. Verificado visualmente con Claude-in-Chrome en las 2.
+
+## 2026-09-26 — Fotos nuevas en 3 héroes de tratamiento (banner solo)
+
+Rodolfo mandó 2 fotos de stock, explícitamente **solo para el héroe
+de la página de tratamiento** — las tarjetas de `services.html`
+siguen con sus fotos reales de siempre, no se tocan:
+
+- `images/real/retrato-sonrisa-generica.webp` (mujer sonriendo,
+  1920×1080) → héroe de `tratamiento-acido-hialuronico.html` y
+  `tratamiento-toxina-botulinica.html` (las dos, misma foto).
+  `object-position: center 35% !important` para que entre la sonrisa
+  completa (el 20% general dejaba más pelo que cara).
+- `images/real/servicio-endolaser-pierna.webp` (láser aplicado en
+  pierna, manos con guante, 1200×800) → héroe de
+  `tratamiento-endolaser.html`. `object-position: center 50%
+  !important`.
+
+Verificado visualmente con Claude-in-Chrome en las 3 páginas.

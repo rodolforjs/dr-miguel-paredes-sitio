@@ -62,6 +62,22 @@ img.jarallax-img[src*="servicio-perfiloplastia-perfil.webp"] {
 img.jarallax-img[src*="servicio-consulta-manos.webp"] {
   object-position: center bottom !important;
 }
+img.jarallax-img[src*="servicio-toxina-banner.webp"] {
+  object-position: center 20% !important;
+}
+/* retrato-sonrisa-generica.webp (2026-09-26): banner de las páginas
+   de tratamiento Ácido Hialurónico y Toxina Botulínica (solo el
+   héroe — la tarjeta de services.html sigue con su foto real, no se
+   toca). Ancla más abajo para que entre la sonrisa completa. */
+img.jarallax-img[src*="retrato-sonrisa-generica.webp"] {
+  object-position: center 35% !important;
+}
+/* servicio-endolaser-pierna.webp (2026-09-26): banner de
+   tratamiento-endolaser.html (solo el héroe, misma regla). */
+img.jarallax-img[src*="servicio-endolaser-pierna.webp"] {
+  object-position: center 50% !important;
+}
+
 /* Tratamientos es un ítem de navegación principal (no un catálogo demo
    como "More"), así que en mobile se muestra como lista simple integrada
    al menú oscuro en vez de la tarjeta blanca flotante que Intrio usa por

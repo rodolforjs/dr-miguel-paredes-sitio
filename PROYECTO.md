@@ -3001,3 +3001,19 @@ todos, no hizo falta tocar el HTML). `object-fit: cover` recorta en
 vez de deformar — las fotos ya panorámicas (más anchas que 520px de
 alto) no cambian nada. Verificado visualmente en `blog-plasmage.html`
 (el caso extremo) y `blog-piel.html`.
+
+## 2026-09-26 — Foto nueva en los héroes de Testimonios y las 3 páginas legales
+
+Rodolfo mandó una foto de stock (escritorio con teclado, estetoscopio,
+portapapeles y lapicero) para el héroe de 4 páginas: `testimonials.html`
+(reemplaza `servicio-toxina-banner.webp`, que sigue usándose en
+`antes-despues.html` sin cambios) y las 3 páginas legales nuevas
+(`politica-de-privacidad.html`, `politica-de-cookies.html`,
+`terminos-y-condiciones.html` — reemplaza el fondo genérico
+`images/background/2.webp` que traían desde que se crearon). Nuevo
+archivo `images/real/servicio-escritorio-medico.webp` (1920×1080). Se
+ve bien con el recorte por defecto (20% general) en las 4 — no hizo
+falta `object-position` puntual. Verificado visualmente en
+`testimonials.html` y `politica-de-privacidad.html`; las otras 2
+comparten exactamente el mismo patrón sin overrides, así que el
+resultado es idéntico.

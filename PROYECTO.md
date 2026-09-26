@@ -2929,3 +2929,9 @@ siguen con sus fotos reales de siempre, no se tocan:
   !important`.
 
 Verificado visualmente con Claude-in-Chrome en las 3 páginas.
+
+**Mismo día:** Rodolfo pidió la misma foto de "Agendar Evaluación"
+(`servicio-consulta-manos.webp`) para el héroe de
+`tratamiento-evaluacion-corporal.html` (antes
+`retrato-evaluacion-corporal.webp`) — mismo override CSS ya
+existente (`center bottom`), no hizo falta uno nuevo.

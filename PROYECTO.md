@@ -3027,3 +3027,22 @@ un archivo distinto, `images/services/4.webp`, no afectado). Se ve
 bien con el recorte por defecto. Nota: la foto original es de baja
 resolución (766×365px) — se estira bastante en un banner de ancho
 completo, se ve algo menos nítida que el resto pero aceptable.
+
+**Mismo día:** la misma foto de escritorio (`servicio-escritorio-medico.webp`,
+ya usada en Testimonios y las 3 páginas legales) se agregó también
+al héroe de `faq.html` (reemplaza el fondo genérico
+`images/background/2.webp`).
+
+**Corrección, mismo día:** Rodolfo aclaró que no quería que las fotos
+del blog se recortaran — el fix de hace un rato (`object-fit: cover`,
+max-height 520px) sí recortaba los bordes de las fotos verticales
+para llenar el ancho completo. Se cambió a que el navegador escale
+la imagen COMPLETA dentro de un alto máximo de 520px, sin recortar
+nada — las fotos verticales quedan más angostas y centradas en la
+columna en vez de estirarse a 100% de ancho. Hubo que agregar
+`!important` a `width`/`height` porque Bootstrap define `.w-100 {
+width: 100% !important; }` — sin eso, la regla nueva no le ganaba a
+la cascada (se depuró con `getComputedStyle` + inspección de qué
+regla CSS estaba matcheando, no a ojo). Verificado en
+`blog-plasmage.html` (foto muy vertical, 492×1024 → queda en 250×520,
+proporción exacta preservada) y `blog-piel.html`.

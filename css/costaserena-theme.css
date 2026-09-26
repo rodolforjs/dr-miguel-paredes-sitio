@@ -748,7 +748,18 @@ img.jarallax-img[src*="servicio-perfil-inyeccion.webp"] {
    alto máximo con object-fit: cover (recorta, no deforma) para que
    el artículo se sienta parejo sin importar la proporción de la
    foto que se suba. */
+/* Corrección (2026-09-26): Rodolfo pidió que no se recorte nada,
+   solo se ajuste proporción y tamaño — se cambia de object-fit:cover
+   (recortaba) a dejar que el navegador escale la imagen completa
+   dentro del alto máximo, sin cortar ningún borde. Las fotos
+   angostas/verticales quedan centradas en la columna en vez de
+   estirarse a los 100% de ancho. */
 .blog-read img.w-100 {
+  width: auto !important;
+  max-width: 100%;
+  height: auto !important;
   max-height: 520px;
-  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

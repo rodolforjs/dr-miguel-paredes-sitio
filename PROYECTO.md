@@ -2970,3 +2970,10 @@ Verificado visualmente con Claude-in-Chrome en las 4 ubicaciones
 `retrato-desk-sonrisa.webp`, que se sigue usando en varios blogs como
 thumbnail — solo se cambió el `src` del héroe, no se tocó el archivo
 compartido). Mismo override CSS ya existente (`center bottom`).
+
+**Mismo día:** Rodolfo pidió la foto del banner de "Antes y Después"
+(`servicio-toxina-banner.webp`) para el héroe de
+`tratamiento-bioregenerador-facial.html` (antes
+`retrato-bioregenerador.webp`, que sigue usándose en la tarjeta de
+`services.html` — solo se cambió el `src` del héroe, archivo
+compartido no tocado). Mismo override CSS ya existente (`center 20%`).

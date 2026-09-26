@@ -2963,3 +2963,10 @@ sobre dónde aplicar cada una (banner solo, o banner + tarjeta):
 
 Verificado visualmente con Claude-in-Chrome en las 4 ubicaciones
 (3 héroes + la tarjeta de Lipolítico Facial).
+
+**Mismo día:** Rodolfo pidió también la foto de "Agendar Evaluación"
+(`servicio-consulta-manos.webp`) para el héroe de
+`tratamiento-evaluacion-facial.html` (antes
+`retrato-desk-sonrisa.webp`, que se sigue usando en varios blogs como
+thumbnail — solo se cambió el `src` del héroe, no se tocó el archivo
+compartido). Mismo override CSS ya existente (`center bottom`).

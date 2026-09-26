@@ -56,6 +56,12 @@ img.jarallax-img[src*="torso-ginecomastia.webp"] {
 img.jarallax-img[src*="servicio-perfiloplastia-perfil.webp"] {
   object-position: center 50% !important;
 }
+/* servicio-consulta-manos.webp (2026-09-26): hero de contact.html —
+   horizontal (1920x1080), ancla abajo para mostrar la lapicera +
+   manos del paciente en vez de solo el pecho/estetoscopio. */
+img.jarallax-img[src*="servicio-consulta-manos.webp"] {
+  object-position: center 60% !important;
+}
 
 /* Tratamientos es un ítem de navegación principal (no un catálogo demo
    como "More"), así que en mobile se muestra como lista simple integrada

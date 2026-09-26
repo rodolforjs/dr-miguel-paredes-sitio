@@ -2865,3 +2865,23 @@ ese banner.
 
 Fuentes consultadas: Ley 21.719 (Klevo, Idónea, SysifosWeb, Weblike),
 Ley 19.628 (BCN, digital.gob.cl).
+
+## 2026-09-26 — Foto nueva en el héroe de Contacto
+
+Rodolfo mandó una foto de stock (mano firmando sobre un portapapeles,
+consulta médica) para reemplazar el fondo genérico
+(`images/background/2.webp`, el mismo que usan faq.html,
+testimonials.html, consultation.html y antes-despues.html) del héroe
+de `contact.html` — solo esta página, las demás siguen con el fondo
+genérico. Nuevo archivo `images/real/servicio-consulta-manos.webp`
+(1920×1080). El 20% por defecto dejaba solo el pecho/estetoscopio del
+doctor; se ancló a `object-position: center 60% !important` para
+mostrar la lapicera y las manos, según la referencia que envió
+Rodolfo. Verificado visualmente con Claude-in-Chrome.
+
+Rodolfo está haciendo él mismo varios ajustes de encuadre esta
+sesión (ver commit `dbfd499`, slider del inicio) — le expliqué el
+mecanismo (`object-position`/`background-position` según el caso,
+archivo `css/costaserena-theme.css`, nunca tocar el tamaño de la
+caja) para que pueda seguir ajustando sin depender de mí en cada
+detalle.

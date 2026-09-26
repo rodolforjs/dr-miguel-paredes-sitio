@@ -663,17 +663,11 @@ section.bg-dark.text-light.relative.jarallax .gradient-edge-bottom {
   opacity: .75;
 }
 
-img.jarallax-img[src*="servicio-vial-hialuronico.webp"] {
-  object-position: center 25% !important;
-}
 img.jarallax-img[src*="retrato-bioregenerador.webp"] {
   object-position: center 23% !important;
 }
 img.jarallax-img[src*="servicio-laser-fibra.webp"] {
   object-position: center 15% !important;
-}
-img.jarallax-img[src*="retrato-evaluacion-corporal.webp"] {
-  object-position: center 25% !important;
 }
 img.jarallax-img[src*="retrato-desk-sonrisa.webp"] {
   object-position: center 20% !important;

@@ -2893,3 +2893,21 @@ existente, no hizo falta uno nuevo. Rodolfo ya había ajustado el
 valor de `60%` a `30%` por su cuenta en `contact.html` (usando el
 mecanismo que se le explicó), y `consultation.html` queda con el
 mismo valor.
+
+**Mismo día:** Rodolfo escribió `object-position: bottom 100%`
+(sintaxis inválida — mezcla palabra clave y porcentaje en el mismo
+eje, el navegador ignora toda la regla) — se le explicó el error y
+la corrigió él mismo a `object-position: center bottom !important`,
+confirmado que se ve bien.
+
+## 2026-09-26 — Foto nueva en los héroes de Antes y Después + Testimonios
+
+Rodolfo mandó una foto de stock (aplicación de toxina botulínica,
+jeringa cerca del ojo) para reemplazar el fondo genérico
+(`images/background/2.webp`) en los héroes de `antes-despues.html` y
+`testimonials.html` — las 2 páginas que pidió, `faq.html` sigue con
+el fondo genérico. Nuevo archivo
+`images/real/servicio-toxina-banner.webp` (1920×1080). El recorte
+por defecto (20% general) ya se veía bien en ambas páginas — cara,
+jeringa y guante visibles, sin necesidad de `object-position`
+puntual. Verificado visualmente con Claude-in-Chrome en las 2.

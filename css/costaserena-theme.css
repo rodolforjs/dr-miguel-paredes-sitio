@@ -620,6 +620,26 @@ img[src*="antes-despues-ojeras-despues.webp"] {
   object-position: center 15%;
 }
 
+/* Parejas nuevas (2026-10-07): cada mitad ya viene separada en su propio
+   archivo, así que un solo object-position por imagen basta para
+   encuadrar cada zona sin tocar el archivo. Periocular: bajar el
+   recorte para no perder el pliegue bajo el ojo. Endoláser (tercio
+   medio/inferior): subir el ancla para que el mentón y la línea de la
+   mandíbula (lo que se evalúa) no queden en el borde. Entrecejo: leve
+   bajada para no cortar el ceño. */
+img[src*="antes-despues-periocular-antes.webp"],
+img[src*="antes-despues-periocular-despues.webp"] {
+  object-position: center 65%;
+}
+img[src*="antes-despues-endolaser-tercio-medio-"],
+img[src*="antes-despues-endolaser-tercio-inferior-"] {
+  object-position: center 75%;
+}
+img[src*="antes-despues-miomodulacion-entrecejo-antes.webp"],
+img[src*="antes-despues-miomodulacion-entrecejo-despues.webp"] {
+  object-position: center 55%;
+}
+
 /* Endoláser (Abdomen), tarjeta de antes-despues.html (2026-09-24):
    Rodolfo pidió el mismo estilo lado a lado de "Bioestimulación de
    Cuello" (foto ya combinada así por quien la subió) en vez del

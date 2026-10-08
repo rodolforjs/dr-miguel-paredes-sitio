@@ -222,3 +222,7 @@ confirmado únicamente.
 - **8 tratamientos del catálogo real sin página propia** (ver "Datos reales
   confirmados"): oportunidad para sumar más adelante, no creadas porque no
   se ha pedido.
+
+## 2026-10-07 — 4 parejas nuevas de antes/después
+
+Rodolfo pasó 4 fotos (cada una un solo archivo apilado antes/después, consentimiento confirmado por él): Rejuvenecimiento periocular, Endoláser tercio medio, Endoláser tercio inferior y Miomodulación del entrecejo (1 sesión). Se separó cada archivo en `-antes`/`-despues` + `-combo` (webp, sin retoque; el marco blanco de la de entrecejo se recortó; la periocular se igualó a la misma altura de recorte en ambas mitades). Agregadas a: `antes-despues.html` (4 tarjetas, formato de mitades apiladas), widget rotativo del inicio (`js/hero-before-after.js`, con `halves`), carrusel de `tratamiento-endolaser.html` (+2) y `tratamiento-toxina-botulinica.html` (+1). Periocular no tiene página de tratamiento propia: su tarjeta enlaza a `services.html`. Encuadre vía `object-position` en `costaserena-theme.css` (sin recortar archivos). Supuesto: el orden de las imágenes 2 y 3 = tercio medio y tercio inferior, respectivamente. No se pudo verificar en navegador (extensión de Chrome desconectada): se validó el recorte simulando `object-fit: cover` con PIL.

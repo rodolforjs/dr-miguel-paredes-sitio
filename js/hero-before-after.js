@@ -25,6 +25,10 @@
  */
 (function () {
     var PARES = [
+        { src: "images/real/antes-despues-periocular-combo.webp", alt: "Rejuvenecimiento periocular", halves: ["images/real/antes-despues-periocular-antes.webp", "images/real/antes-despues-periocular-despues.webp"] },
+        { src: "images/real/antes-despues-endolaser-tercio-medio-combo.webp", alt: "Endoláser (Tercio medio)", halves: ["images/real/antes-despues-endolaser-tercio-medio-antes.webp", "images/real/antes-despues-endolaser-tercio-medio-despues.webp"] },
+        { src: "images/real/antes-despues-endolaser-tercio-inferior-combo.webp", alt: "Endoláser (Tercio inferior)", halves: ["images/real/antes-despues-endolaser-tercio-inferior-antes.webp", "images/real/antes-despues-endolaser-tercio-inferior-despues.webp"] },
+        { src: "images/real/antes-despues-miomodulacion-entrecejo-combo.webp", alt: "Miomodulación del entrecejo (1 sesión)", halves: ["images/real/antes-despues-miomodulacion-entrecejo-antes.webp", "images/real/antes-despues-miomodulacion-entrecejo-despues.webp"] },
         { src: "images/real/antes-despues-entrecejo-combo.webp", alt: "Toxina Botulínica" },
         { src: "images/real/antes-despues-toxina-botulinica2-combo.webp", alt: "Toxina Botulínica", halves: ["images/real/antes-despues-toxina-botulinica2-antes.webp", "images/real/antes-despues-toxina-botulinica2-despues.webp"] },
         { src: "images/real/antes-despues-mandibula-combo.webp", alt: "Ácido Hialurónico" },
@@ -36,11 +40,7 @@
         { src: "images/real/antes-despues-rinomodelacion-combo.webp", alt: "Rinomodelación", halves: ["images/real/antes-despues-rinomodelacion-antes.webp", "images/real/antes-despues-rinomodelacion-despues.webp"] },
         { src: "images/real/antes-despues-lipopapada-enzimatica-combo.webp", alt: "Lipopapada Enzimática" },
         { src: "images/real/antes-despues-ginecomastia-combo.webp", alt: "Ginecomastia (Endoláser)", halves: ["images/real/antes-despues-ginecomastia-antes.webp", "images/real/antes-despues-ginecomastia-despues.webp"] },
-        { src: "images/real/antes-despues-endolaser-abdomen-combo.webp", alt: "Endoláser (Abdomen)", halves: ["images/real/antes-despues-endolaser-abdomen-antes.webp", "images/real/antes-despues-endolaser-abdomen-despues.webp"] },
-        { src: "images/real/antes-despues-periocular-combo.webp", alt: "Rejuvenecimiento periocular", halves: ["images/real/antes-despues-periocular-antes.webp", "images/real/antes-despues-periocular-despues.webp"] },
-        { src: "images/real/antes-despues-endolaser-tercio-medio-combo.webp", alt: "Endoláser (Tercio medio)", halves: ["images/real/antes-despues-endolaser-tercio-medio-antes.webp", "images/real/antes-despues-endolaser-tercio-medio-despues.webp"] },
-        { src: "images/real/antes-despues-endolaser-tercio-inferior-combo.webp", alt: "Endoláser (Tercio inferior)", halves: ["images/real/antes-despues-endolaser-tercio-inferior-antes.webp", "images/real/antes-despues-endolaser-tercio-inferior-despues.webp"] },
-        { src: "images/real/antes-despues-miomodulacion-entrecejo-combo.webp", alt: "Miomodulación del entrecejo (1 sesión)", halves: ["images/real/antes-despues-miomodulacion-entrecejo-antes.webp", "images/real/antes-despues-miomodulacion-entrecejo-despues.webp"] }
+        { src: "images/real/antes-despues-endolaser-abdomen-combo.webp", alt: "Endoláser (Abdomen)", halves: ["images/real/antes-despues-endolaser-abdomen-antes.webp", "images/real/antes-despues-endolaser-abdomen-despues.webp"] }
     ];
     var ROTATE_MS = 4500;
 

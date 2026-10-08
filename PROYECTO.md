@@ -230,3 +230,7 @@ Rodolfo pasó 4 fotos (cada una un solo archivo apilado antes/después, consenti
 ### 2026-10-07 (ajuste de encuadre)
 
 Rodolfo pidió acercar el encuadre: mentón y mandíbula en las 2 de Endoláser (tercio medio/inferior) y el ceño en la de miomodulación del entrecejo. Un `object-position` solo no alcanzaba (no hace zoom), así que se re-recortaron los archivos `-antes`/`-despues` de esas 3 parejas desde los originales de `Recursos/` con una caja más ajustada (misma caja en antes y después, ~2.2–2.4:1, casi igual a la proporción de la tarjeta). Se quitó el `object-position` de esas 3 en `costaserena-theme.css` (queda solo el de periocular). El `-combo.webp` completo no cambió, así que el visor sigue mostrando la foto entera. Commit `85a3bf5`.
+
+### 2026-10-07 (orden: las 4 parejas nuevas primero)
+
+Rodolfo notó que las 4 parejas nuevas quedaron al final del slider del inicio (`PARES` en `js/hero-before-after.js`, rota cada 4,5 s, así que casi no se veían). Se movieron al principio del slider y también al principio de la galería de `antes-despues.html`. Orden: periocular, Endoláser tercio medio, Endoláser tercio inferior, miomodulación del entrecejo.

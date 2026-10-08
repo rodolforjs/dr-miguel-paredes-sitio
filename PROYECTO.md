@@ -234,3 +234,7 @@ Rodolfo pidió acercar el encuadre: mentón y mandíbula en las 2 de Endoláser 
 ### 2026-10-07 (orden: las 4 parejas nuevas primero)
 
 Rodolfo notó que las 4 parejas nuevas quedaron al final del slider del inicio (`PARES` en `js/hero-before-after.js`, rota cada 4,5 s, así que casi no se veían). Se movieron al principio del slider y también al principio de la galería de `antes-despues.html`. Orden: periocular, Endoláser tercio medio, Endoláser tercio inferior, miomodulación del entrecejo.
+
+### 2026-10-08 — Etiqueta canónica en las 37 páginas
+
+Search Console avisó "Duplicada: el usuario no ha indicado ninguna versión canónica" (solo afectaba `https://clinicavitelia.cl/index.html`, duplicada de `/`; también hay "Página con redirección", que es esperado: http→https, www→apex y github.io→dominio propio, todos 301) y "Descubierta: actualmente sin indexar" para 23 URLs (cola normal de un dominio nuevo, no es un error). GitHub Pages sirve cada página con y sin `.html` (`/services` y `/services.html`), así que se agregó `<link rel="canonical">` justo después del `<title>` en las 37 páginas: `index.html` apunta a `https://clinicavitelia.cl/` y el resto a su URL con `.html`, igual que el `sitemap.xml` (verificado: las 37 canónicas coinciden con el sitemap). Pendiente de Rodolfo: pulsar "Validar corrección" en Search Console y pedir indexación manual de las páginas clave.
